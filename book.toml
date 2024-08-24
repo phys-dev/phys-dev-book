@@ -1,0 +1,8 @@
+[book]
+authors = ["Vyacheslav Fedorov"]
+language = "ru"
+multilingual = false
+src = "src"
+title = "Разработка и применение программного обеспечения в физических исследованиях"
+
+[output.html]
