@@ -8,6 +8,3 @@
 * [PDF](https://github.com/fuodorov/physicist-developer-book/releases)
 * [Веб-версия](https://fuodorov.github.io/physicist-developer-book)
 
----
-
-Самостоятельный рендер в HTML и PDF (движком chrome) можно выполнить командой `make` в корне репозитория. Должен быть установлен докер. 
