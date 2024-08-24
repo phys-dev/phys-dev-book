@@ -4,7 +4,3 @@
 
 Книга собирается в [HTML](https://fuodorov.github.io/physicist-developer-book) с помощью
 [mdbook](https://rust-lang.github.io/mdBook/).
-
-* [PDF](https://github.com/fuodorov/physicist-developer-book/releases)
-* [Веб-версия](https://fuodorov.github.io/physicist-developer-book)
-
