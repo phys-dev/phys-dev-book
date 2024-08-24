@@ -6,5 +6,5 @@ src = "src"
 title = "Разработка и применение программного обеспечения в физических исследованиях"
 
 [output.html]
-url = "/physicist-developer-url/"
+url = "https://fuodorov.github.io/physicist-developer-book/"
 git-repository-url = "https://github.com/fuodorov/physicist-developer-book"
