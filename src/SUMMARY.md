@@ -7,6 +7,14 @@
     - [Инструменты](./linux/tools.md)
     - [Внутренности](./linux/internals.md)
 
+# Учим теорию
+
+- [Общие знания](./cs/intro.md)
+    - [Введение в алгоритмы](./cs/basic_algos.md)
+    - [Основные структуры данных](./cs/basic_structures.md)
+    - [Рекурсия и сортировки](./cs/recurs_and_sorts.md)
+    - [Хеш-функции](./cs/hash_funcs.md)
+
 # Устанавливаем python
 
 - [Разработка ПО](./dev/intro.md)
