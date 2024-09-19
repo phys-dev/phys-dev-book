@@ -50,4 +50,4 @@
 # Резюме
 
 - [Резюме](./resume/intro.md)
-
+- [О себе](./resume/about_me.md)
