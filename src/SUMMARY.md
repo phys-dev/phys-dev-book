@@ -53,4 +53,5 @@
 # Резюме
 
 - [Резюме](./resume/intro.md)
+- [Литература](./resume/literature.md)
 - [О себе](./resume/about-me.md)
