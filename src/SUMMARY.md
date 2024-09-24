@@ -13,7 +13,7 @@
     - [Введение в алгоритмы](./cs/basic-algos.md)
     - [Основные структуры данных](./cs/basic-structures.md)
     - [Рекурсия и сортировки](./cs/recurs-and-sorts.md)
-    - [Хеш-функций](./cs/hash-funcs.md)
+    - [Хеш-функции](./cs/hash-funcs.md)
 
 - [Введение в вычислительную физику](./compute/intro.md)
     - [Понятия сходимости, аппроксимации и устойчивости](./compute/basic-concepts.md)
