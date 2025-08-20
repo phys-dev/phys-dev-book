@@ -7,5 +7,5 @@ title = "Разработка и применение программного �
 
 [output.html]
 mathjax-support = true
-url = "https://fuodorov.github.io/physicist-developer-book/"
-git-repository-url = "https://github.com/fuodorov/physicist-developer-book/"
+url = "https://phys-dev.github.io/book/"
+git-repository-url = "https://github.com/phys-dev/book/"
