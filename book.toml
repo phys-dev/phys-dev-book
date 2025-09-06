@@ -1,7 +1,7 @@
 [book]
 authors = ["Vyacheslav Fedorov"]
 language = "ru"
-multilingual = false
+multilingual = true
 src = "src"
 title = "Разработка и применение программного обеспечения в физических исследованиях"
 
