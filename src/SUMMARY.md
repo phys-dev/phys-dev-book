@@ -8,7 +8,6 @@
    - [ИИ и разработчик](./ai/develop.md)
    - [Технические основы](./ai/basic.md)
    - [Инструментарий](./ai/instruments.md)
-   - [GitHub Copilot](./ai/copilot.md)
    - [Вопросы и ответы](./ai/qa.md)
 
 [//]: # (  )
