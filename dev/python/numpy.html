@@ -1,0 +1,675 @@
+<!DOCTYPE HTML>
+<html lang="ru" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Numpy - Разработка и применение программного обеспечения в физических исследованиях</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../intro/intro.html">О книге</a></li><li class="chapter-item expanded affix "><a href="../../intro/about-me.html">О себе</a></li><li class="chapter-item expanded affix "><li class="part-title">Ищем помощников</li><li class="chapter-item expanded "><a href="../../ai/intro.html"><strong aria-hidden="true">1.</strong> ИИ для разработки</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../ai/context.html"><strong aria-hidden="true">1.1.</strong> Контекст и скорость изменений</a></li><li class="chapter-item expanded "><a href="../../ai/develop.html"><strong aria-hidden="true">1.2.</strong> ИИ и разработчик</a></li><li class="chapter-item expanded "><a href="../../ai/basic.html"><strong aria-hidden="true">1.3.</strong> Технические основы</a></li><li class="chapter-item expanded "><a href="../../ai/instruments.html"><strong aria-hidden="true">1.4.</strong> Инструментарий</a></li><li class="chapter-item expanded "><a href="../../ai/qa.html"><strong aria-hidden="true">1.5.</strong> Вопросы и ответы</a></li></ol></li><li class="chapter-item expanded "><a href="../../dev/python/intro.html"><strong aria-hidden="true">2.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../dev/python/basics.html"><strong aria-hidden="true">2.1.</strong> Basics</a></li><li class="chapter-item expanded "><a href="../../dev/python/numpy.html" class="active"><strong aria-hidden="true">2.2.</strong> Numpy</a></li><li class="chapter-item expanded "><a href="../../dev/python/scipy.html"><strong aria-hidden="true">2.3.</strong> Scipy</a></li><li class="chapter-item expanded "><a href="../../dev/python/matplotlib.html"><strong aria-hidden="true">2.4.</strong> Matplotlib</a></li><li class="chapter-item expanded "><a href="../../dev/python/holo.html"><strong aria-hidden="true">2.5.</strong> Holoviews</a></li></ol></li><li class="chapter-item expanded "><a href="../../dev/git.html"><strong aria-hidden="true">3.</strong> Git</a></li><li class="chapter-item expanded affix "><li class="part-title">Учимся у других</li><li class="chapter-item expanded "><a href="../../examples/intro.html"><strong aria-hidden="true">4.</strong> Коды и скрипты</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../examples/kenv.html"><strong aria-hidden="true">4.1.</strong> Уравнение огибающей Капчинского-Владимирского для пучка заряженных частиц</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Разработка и применение программного обеспечения в физических исследованиях</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/phys-dev/book/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="numpy"><a class="header" href="#numpy">Numpy</a></h2>
+<p>Numpy is the core library for scientific computing in Python. It provides a high-performance multidimensional array object, and tools for working with these arrays.</p>
+<p>To use Numpy, we first need to import the <code>numpy</code> package:</p>
+<pre><code class="language-python">import numpy as np
+</code></pre>
+<h3 id="arrays"><a class="header" href="#arrays">Arrays</a></h3>
+<p>A numpy array is a grid of values, all of the same type, and is indexed by a tuple of nonnegative integers. The number of dimensions is the rank of the array; the shape of an array is a tuple of integers giving the size of the array along each dimension.</p>
+<p>We can initialize numpy arrays from nested Python lists, and access elements using square brackets:</p>
+<pre><code class="language-python">a = np.array([1, 2, 3])  # Create a rank 1 array
+print(type(a), a.shape, a[0], a[1], a[2])
+a[0] = 5                 # Change an element of the array
+print(a)                  
+</code></pre>
+<pre><code>&lt;class 'numpy.ndarray'&gt; (3,) 1 2 3
+[5 2 3]
+</code></pre>
+<pre><code class="language-python">b = np.array([[1,2,3],[4,5,6]])   # Create a rank 2 array
+print(b)
+</code></pre>
+<pre><code>[[1 2 3]
+ [4 5 6]]
+</code></pre>
+<pre><code class="language-python">print(b.shape)                   
+print(b[0, 0], b[0, 1], b[1, 0])
+</code></pre>
+<pre><code>(2, 3)
+1 2 4
+</code></pre>
+<p>Numpy also provides many functions to create arrays:</p>
+<pre><code class="language-python">a = np.zeros((2,2))  # Create an array of all zeros
+print(a)
+</code></pre>
+<pre><code>[[0. 0.]
+ [0. 0.]]
+</code></pre>
+<pre><code class="language-python">b = np.ones((1,2))   # Create an array of all ones
+print(b)
+</code></pre>
+<pre><code>[[1. 1.]]
+</code></pre>
+<pre><code class="language-python">c = np.full((2,2), 7) # Create a constant array
+print(c) 
+</code></pre>
+<pre><code>[[7 7]
+ [7 7]]
+</code></pre>
+<pre><code class="language-python">d = np.eye(2)        # Create a 2x2 identity matrix
+print(d)
+</code></pre>
+<pre><code>[[1. 0.]
+ [0. 1.]]
+</code></pre>
+<pre><code class="language-python">e = np.random.random((2,2)) # Create an array filled with random values
+print(e)
+</code></pre>
+<pre><code>[[0.57584699 0.0757792 ]
+ [0.18793454 0.78004389]]
+</code></pre>
+<h3 id="array-indexing"><a class="header" href="#array-indexing">Array indexing</a></h3>
+<p>Numpy offers several ways to index into arrays.</p>
+<p>Slicing: Similar to Python lists, numpy arrays can be sliced. Since arrays may be multidimensional, you must specify a slice for each dimension of the array:</p>
+<pre><code class="language-python">import numpy as np
+
+# Create the following rank 2 array with shape (3, 4)
+# [[ 1  2  3  4]
+#  [ 5  6  7  8]
+#  [ 9 10 11 12]]
+a = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])
+
+# Use slicing to pull out the subarray consisting of the first 2 rows
+# and columns 1 and 2; b is the following array of shape (2, 2):
+# [[2 3]
+#  [6 7]]
+b = a[:2, 1:3]
+print(b)
+</code></pre>
+<pre><code>[[2 3]
+ [6 7]]
+</code></pre>
+<p>A slice of an array is a view into the same data, so modifying it will modify the original array.</p>
+<pre><code class="language-python">print(a[0, 1])  
+b[0, 0] = 77    # b[0, 0] is the same piece of data as a[0, 1]
+print(a[0, 1]) 
+</code></pre>
+<pre><code>2
+77
+</code></pre>
+<p>You can also mix integer indexing with slice indexing. However, doing so will yield an array of lower rank than the original array.</p>
+<pre><code class="language-python"># Create the following rank 2 array with shape (3, 4)
+a = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])
+print(a)
+</code></pre>
+<pre><code>[[ 1  2  3  4]
+ [ 5  6  7  8]
+ [ 9 10 11 12]]
+</code></pre>
+<p>Two ways of accessing the data in the middle row of the array.
+Mixing integer indexing with slices yields an array of lower rank,
+while using only slices yields an array of the same rank as the
+original array:</p>
+<pre><code class="language-python">row_r1 = a[1, :]    # Rank 1 view of the second row of a  
+row_r2 = a[1:2, :]  # Rank 2 view of the second row of a
+row_r3 = a[[1], :]  # Rank 2 view of the second row of a
+print(row_r1, row_r1.shape) 
+print(row_r2, row_r2.shape)
+print(row_r3, row_r3.shape)
+</code></pre>
+<pre><code>[5 6 7 8] (4,)
+[[5 6 7 8]] (1, 4)
+[[5 6 7 8]] (1, 4)
+</code></pre>
+<pre><code class="language-python"># We can make the same distinction when accessing columns of an array:
+col_r1 = a[:, 1]
+col_r2 = a[:, 1:2]
+print(col_r1, col_r1.shape)
+print(col_r2, col_r2.shape)
+</code></pre>
+<pre><code>[ 2  6 10] (3,)
+[[ 2]
+ [ 6]
+ [10]] (3, 1)
+</code></pre>
+<p>Integer array indexing: When you index into numpy arrays using slicing, the resulting array view will always be a subarray of the original array. In contrast, integer array indexing allows you to construct arbitrary arrays using the data from another array. Here is an example:</p>
+<pre><code class="language-python">a = np.array([[1,2], [3, 4], [5, 6]])
+
+# An example of integer array indexing.
+# The returned array will have shape (3,) and 
+print(a[[0, 1, 2], [0, 1, 0]])
+
+# The above example of integer array indexing is equivalent to this:
+print(np.array([a[0, 0], a[1, 1], a[2, 0]]))
+</code></pre>
+<pre><code>[1 4 5]
+[1 4 5]
+</code></pre>
+<pre><code class="language-python"># When using integer array indexing, you can reuse the same
+# element from the source array:
+print(a[[0, 0], [1, 1]])
+
+# Equivalent to the previous integer array indexing example
+print(np.array([a[0, 1], a[0, 1]]))
+</code></pre>
+<pre><code>[2 2]
+[2 2]
+</code></pre>
+<p>One useful trick with integer array indexing is selecting or mutating one element from each row of a matrix:</p>
+<pre><code class="language-python"># Create a new array from which we will select elements
+a = np.array([[1,2,3], [4,5,6], [7,8,9], [10, 11, 12]])
+print(a)
+</code></pre>
+<pre><code>[[ 1  2  3]
+ [ 4  5  6]
+ [ 7  8  9]
+ [10 11 12]]
+</code></pre>
+<pre><code class="language-python"># Create an array of indices
+b = np.array([0, 2, 0, 1])
+
+# Select one element from each row of a using the indices in b
+print(a[np.arange(4), b])  # Prints "[ 1  6  7 11]"
+</code></pre>
+<pre><code>[ 1  6  7 11]
+</code></pre>
+<pre><code class="language-python"># Mutate one element from each row of a using the indices in b
+a[np.arange(4), b] += 10
+print(a)
+</code></pre>
+<pre><code>[[11  2  3]
+ [ 4  5 16]
+ [17  8  9]
+ [10 21 12]]
+</code></pre>
+<p>Boolean array indexing: Boolean array indexing lets you pick out arbitrary elements of an array. Frequently this type of indexing is used to select the elements of an array that satisfy some condition. Here is an example:</p>
+<pre><code class="language-python">import numpy as np
+
+a = np.array([[1,2], [3, 4], [5, 6]])
+
+bool_idx = (a &gt; 2)  # Find the elements of a that are bigger than 2;
+                    # this returns a numpy array of Booleans of the same
+                    # shape as a, where each slot of bool_idx tells
+                    # whether that element of a is &gt; 2.
+
+print(bool_idx)
+</code></pre>
+<pre><code>[[False False]
+ [ True  True]
+ [ True  True]]
+</code></pre>
+<pre><code class="language-python"># We use boolean array indexing to construct a rank 1 array
+# consisting of the elements of a corresponding to the True values
+# of bool_idx
+print(a[bool_idx])
+
+# We can do all of the above in a single concise statement:
+print(a[a &gt; 2])
+</code></pre>
+<pre><code>[3 4 5 6]
+[3 4 5 6]
+</code></pre>
+<p>For brevity we have left out a lot of details about numpy array indexing; if you want to know more you should read the documentation.</p>
+<h3 id="datatypes"><a class="header" href="#datatypes">Datatypes</a></h3>
+<p>Every numpy array is a grid of elements of the same type. Numpy provides a large set of numeric datatypes that you can use to construct arrays. Numpy tries to guess a datatype when you create an array, but functions that construct arrays usually also include an optional argument to explicitly specify the datatype. Here is an example:</p>
+<pre><code class="language-python">x = np.array([1, 2])  # Let numpy choose the datatype
+y = np.array([1.0, 2.0])  # Let numpy choose the datatype
+z = np.array([1, 2], dtype=np.int64)  # Force a particular datatype
+
+print(x.dtype, y.dtype, z.dtype)
+</code></pre>
+<pre><code>int64 float64 int64
+</code></pre>
+<p>You can read all about numpy datatypes in the <a href="http://docs.scipy.org/doc/numpy/reference/arrays.dtypes.html">documentation</a>.</p>
+<h3 id="array-math"><a class="header" href="#array-math">Array math</a></h3>
+<p>Basic mathematical functions operate elementwise on arrays, and are available both as operator overloads and as functions in the numpy module:</p>
+<pre><code class="language-python">x = np.array([[1,2],[3,4]], dtype=np.float64)
+y = np.array([[5,6],[7,8]], dtype=np.float64)
+
+# Elementwise sum; both produce the array
+print(x + y)
+print(np.add(x, y))
+</code></pre>
+<pre><code>[[ 6.  8.]
+ [10. 12.]]
+[[ 6.  8.]
+ [10. 12.]]
+</code></pre>
+<pre><code class="language-python"># Elementwise difference; both produce the array
+print(x - y)
+print(np.subtract(x, y))
+</code></pre>
+<pre><code>[[-4. -4.]
+ [-4. -4.]]
+[[-4. -4.]
+ [-4. -4.]]
+</code></pre>
+<pre><code class="language-python"># Elementwise product; both produce the array
+print(x * y)
+print(np.multiply(x, y))
+</code></pre>
+<pre><code>[[ 5. 12.]
+ [21. 32.]]
+[[ 5. 12.]
+ [21. 32.]]
+</code></pre>
+<pre><code class="language-python"># Elementwise division; both produce the array
+# [[ 0.2         0.33333333]
+#  [ 0.42857143  0.5       ]]
+print(x / y)
+print(np.divide(x, y))
+</code></pre>
+<pre><code>[[0.2        0.33333333]
+ [0.42857143 0.5       ]]
+[[0.2        0.33333333]
+ [0.42857143 0.5       ]]
+</code></pre>
+<pre><code class="language-python"># Elementwise square root; produces the array
+# [[ 1.          1.41421356]
+#  [ 1.73205081  2.        ]]
+print(np.sqrt(x))
+</code></pre>
+<pre><code>[[1.         1.41421356]
+ [1.73205081 2.        ]]
+</code></pre>
+<p>Note that unlike MATLAB, <code>*</code> is elementwise multiplication, not matrix multiplication. We instead use the dot function to compute inner products of vectors, to multiply a vector by a matrix, and to multiply matrices. dot is available both as a function in the numpy module and as an instance method of array objects:</p>
+<pre><code class="language-python">x = np.array([[1,2],[3,4]])
+y = np.array([[5,6],[7,8]])
+
+v = np.array([9,10])
+w = np.array([11, 12])
+
+# Inner product of vectors; both produce 219
+print(v.dot(w))
+print(np.dot(v, w))
+</code></pre>
+<pre><code>219
+219
+</code></pre>
+<pre><code class="language-python"># Matrix / vector product; both produce the rank 1 array [29 67]
+print(x.dot(v))
+print(np.dot(x, v))
+</code></pre>
+<pre><code>[29 67]
+[29 67]
+</code></pre>
+<pre><code class="language-python"># Matrix / matrix product; both produce the rank 2 array
+# [[19 22]
+#  [43 50]]
+print(x.dot(y))
+print(np.dot(x, y))
+</code></pre>
+<pre><code>[[19 22]
+ [43 50]]
+[[19 22]
+ [43 50]]
+</code></pre>
+<p>Numpy provides many useful functions for performing computations on arrays; one of the most useful is <code>sum</code>:</p>
+<pre><code class="language-python">x = np.array([[1,2],[3,4]])
+
+print(np.sum(x))  # Compute sum of all elements; prints "10"
+print(np.sum(x, axis=0))  # Compute sum of each column; prints "[4 6]"
+print(np.sum(x, axis=1))  # Compute sum of each row; prints "[3 7]"
+</code></pre>
+<pre><code>10
+[4 6]
+[3 7]
+</code></pre>
+<p>You can find the full list of mathematical functions provided by numpy in the <a href="http://docs.scipy.org/doc/numpy/reference/routines.math.html">documentation</a>.</p>
+<p>Apart from computing mathematical functions using arrays, we frequently need to reshape or otherwise manipulate data in arrays. The simplest example of this type of operation is transposing a matrix; to transpose a matrix, simply use the T attribute of an array object:</p>
+<pre><code class="language-python">print(x)
+print(x.T)
+</code></pre>
+<pre><code>[[1 2]
+ [3 4]]
+[[1 3]
+ [2 4]]
+</code></pre>
+<pre><code class="language-python">v = np.array([[1,2,3]])
+print(v) 
+print(v.T)
+</code></pre>
+<pre><code>[[1 2 3]]
+[[1]
+ [2]
+ [3]]
+</code></pre>
+<h3 id="broadcasting"><a class="header" href="#broadcasting">Broadcasting</a></h3>
+<p>Broadcasting is a powerful mechanism that allows numpy to work with arrays of different shapes when performing arithmetic operations. Frequently we have a smaller array and a larger array, and we want to use the smaller array multiple times to perform some operation on the larger array.</p>
+<p>For example, suppose that we want to add a constant vector to each row of a matrix. We could do it like this:</p>
+<pre><code class="language-python"># We will add the vector v to each row of the matrix x,
+# storing the result in the matrix y
+x = np.array([[1,2,3], [4,5,6], [7,8,9], [10, 11, 12]])
+v = np.array([1, 0, 1])
+y = np.empty_like(x)   # Create an empty matrix with the same shape as x
+
+# Add the vector v to each row of the matrix x with an explicit loop
+for i in range(4):
+    y[i, :] = x[i, :] + v
+
+print(y)
+</code></pre>
+<pre><code>[[ 2  2  4]
+ [ 5  5  7]
+ [ 8  8 10]
+ [11 11 13]]
+</code></pre>
+<p>This works; however when the matrix <code>x</code> is very large, computing an explicit loop in Python could be slow. Note that adding the vector v to each row of the matrix <code>x</code> is equivalent to forming a matrix <code>vv</code> by stacking multiple copies of <code>v</code> vertically, then performing elementwise summation of <code>x</code> and <code>vv</code>. We could implement this approach like this:</p>
+<pre><code class="language-python">vv = np.tile(v, (4, 1))  # Stack 4 copies of v on top of each other
+print(vv)                 # Prints "[[1 0 1]
+                         #          [1 0 1]
+                         #          [1 0 1]
+                         #          [1 0 1]]"
+</code></pre>
+<pre><code>[[1 0 1]
+ [1 0 1]
+ [1 0 1]
+ [1 0 1]]
+</code></pre>
+<pre><code class="language-python">y = x + vv  # Add x and vv elementwise
+print(y)
+</code></pre>
+<pre><code>[[ 2  2  4]
+ [ 5  5  7]
+ [ 8  8 10]
+ [11 11 13]]
+</code></pre>
+<p>Numpy broadcasting allows us to perform this computation without actually creating multiple copies of v. Consider this version, using broadcasting:</p>
+<pre><code class="language-python"># We will add the vector v to each row of the matrix x,
+# storing the result in the matrix y
+x = np.array([[1,2,3], [4,5,6], [7,8,9], [10, 11, 12]])
+v = np.array([1, 0, 1])
+y = x + v  # Add v to each row of x using broadcasting
+print(y)
+</code></pre>
+<pre><code>[[ 2  2  4]
+ [ 5  5  7]
+ [ 8  8 10]
+ [11 11 13]]
+</code></pre>
+<p>The line <code>y = x + v</code> works even though <code>x</code> has shape <code>(4, 3)</code> and <code>v</code> has shape <code>(3,)</code> due to broadcasting; this line works as if v actually had shape <code>(4, 3)</code>, where each row was a copy of <code>v</code>, and the sum was performed elementwise.</p>
+<p>Broadcasting two arrays together follows these rules:</p>
+<ol>
+<li>If the arrays do not have the same rank, prepend the shape of the lower rank array with 1s until both shapes have the same length.</li>
+<li>The two arrays are said to be compatible in a dimension if they have the same size in the dimension, or if one of the arrays has size 1 in that dimension.</li>
+<li>The arrays can be broadcast together if they are compatible in all dimensions.</li>
+<li>After broadcasting, each array behaves as if it had shape equal to the elementwise maximum of shapes of the two input arrays.</li>
+<li>In any dimension where one array had size 1 and the other array had size greater than 1, the first array behaves as if it were copied along that dimension</li>
+</ol>
+<p>If this explanation does not make sense, try reading the explanation from the <a href="http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html">documentation</a>.</p>
+<p>Functions that support broadcasting are known as universal functions. You can find the list of all universal functions in the <a href="http://docs.scipy.org/doc/numpy/reference/ufuncs.html#available-ufuncs">documentation</a>.</p>
+<p>Here are some applications of broadcasting:</p>
+<pre><code class="language-python"># Compute outer product of vectors
+v = np.array([1,2,3])  # v has shape (3,)
+w = np.array([4,5])    # w has shape (2,)
+# To compute an outer product, we first reshape v to be a column
+# vector of shape (3, 1); we can then broadcast it against w to yield
+# an output of shape (3, 2), which is the outer product of v and w:
+
+print(np.reshape(v, (3, 1)) * w)
+</code></pre>
+<pre><code>[[ 4  5]
+ [ 8 10]
+ [12 15]]
+</code></pre>
+<pre><code class="language-python"># Add a vector to each row of a matrix
+x = np.array([[1,2,3], [4,5,6]])
+# x has shape (2, 3) and v has shape (3,) so they broadcast to (2, 3),
+# giving the following matrix:
+
+print(x + v)
+</code></pre>
+<pre><code>[[2 4 6]
+ [5 7 9]]
+</code></pre>
+<pre><code class="language-python"># Add a vector to each column of a matrix
+# x has shape (2, 3) and w has shape (2,).
+# If we transpose x then it has shape (3, 2) and can be broadcast
+# against w to yield a result of shape (3, 2); transposing this result
+# yields the final result of shape (2, 3) which is the matrix x with
+# the vector w added to each column. Gives the following matrix:
+
+print((x.T + w).T)
+</code></pre>
+<pre><code>[[ 5  6  7]
+ [ 9 10 11]]
+</code></pre>
+<pre><code class="language-python"># Another solution is to reshape w to be a row vector of shape (2, 1);
+# we can then broadcast it directly against x to produce the same
+# output.
+print(x + np.reshape(w, (2, 1)))
+</code></pre>
+<pre><code>[[ 5  6  7]
+ [ 9 10 11]]
+</code></pre>
+<pre><code class="language-python"># Multiply a matrix by a constant:
+# x has shape (2, 3). Numpy treats scalars as arrays of shape ();
+# these can be broadcast together to shape (2, 3), producing the
+# following array:
+print(x * 2)
+</code></pre>
+<pre><code>[[ 2  4  6]
+ [ 8 10 12]]
+</code></pre>
+<p>Broadcasting typically makes your code more concise and faster, so you should strive to use it where possible.</p>
+<p>This brief overview has touched on many of the important things that you need to know about numpy, but is far from complete. Check out the <a href="http://docs.scipy.org/doc/numpy/reference/">numpy reference</a> to find out much more about numpy.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../dev/python/basics.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../dev/python/scipy.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../dev/python/basics.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../dev/python/scipy.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,649 @@
+<!DOCTYPE HTML>
+<html lang="ru" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Basics - Разработка и применение программного обеспечения в физических исследованиях</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../intro/intro.html">О книге</a></li><li class="chapter-item expanded affix "><a href="../../intro/about-me.html">О себе</a></li><li class="chapter-item expanded affix "><li class="part-title">Ищем помощников</li><li class="chapter-item expanded "><a href="../../ai/intro.html"><strong aria-hidden="true">1.</strong> ИИ для разработки</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../ai/context.html"><strong aria-hidden="true">1.1.</strong> Контекст и скорость изменений</a></li><li class="chapter-item expanded "><a href="../../ai/develop.html"><strong aria-hidden="true">1.2.</strong> ИИ и разработчик</a></li><li class="chapter-item expanded "><a href="../../ai/basic.html"><strong aria-hidden="true">1.3.</strong> Технические основы</a></li><li class="chapter-item expanded "><a href="../../ai/instruments.html"><strong aria-hidden="true">1.4.</strong> Инструментарий</a></li><li class="chapter-item expanded "><a href="../../ai/qa.html"><strong aria-hidden="true">1.5.</strong> Вопросы и ответы</a></li></ol></li><li class="chapter-item expanded "><a href="../../dev/python/intro.html"><strong aria-hidden="true">2.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../dev/python/basics.html" class="active"><strong aria-hidden="true">2.1.</strong> Basics</a></li><li class="chapter-item expanded "><a href="../../dev/python/numpy.html"><strong aria-hidden="true">2.2.</strong> Numpy</a></li><li class="chapter-item expanded "><a href="../../dev/python/scipy.html"><strong aria-hidden="true">2.3.</strong> Scipy</a></li><li class="chapter-item expanded "><a href="../../dev/python/matplotlib.html"><strong aria-hidden="true">2.4.</strong> Matplotlib</a></li><li class="chapter-item expanded "><a href="../../dev/python/holo.html"><strong aria-hidden="true">2.5.</strong> Holoviews</a></li></ol></li><li class="chapter-item expanded "><a href="../../dev/git.html"><strong aria-hidden="true">3.</strong> Git</a></li><li class="chapter-item expanded affix "><li class="part-title">Учимся у других</li><li class="chapter-item expanded "><a href="../../examples/intro.html"><strong aria-hidden="true">4.</strong> Коды и скрипты</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../examples/kenv.html"><strong aria-hidden="true">4.1.</strong> Уравнение огибающей Капчинского-Владимирского для пучка заряженных частиц</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Разработка и применение программного обеспечения в физических исследованиях</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/phys-dev/book/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="basics-of-python"><a class="header" href="#basics-of-python">Basics of Python</a></h2>
+<p>Python is a high-level, dynamically typed multiparadigm programming language. Python code is often said to be almost like pseudocode, since it allows you to express very powerful ideas in very few lines of code while being very readable.</p>
+<p>We recommend to read <a href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a>.</p>
+<h3 id="python-versions-and-zen-of-python"><a class="header" href="#python-versions-and-zen-of-python">Python versions and Zen of Python</a></h3>
+<p>There are currently supported versions of Python 3.X. Support for Python 2.7 ended in 2020. For this class all code will use Python 3.7.</p>
+<p>You can check your Python version at the command line by running python --version.</p>
+<pre><code class="language-python">!python --version
+</code></pre>
+<pre><code>Python 3.7.4
+</code></pre>
+<pre><code class="language-python">import this
+</code></pre>
+<pre><code>The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+</code></pre>
+<h3 id="basic-data-types"><a class="header" href="#basic-data-types">Basic data types</a></h3>
+<h4 id="numbers"><a class="header" href="#numbers">Numbers</a></h4>
+<p>Integers and floats work as you would expect from other languages:</p>
+<pre><code class="language-python">x = 3
+print(x, type(x))
+</code></pre>
+<pre><code>3 &lt;class 'int'&gt;
+</code></pre>
+<pre><code class="language-python">print(x + 1)   # Addition;
+print(x - 1)   # Subtraction;
+print(x * 2)   # Multiplication;
+print(x ** 2)  # Exponentiation;
+</code></pre>
+<pre><code>4
+2
+6
+9
+</code></pre>
+<pre><code class="language-python">x += 1
+print(x)  # Prints "4"
+x *= 2
+print(x)  # Prints "8"
+</code></pre>
+<pre><code>4
+8
+</code></pre>
+<pre><code class="language-python">y = 2.5
+print(type(y)) # Prints "&lt;type 'float'&gt;"
+print(y, y + 1, y * 2, y ** 2) # Prints "2.5 3.5 5.0 6.25"
+</code></pre>
+<pre><code>&lt;class 'float'&gt;
+2.5 3.5 5.0 6.25
+</code></pre>
+<p>Note that unlike many languages, Python does not have unary increment (x++) or decrement (x--) operators.</p>
+<p>Python also has built-in types for long integers and complex numbers; you can find all of the details in the <a href="https://docs.python.org/3.7/library/stdtypes.html#numeric-types-int-float-long-complex">documentation</a>.</p>
+<h4 id="booleans"><a class="header" href="#booleans">Booleans</a></h4>
+<p>Python implements all of the usual operators for Boolean logic, but uses English words rather than symbols (<code>&amp;&amp;</code>, <code>||</code>, etc.):</p>
+<pre><code class="language-python">T, F = True, False
+print(type(T)) # Prints "&lt;type 'bool'&gt;"
+</code></pre>
+<pre><code>&lt;class 'bool'&gt;
+</code></pre>
+<p>Now we let's look at the operations:</p>
+<pre><code class="language-python">print(T and F) # Logical AND;
+print(T or F)  # Logical OR;
+print(not T)   # Logical NOT;
+print(T != F)  # Logical XOR;
+</code></pre>
+<pre><code>False
+True
+False
+True
+</code></pre>
+<h4 id="strings"><a class="header" href="#strings">Strings</a></h4>
+<pre><code class="language-python">hello = 'hello'   # String literals can use single quotes
+world = "world"   # or double quotes; it does not matter.
+print(hello, len(hello))
+</code></pre>
+<pre><code>hello 5
+</code></pre>
+<pre><code class="language-python">hw = hello + ' ' + world  # String concatenation
+print(hw)  # prints "hello world"
+</code></pre>
+<pre><code>hello world
+</code></pre>
+<pre><code class="language-python">hw12 = '%s %s %d' % (hello, world, 12)  # sprintf style string formatting
+print(hw12)  # prints "hello world 12"
+</code></pre>
+<pre><code>hello world 12
+</code></pre>
+<p>String objects have a bunch of useful methods; for example:</p>
+<pre><code class="language-python">s = "hello"
+print(s.capitalize())  # Capitalize a string; prints "Hello"
+print(s.upper())       # Convert a string to uppercase; prints "HELLO"
+print(s.rjust(7))      # Right-justify a string, padding with spaces; prints "  hello"
+print(s.center(7))     # Center a string, padding with spaces; prints " hello "
+print(s.replace('l', '(ell)'))  # Replace all instances of one substring with another;
+                               # prints "he(ell)(ell)o"
+print('  world '.strip())  # Strip leading and trailing whitespace; prints "world"
+</code></pre>
+<pre><code>Hello
+HELLO
+  hello
+ hello 
+he(ell)(ell)o
+world
+</code></pre>
+<p>You can find a list of all string methods in the <a href="https://docs.python.org/3.7/library/stdtypes.html#string-methods">documentation</a>.</p>
+<h3 id="containers"><a class="header" href="#containers">Containers</a></h3>
+<p>Python includes several built-in container types: lists, dictionaries, sets, and tuples.</p>
+<h4 id="lists"><a class="header" href="#lists">Lists</a></h4>
+<p>A list is the Python equivalent of an array, but is resizeable and can contain elements of different types:</p>
+<pre><code class="language-python">xs = [3, 1, 2]   # Create a list
+print(xs, xs[2])
+print(xs[-1])     # Negative indices count from the end of the list; prints "2"
+</code></pre>
+<pre><code>[3, 1, 2] 2
+2
+</code></pre>
+<pre><code class="language-python">xs[2] = 'foo'    # Lists can contain elements of different types
+print(xs)
+</code></pre>
+<pre><code>[3, 1, 'foo']
+</code></pre>
+<pre><code class="language-python">xs.append('bar') # Add a new element to the end of the list
+print(xs)  
+</code></pre>
+<pre><code>[3, 1, 'foo', 'bar']
+</code></pre>
+<pre><code class="language-python">x = xs.pop()     # Remove and return the last element of the list
+print(x, xs) 
+</code></pre>
+<pre><code>bar [3, 1, 'foo']
+</code></pre>
+<p>As usual, you can find all the gory details about lists in the <a href="https://docs.python.org/3.7/tutorial/datastructures.html#more-on-lists">documentation</a>.</p>
+<h4 id="slicing"><a class="header" href="#slicing">Slicing</a></h4>
+<p>In addition to accessing list elements one at a time, Python provides concise syntax to access sublists; this is known as slicing:</p>
+<pre><code class="language-python">nums = range(5)    # range is a built-in function that creates a list of integers
+print(nums)         # Prints "[0, 1, 2, 3, 4]"
+print(nums[2:4])    # Get a slice from index 2 to 4 (exclusive); prints "[2, 3]"
+print(nums[2:])     # Get a slice from index 2 to the end; prints "[2, 3, 4]"
+print(nums[:2])     # Get a slice from the start to index 2 (exclusive); prints "[0, 1]"
+print(nums[:])      # Get a slice of the whole list; prints ["0, 1, 2, 3, 4]"
+print(nums[:-1])    # Slice indices can be negative; prints ["0, 1, 2, 3]"
+</code></pre>
+<pre><code>range(0, 5)
+range(2, 4)
+range(2, 5)
+range(0, 2)
+range(0, 5)
+range(0, 4)
+</code></pre>
+<h4 id="loops"><a class="header" href="#loops">Loops</a></h4>
+<p>You can loop over the elements of a list like this:</p>
+<pre><code class="language-python">animals = ['cat', 'dog', 'monkey']
+for animal in animals:
+    print(animal)
+</code></pre>
+<pre><code>cat
+dog
+monkey
+</code></pre>
+<p>If you want access to the index of each element within the body of a loop, use the built-in <code>enumerate</code> function:</p>
+<pre><code class="language-python">animals = ['cat', 'dog', 'monkey']
+for idx, animal in enumerate(animals):
+    print('#%d: %s' % (idx + 1, animal))
+</code></pre>
+<pre><code>#1: cat
+#2: dog
+#3: monkey
+</code></pre>
+<h4 id="list-comprehensions"><a class="header" href="#list-comprehensions">List comprehensions:</a></h4>
+<p>When programming, frequently we want to transform one type of data into another. As a simple example, consider the following code that computes square numbers:</p>
+<pre><code class="language-python">nums = [0, 1, 2, 3, 4]
+squares = []
+for x in nums:
+    squares.append(x ** 2)
+print(squares)
+</code></pre>
+<pre><code>[0, 1, 4, 9, 16]
+</code></pre>
+<p>You can make this code simpler using a list comprehension:</p>
+<pre><code class="language-python">nums = [0, 1, 2, 3, 4]
+squares = [x ** 2 for x in nums]
+print(squares)
+</code></pre>
+<pre><code>[0, 1, 4, 9, 16]
+</code></pre>
+<p>List comprehensions can also contain conditions:</p>
+<pre><code class="language-python">nums = [0, 1, 2, 3, 4]
+even_squares = [x ** 2 for x in nums if x % 2 == 0]
+print(even_squares)
+</code></pre>
+<pre><code>[0, 4, 16]
+</code></pre>
+<h4 id="dictionaries"><a class="header" href="#dictionaries">Dictionaries</a></h4>
+<p>A dictionary stores (key, value) pairs, similar to a <code>Map</code> in Java or an object in Javascript. You can use it like this:</p>
+<pre><code class="language-python">d = {'cat': 'cute', 'dog': 'furry'}  # Create a new dictionary with some data
+print(d['cat'])       # Get an entry from a dictionary; prints "cute"
+print('cat' in d)     # Check if a dictionary has a given key; prints "True"
+</code></pre>
+<pre><code>cute
+True
+</code></pre>
+<pre><code class="language-python">d['fish'] = 'wet'    # Set an entry in a dictionary
+print(d['fish'])      # Prints "wet"
+</code></pre>
+<pre><code>wet
+</code></pre>
+<pre><code class="language-python">print(d.get('monkey', 'N/A'))  # Get an element with a default; prints "N/A"
+print(d.get('fish', 'N/A'))   # Get an element with a default; prints "wet"
+</code></pre>
+<pre><code>N/A
+wet
+</code></pre>
+<pre><code class="language-python">del d['fish']        # Remove an element from a dictionary
+print(d.get('fish', 'N/A')) # "fish" is no longer a key; prints "N/A"
+</code></pre>
+<pre><code>N/A
+</code></pre>
+<p>You can find all you need to know about dictionaries in the <a href="https://docs.python.org/3.7/library/stdtypes.html#dict">documentation</a>.</p>
+<p>It is easy to iterate over the keys in a dictionary:</p>
+<pre><code class="language-python">d = {'person': 2, 'cat': 4, 'spider': 8}
+for animal in d:
+    legs = d[animal]
+    print('A %s has %d legs' % (animal, legs))
+</code></pre>
+<pre><code>A person has 2 legs
+A cat has 4 legs
+A spider has 8 legs
+</code></pre>
+<p>Dictionary comprehensions: These are similar to list comprehensions, but allow you to easily construct dictionaries. For example:</p>
+<pre><code class="language-python">nums = [0, 1, 2, 3, 4]
+even_num_to_square = {x: x ** 2 for x in nums if x % 2 == 0}
+print(even_num_to_square)
+</code></pre>
+<pre><code>{0: 0, 2: 4, 4: 16}
+</code></pre>
+<h4 id="sets"><a class="header" href="#sets">Sets</a></h4>
+<p>A set is an unordered collection of distinct elements. As a simple example, consider the following:</p>
+<pre><code class="language-python">animals = {'cat', 'dog'}
+print('cat' in animals)   # Check if an element is in a set; prints "True"
+print('fish' in animals)  # prints "False"
+</code></pre>
+<pre><code>True
+False
+</code></pre>
+<pre><code class="language-python">animals.add('fish')      # Add an element to a set
+print('fish' in animals)
+print(len(animals))       # Number of elements in a set;
+</code></pre>
+<pre><code>True
+3
+</code></pre>
+<pre><code class="language-python">animals.add('cat')       # Adding an element that is already in the set does nothing
+print(len(animals))       
+animals.remove('cat')    # Remove an element from a set
+print(len(animals))       
+</code></pre>
+<pre><code>3
+2
+</code></pre>
+<p><em>Loops</em>: Iterating over a set has the same syntax as iterating over a list; however since sets are unordered, you cannot make assumptions about the order in which you visit the elements of the set:</p>
+<pre><code class="language-python">animals = {'cat', 'dog', 'fish'}
+for idx, animal in enumerate(animals):
+    print('#%d: %s' % (idx + 1, animal))
+# Prints "#1: fish", "#2: dog", "#3: cat"
+</code></pre>
+<pre><code>#1: fish
+#2: dog
+#3: cat
+</code></pre>
+<p>Set comprehensions: Like lists and dictionaries, we can easily construct sets using set comprehensions:</p>
+<pre><code class="language-python">from math import sqrt
+print({int(sqrt(x)) for x in range(30)})
+</code></pre>
+<pre><code>{0, 1, 2, 3, 4, 5}
+</code></pre>
+<h4 id="tuples"><a class="header" href="#tuples">Tuples</a></h4>
+<p>A tuple is an (immutable) ordered list of values. A tuple is in many ways similar to a list; one of the most important differences is that tuples can be used as keys in dictionaries and as elements of sets, while lists cannot. Here is a trivial example:</p>
+<pre><code class="language-python">d = {(x, x + 1): x for x in range(10)}  # Create a dictionary with tuple keys
+t = (5, 6)       # Create a tuple
+print(type(t))
+print(d[t])       
+print(d[(1, 2)])
+</code></pre>
+<pre><code>&lt;class 'tuple'&gt;
+5
+1
+</code></pre>
+<h3 id="functions"><a class="header" href="#functions">Functions</a></h3>
+<p>Python functions are defined using the <code>def</code> keyword. For example:</p>
+<pre><code class="language-python">def sign(x: float) -&gt; str:
+    '''Function sign''' # document line
+    
+    if x &gt; 0:
+        return 'positive'
+    elif x &lt; 0:
+        return 'negative'
+    else:
+        return 'zero'
+
+for x in [-1, 0, 1]:
+    print(sign(x))
+</code></pre>
+<pre><code>negative
+zero
+positive
+</code></pre>
+<pre><code class="language-python">help(sign)
+</code></pre>
+<pre><code>Help on function sign in module __main__:
+
+sign(x: float) -&gt; str
+    Function sign
+</code></pre>
+<p>We will often define functions to take optional keyword arguments, like this:</p>
+<pre><code class="language-python">def hello(name: str, loud: bool=False) -&gt; None:
+    '''Function hello
+    
+    If loud is True, 
+    then the name is printed in capital letters.
+    '''
+    
+    if loud:
+        print('HELLO, %s' % name.upper())
+    else:
+        print('Hello, %s!' % name)
+
+hello('Bob')
+hello('Fred', loud=True)
+</code></pre>
+<pre><code>Hello, Bob!
+HELLO, FRED
+</code></pre>
+<pre><code class="language-python">help(hello)
+</code></pre>
+<pre><code>Help on function hello in module __main__:
+
+hello(name: str, loud: bool = False) -&gt; None
+    Function hello
+    
+    If loud is True, 
+    then the name is printed in capital letters.
+</code></pre>
+<h3 id="classes"><a class="header" href="#classes">Classes</a></h3>
+<p>The syntax for defining classes in Python is straightforward:</p>
+<pre><code class="language-python">class Greeter:
+    '''Class Greeter
+    
+    method greet:
+    If loud is True, 
+    then the name is printed in capital letters.
+    '''
+
+    # Constructor
+    def __init__(self, name):
+        self.name = name  # Create an instance variable
+
+    # Instance method
+    def greet(self, loud: bool=False) -&gt;None:
+        if loud:
+            print('HELLO, %s!' % self.name.upper())
+        else:
+            print('Hello, %s' % self.name)
+
+g = Greeter('Fred')  # Construct an instance of the Greeter class
+g.greet()            # Call an instance method; prints "Hello, Fred"
+g.greet(loud=True)   # Call an instance method; prints "HELLO, FRED!"
+</code></pre>
+<pre><code>Hello, Fred
+HELLO, FRED!
+</code></pre>
+<pre><code class="language-python">help(Greeter)
+</code></pre>
+<pre><code>Help on class Greeter in module __main__:
+
+class Greeter(builtins.object)
+ |  Greeter(name)
+ |  
+ |  Class Greeter
+ |  
+ |  method greet:
+ |  If loud is True, 
+ |  then the name is printed in capital letters.
+ |  
+ |  Methods defined here:
+ |  
+ |  __init__(self, name)
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  greet(self, loud: bool = False) -&gt; None
+ |      # Instance method
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../dev/python/intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../dev/python/numpy.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../dev/python/intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../dev/python/numpy.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
