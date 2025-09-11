@@ -10,7 +10,13 @@
    - [Технические основы](./ai/basic.md)
    - [Инструментарий](./ai/instruments.md)
    - [Вопросы и ответы](./ai/qa.md)
-
+- [Python](./dev/python/intro.md)
+  - [Basics](./dev/python/basics.md)
+  - [Numpy](./dev/python/numpy.md)
+  - [Scipy](./dev/python/scipy.md)
+  - [Matplotlib](./dev/python/matplotlib.md)
+  - [Holoviews](./dev/python/holo.md)
+- [Git](./dev/git.md)
 
 [//]: # (  )
 [//]: # (# Загружаем linux)

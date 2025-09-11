@@ -1,18 +1,5 @@
 # Python Tutorial
 
-## Introduction
-
-Python is a great general-purpose programming language on its own, but with the help of a few popular libraries (numpy, scipy, matplotlib and holoviews) it becomes a powerful environment for scientific computing.
-
-We expect that many of you will have some experience with Python and Numpy; for the rest of you, this section will serve as a quick crash course both on the Python programming language and on the use of Python for scientific computing.
-
-In this tutorial, we will cover:
-
-* Basic Python: Basic data types, Functions, Classes
-* Numpy: Arrays, Array indexing, Datatypes, Array math, Broadcasting
-* Matplotlib: Plotting, Subplots, Images
-* IPython: Creating notebooks, Typical workflows
-
 ## Basics of Python
 
 Python is a high-level, dynamically typed multiparadigm programming language. Python code is often said to be almost like pseudocode, since it allows you to express very powerful ideas in very few lines of code while being very readable.
@@ -637,8 +624,6 @@ help(Greeter)
      |  
      |  __weakref__
      |      list of weak references to the object (if defined)
-    
-
 
 ## Numpy
 
@@ -1287,11 +1272,11 @@ Broadcasting typically makes your code more concise and faster, so you should st
 
 This brief overview has touched on many of the important things that you need to know about numpy, but is far from complete. Check out the [numpy reference](http://docs.scipy.org/doc/numpy/reference/) to find out much more about numpy.
 
-# Scipy
+## Scipy
 
 To be continued...
 
-## Matplotlib
+### Matplotlib
 
 Matplotlib is a plotting library. In this section give a brief introduction to the `matplotlib.pyplot` module, which provides a plotting system similar to that of MATLAB.
 
@@ -1399,7 +1384,7 @@ plt.show()
 
 You can read much more about the `subplot` function in the [documentation](http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.subplot).
 
-# Holoviews
+## Holoviews
 
 To be continued...
 

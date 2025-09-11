@@ -1,0 +1,12 @@
+# Python Tutorial
+
+Python is a great general-purpose programming language on its own, but with the help of a few popular libraries (numpy, scipy, matplotlib and holoviews) it becomes a powerful environment for scientific computing.
+
+We expect that many of you will have some experience with Python and Numpy; for the rest of you, this section will serve as a quick crash course both on the Python programming language and on the use of Python for scientific computing.
+
+In this tutorial, we will cover:
+
+* Basic Python: Basic data types, Functions, Classes
+* Numpy: Arrays, Array indexing, Datatypes, Array math, Broadcasting
+* Matplotlib: Plotting, Subplots, Images
+* IPython: Creating notebooks, Typical workflows
