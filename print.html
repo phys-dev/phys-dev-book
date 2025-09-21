@@ -91,7 +91,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro/intro.html">О книге</a></li><li class="chapter-item expanded affix "><a href="intro/about-me.html">О себе</a></li><li class="chapter-item expanded affix "><li class="part-title">Ищем помощников</li><li class="chapter-item expanded "><a href="ai/intro.html"><strong aria-hidden="true">1.</strong> ИИ для разработки</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ai/context.html"><strong aria-hidden="true">1.1.</strong> Контекст и скорость изменений</a></li><li class="chapter-item expanded "><a href="ai/develop.html"><strong aria-hidden="true">1.2.</strong> ИИ и разработчик</a></li><li class="chapter-item expanded "><a href="ai/basic.html"><strong aria-hidden="true">1.3.</strong> Технические основы</a></li><li class="chapter-item expanded "><a href="ai/instruments.html"><strong aria-hidden="true">1.4.</strong> Инструментарий</a></li><li class="chapter-item expanded "><a href="ai/qa.html"><strong aria-hidden="true">1.5.</strong> Вопросы и ответы</a></li></ol></li><li class="chapter-item expanded "><a href="dev/python/intro.html"><strong aria-hidden="true">2.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="dev/python/basics.html"><strong aria-hidden="true">2.1.</strong> Basics</a></li><li class="chapter-item expanded "><a href="dev/python/numpy.html"><strong aria-hidden="true">2.2.</strong> Numpy</a></li><li class="chapter-item expanded "><a href="dev/python/scipy.html"><strong aria-hidden="true">2.3.</strong> Scipy</a></li><li class="chapter-item expanded "><a href="dev/python/matplotlib.html"><strong aria-hidden="true">2.4.</strong> Matplotlib</a></li><li class="chapter-item expanded "><a href="dev/python/holo.html"><strong aria-hidden="true">2.5.</strong> Holoviews</a></li></ol></li><li class="chapter-item expanded "><a href="dev/git.html"><strong aria-hidden="true">3.</strong> Git</a></li><li class="chapter-item expanded affix "><li class="part-title">Учимся у других</li><li class="chapter-item expanded "><a href="examples/intro.html"><strong aria-hidden="true">4.</strong> Коды и скрипты</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="examples/kenv.html"><strong aria-hidden="true">4.1.</strong> Уравнение огибающей Капчинского-Владимирского для пучка заряженных частиц</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro/intro.html">О книге</a></li><li class="chapter-item expanded affix "><a href="intro/about-me.html">О себе</a></li><li class="chapter-item expanded affix "><li class="part-title">Ищем помощников</li><li class="chapter-item expanded "><a href="ai/intro.html"><strong aria-hidden="true">1.</strong> ИИ для разработки</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ai/context.html"><strong aria-hidden="true">1.1.</strong> Контекст и скорость изменений</a></li><li class="chapter-item expanded "><a href="ai/develop.html"><strong aria-hidden="true">1.2.</strong> ИИ и разработчик</a></li><li class="chapter-item expanded "><a href="ai/basic.html"><strong aria-hidden="true">1.3.</strong> Технические основы</a></li><li class="chapter-item expanded "><a href="ai/instruments.html"><strong aria-hidden="true">1.4.</strong> Инструментарий</a></li><li class="chapter-item expanded "><a href="ai/qa.html"><strong aria-hidden="true">1.5.</strong> Вопросы и ответы</a></li></ol></li><li class="chapter-item expanded "><a href="dev/python/intro.html"><strong aria-hidden="true">2.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="dev/python/basics.html"><strong aria-hidden="true">2.1.</strong> Basics</a></li><li class="chapter-item expanded "><a href="dev/python/numpy.html"><strong aria-hidden="true">2.2.</strong> Numpy</a></li><li class="chapter-item expanded "><a href="dev/python/scipy.html"><strong aria-hidden="true">2.3.</strong> Scipy</a></li><li class="chapter-item expanded "><a href="dev/python/matplotlib.html"><strong aria-hidden="true">2.4.</strong> Matplotlib</a></li><li class="chapter-item expanded "><a href="dev/python/holo.html"><strong aria-hidden="true">2.5.</strong> Holoviews</a></li><li class="chapter-item expanded "><a href="dev/python/requirements.html"><strong aria-hidden="true">2.6.</strong> Requirements</a></li></ol></li><li class="chapter-item expanded "><a href="dev/git.html"><strong aria-hidden="true">3.</strong> Git</a></li><li class="chapter-item expanded affix "><li class="part-title">Учимся у других</li><li class="chapter-item expanded "><a href="examples/intro.html"><strong aria-hidden="true">4.</strong> Коды и скрипты</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="examples/kenv.html"><strong aria-hidden="true">4.1.</strong> Уравнение огибающей Капчинского-Владимирского для пучка заряженных частиц</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -1283,6 +1283,29 @@ plt.show()
 <p>To be continued...</p>
 <pre><code class="language-python">
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><p>General requirements for Python code</p>
+<ul>
+<li>Strict compliance with PEP8.</li>
+<li>The length of the string is 79 characters.</li>
+<li>The imports are properly sorted, there are no unused imports.</li>
+<li>The margins are 4 spaces.</li>
+<li>Hyphenation with correct indentation.</li>
+<li>Backslashes are not used for transfers.</li>
+<li>Consistency (the same quotes, the same methods of solving the same problems, and so on).</li>
+<li>Lack of commented code and standard comments (# Create your views here. etc.).</li>
+<li>Comments on functions are formatted as Docstrings, in accordance with the Docstring
+Conventions: Begin with a capital letter, end with a period, and contain a description of what the function does.</li>
+<li>The comments to the code are concise and informative.</li>
+<li>Long pieces of code are logically separated by blank lines like paragraphs in a text.</li>
+<li>There are no unnecessary operations.</li>
+<li>There are no extra else where they are not needed (if a return/raise occurs in the if); Guard Block is used</li>
+<li>There are no unnecessary files in the repository: no pycache , .vscode and other things.</li>
+<li>The executable code in .py files must be closed with the if name == ‘main’ construction.</li>
+<li>For immutable sequences of data, tuples rather than lists are preferable.</li>
+<li>In f-strings, only variable substitution is used and there are no logical or arithmetic operations, function calls, or similar dynamics.</li>
+<li>Variables are named according to their meaning, in English, there are no single-letter
+names and transliteration. The variable name should not contain its type. If necessary, type annotations are used.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Полезные-ссылки"><a class="header" href="#Полезные-ссылки">Полезные ссылки</a></h1>
 <ul>
 <li><a href="https://git-scm.com/book/ru/v2">Введение в основы Git</a></li>
