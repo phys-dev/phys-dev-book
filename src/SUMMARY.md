@@ -16,6 +16,7 @@
   - [Scipy](./dev/python/scipy.md)
   - [Matplotlib](./dev/python/matplotlib.md)
   - [Holoviews](./dev/python/holo.md)
+  - [Requirements](./dev/python/requirements.md)
 - [Git](./dev/git.md)
 
 [//]: # (  )
