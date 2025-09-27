@@ -19,13 +19,12 @@
   - [Requirements](./dev/python/requirements.md)
 - [Git](./dev/git.md)
 
-[//]: # (  )
-[//]: # (# Загружаем linux)
+  
+# Загружаем linux
 
-[//]: # ()
-[//]: # (- [Linux]&#40;./linux/intro.md&#41;)
-
-[//]: # (    - [Устройство]&#40;./linux/structure.md&#41;)
+- [Linux](./linux/intro.md)
+    - [Процесс загрузки](./linux/booting.md)
+    - [Файловые системы](./linux/filesystems.md)
 
 [//]: # (    - [Инструменты]&#40;./linux/tools.md&#41;)
 
