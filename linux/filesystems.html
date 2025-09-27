@@ -1,0 +1,352 @@
+<!DOCTYPE HTML>
+<html lang="ru" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Файловые системы - Разработка и применение программного обеспечения в физических исследованиях</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../intro/intro.html">О книге</a></li><li class="chapter-item expanded affix "><a href="../intro/about-me.html">О себе</a></li><li class="chapter-item expanded affix "><li class="part-title">Ищем помощников</li><li class="chapter-item expanded "><a href="../ai/intro.html"><strong aria-hidden="true">1.</strong> ИИ для разработки</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ai/context.html"><strong aria-hidden="true">1.1.</strong> Контекст и скорость изменений</a></li><li class="chapter-item expanded "><a href="../ai/develop.html"><strong aria-hidden="true">1.2.</strong> ИИ и разработчик</a></li><li class="chapter-item expanded "><a href="../ai/basic.html"><strong aria-hidden="true">1.3.</strong> Технические основы</a></li><li class="chapter-item expanded "><a href="../ai/instruments.html"><strong aria-hidden="true">1.4.</strong> Инструментарий</a></li><li class="chapter-item expanded "><a href="../ai/qa.html"><strong aria-hidden="true">1.5.</strong> Вопросы и ответы</a></li></ol></li><li class="chapter-item expanded "><a href="../dev/python/intro.html"><strong aria-hidden="true">2.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dev/python/basics.html"><strong aria-hidden="true">2.1.</strong> Basics</a></li><li class="chapter-item expanded "><a href="../dev/python/numpy.html"><strong aria-hidden="true">2.2.</strong> Numpy</a></li><li class="chapter-item expanded "><a href="../dev/python/scipy.html"><strong aria-hidden="true">2.3.</strong> Scipy</a></li><li class="chapter-item expanded "><a href="../dev/python/matplotlib.html"><strong aria-hidden="true">2.4.</strong> Matplotlib</a></li><li class="chapter-item expanded "><a href="../dev/python/holo.html"><strong aria-hidden="true">2.5.</strong> Holoviews</a></li><li class="chapter-item expanded "><a href="../dev/python/requirements.html"><strong aria-hidden="true">2.6.</strong> Requirements</a></li></ol></li><li class="chapter-item expanded "><a href="../dev/git.html"><strong aria-hidden="true">3.</strong> Git</a></li><li class="chapter-item expanded affix "><li class="part-title">Загружаем linux</li><li class="chapter-item expanded "><a href="../linux/intro.html"><strong aria-hidden="true">4.</strong> Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linux/booting.html"><strong aria-hidden="true">4.1.</strong> Процесс загрузки</a></li><li class="chapter-item expanded "><a href="../linux/filesystems.html" class="active"><strong aria-hidden="true">4.2.</strong> Файловые системы</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Учимся у других</li><li class="chapter-item expanded "><a href="../examples/intro.html"><strong aria-hidden="true">5.</strong> Коды и скрипты</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../examples/kenv.html"><strong aria-hidden="true">5.1.</strong> Уравнение огибающей Капчинского-Владимирского для пучка заряженных частиц</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Разработка и применение программного обеспечения в физических исследованиях</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/phys-dev/book/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="Файловые-системы"><a class="header" href="#Файловые-системы">Файловые системы</a></h2>
+<h3 id="1-Немного-о-дисках"><a class="header" href="#1-Немного-о-дисках">1. Немного о дисках</a></h3>
+<p>Жёсткий диск состоит из пластин, разделённых на дорожки и секторы (обычно по 512 байт или 4 КБ). Файловая система располагается внутри раздела диска, который описывается в таблице разделов (MBR или GPT).</p>
+<h3 id="2-Задачи-файловой-системы"><a class="header" href="#2-Задачи-файловой-системы">2. Задачи файловой системы</a></h3>
+<p>ФС решает несколько ключевых задач:</p>
+<ul>
+<li><strong>Индексация и поиск данных</strong> (через структуры вроде inode).</li>
+<li><strong>Управление свободным пространством</strong>.</li>
+<li><strong>Контроль доступа</strong> (права, ACL).</li>
+<li><strong>Оптимизация производительности</strong> (кеширование, дефрагментация*).</li>
+<li><strong>Надёжность</strong> (журналирование).</li>
+</ul>
+<blockquote>
+<p>*Дефрагментация менее критична для современных ФС (ext4, XFS, btrfs) и SSD.</p>
+</blockquote>
+<h3 id="3-Виды-файловых-систем"><a class="header" href="#3-Виды-файловых-систем">3. Виды файловых систем</a></h3>
+<p>Доступ к разным ФС в Linux обеспечивается единым интерфейсом — <strong>VFS (Virtual File System)</strong>.</p>
+<h4 id="fat-file-allocation-table"><a class="header" href="#fat-file-allocation-table">FAT (File Allocation Table)</a></h4>
+<ul>
+<li><strong>Плюсы</strong>: Простая, поддерживается всеми ОС.</li>
+<li><strong>Минусы</strong>: Нет журналирования, ограничения на размер файла и раздела (FAT32: файл до 4 ГБ, раздел до 32 ГБ).</li>
+<li><strong>Расчёт размера</strong>: FAT12: 2^12 * размер_блока.</li>
+</ul>
+<h4 id="ext4-fourth-extended-filesystem"><a class="header" href="#ext4-fourth-extended-filesystem">ext4 (Fourth Extended Filesystem)</a></h4>
+<ul>
+<li><strong>Стандарт</strong> для Ubuntu, Debian и многих других дистрибутивов.</li>
+<li><strong>Журналируемая</strong> — повышает надёжность, записывая метаданные операций в специальный журнал перед их выполнением.</li>
+<li>Использует <strong>экстенты (extents)</strong> для более эффективного хранения больших файлов (вместо прямых/косвенных блоков).</li>
+<li><strong>Иноды (inodes)</strong> хранят метаданные о файле (права, владелец, указатели на данные). Их количество ограничено и задаётся при создании ФС.</li>
+</ul>
+<h4 id="xfs"><a class="header" href="#xfs">XFS</a></h4>
+<ul>
+<li>Высокопроизводительная ФС, хорошо подходит для работы с <strong>большими файлами</strong>.</li>
+<li>Использует B+-tree для индексации.</li>
+<li><strong>Отложенная аллокация</strong> — улучшает производительность.</li>
+<li>Динамическое создание inodes.</li>
+<li><strong>Стандарт</strong> для Red Hat Enterprise Linux.</li>
+</ul>
+<h4 id="btrfs-b-tree-file-system"><a class="header" href="#btrfs-b-tree-file-system">btrfs (B-Tree File System)</a></h4>
+<ul>
+<li>Современная ФС с продвинутыми функциями.</li>
+<li><strong>Copy-on-Write (CoW)</strong>: При изменении файла данные записываются в новое место, а не перезаписываются старые. Это позволяет эффективно создавать <strong>снапшоты (snapshots)</strong>.</li>
+<li><strong>Встроенная поддержка RAID и LVM</strong>-подобных функций.</li>
+<li><strong>Субаллокация</strong> — эффективная работа с маленькими файлами.</li>
+<li>Поддержка <strong>TRIM</strong> для SSD.</li>
+<li><strong>Стандарт</strong> для openSUSE.</li>
+</ul>
+<h3 id="4-Конфигурирование-файловой-системы"><a class="header" href="#4-Конфигурирование-файловой-системы">4. Конфигурирование файловой системы</a></h3>
+<ul>
+<li><strong>Кеширование</strong>: Ядро использует Page Cache (для данных) и Dirty Cache (для изменённых, но не записанных данных) для ускорения работы.</li>
+<li><strong>I/O планировщики</strong>: Определяют порядок обработки запросов к диску. Доступны через <code>/sys/block/&lt;device&gt;/queue/scheduler</code>.
+<ul>
+<li><code>cfq</code> / <code>bfq</code> — «честное» распределение.</li>
+<li><code>deadline</code> — учитывает сроки выполнения запросов.</li>
+<li><code>noop</code> — простой FIFO (часто лучше для SSD).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Утилиты для работы с ФС:</strong></p>
+<ul>
+<li><code>mkfs</code>, <code>mke2fs</code> — создание ФС.</li>
+<li><code>tune2fs</code> — изменение параметров ФС ext*.</li>
+<li><code>debugfs</code> — отладка ФС ext*.</li>
+<li><code>fsck</code> — проверка и восстановление ФС.</li>
+</ul>
+<h3 id="5-Монтирование"><a class="header" href="#5-Монтирование">5. Монтирование</a></h3>
+<p>Процесс подключения раздела диска к определённой точке в дереве каталогов (<code>/mnt</code>, <code>/home</code> и т.д.).</p>
+<ul>
+<li>Команды: <code>mount</code>, <code>umount</code>.</li>
+<li><strong>/etc/fstab</strong> — файл статической информации о файловых системах для автоматического монтирования при загрузке.
+<pre><code class="language-bash"># Пример строки в /etc/fstab
+UUID=ed465c6e-949a-41c6-8e8b-c8da348a3577 / ext4 defaults 0 1
+</code></pre>
+</li>
+<li><strong>Параметры монтирования</strong>: <code>rw</code>/<code>ro</code> (чтение/запись), <code>noatime</code> (не обновлять время доступа для производительности), <code>acl</code> (поддержка списков контроля доступа) и др.</li>
+<li><strong>systemd.mount</strong> — альтернатива <code>fstab</code> через юниты systemd.</li>
+</ul>
+<h3 id="6-raid-redundant-array-of-independent-disks"><a class="header" href="#6-raid-redundant-array-of-independent-disks">6. RAID (Redundant Array of Independent Disks)</a></h3>
+<p>Технология объединения нескольких дисков в массив для повышения надёжности и/или производительности.</p>
+<div class="table-wrapper"><table><thead><tr><th>Уровень</th><th>Принцип</th><th>Надёжность</th><th>Производительность</th><th>Ёмкость</th></tr></thead><tbody>
+<tr><td><strong>RAID 0</strong></td><td>Striping (чередование)</td><td>Низкая</td><td>Высокая (чт/зап)</td><td>N</td></tr>
+<tr><td><strong>RAID 1</strong></td><td>Mirroring (зеркалирование)</td><td>Высокая</td><td>Высокая (чт)</td><td>N/2</td></tr>
+<tr><td><strong>RAID 5</strong></td><td>Четность</td><td>Средняя</td><td>Высокая (чт)</td><td>N-1</td></tr>
+<tr><td><strong>RAID 6</strong></td><td>Двойная четность</td><td>Высокая</td><td>Высокая (чт)</td><td>N-2</td></tr>
+<tr><td><strong>RAID 10</strong></td><td>Зеркалирование + чередование</td><td>Высокая</td><td>Высокая (чт/зап)</td><td>N/2</td></tr>
+</tbody></table>
+</div>
+<p><strong>Создание программного RAID в Linux:</strong>
+Используется утилита <code>mdadm</code>.</p>
+<pre><code class="language-bash"># Пример создания RAID 1
+mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb /dev/sdc
+mkfs.ext4 /dev/md0
+mount /dev/md0 /mnt/raid
+# Сохранение конфигурации
+mdadm --detail --scan &gt;&gt; /etc/mdadm/mdadm.conf
+</code></pre>
+<h3 id="7-lvm-logical-volume-manager"><a class="header" href="#7-lvm-logical-volume-manager">7. LVM (Logical Volume Manager)</a></h3>
+<p>Система управления дисковым пространством, которая абстрагируется от физических дисков.</p>
+<p>Преимущества LVM:</p>
+<ul>
+<li>Гибкое управление размерами: Легко увеличивать, уменьшать логические тома.</li>
+<li>Снапшоты: Возможность создания моментальных снимков томов.</li>
+<li>Объединение дисков: Создание томов, размер которых превышает один физический диск.</li>
+</ul>
+<p>Основные понятия:</p>
+<ul>
+<li>Physical Volume (PV): Физический диск или раздел.</li>
+<li>Volume Group (VG): Группа физических томов.</li>
+<li>Logical Volume (LV): Логический том, создаваемый из пространства VG.</li>
+</ul>
+<p>Основные команды:</p>
+<ul>
+<li>pvcreate /dev/sdX — создать физический том.</li>
+<li>vgcreate my_vg /dev/sdX1 /dev/sdY1 — создать группу томов.</li>
+<li>lvcreate -n my_vol -L 10G my_vg — создать логический том размером 10 ГБ.</li>
+<li>mkfs.ext4 /dev/my_vg/my_vol — создать ФС на томе.</li>
+</ul>
+<h3 id="Заключение"><a class="header" href="#Заключение">Заключение</a></h3>
+<p>Понимание процесса загрузки и принципов работы файловых систем — ключевой навык для системного администратора Linux.
+Эти знания позволяют эффективно управлять системой, настраивать её под конкретные задачи, устранять неполадки и обеспечивать надёжность хранения данных.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../linux/booting.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../examples/intro.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../linux/booting.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../examples/intro.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

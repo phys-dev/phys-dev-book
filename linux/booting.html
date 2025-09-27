@@ -1,0 +1,307 @@
+<!DOCTYPE HTML>
+<html lang="ru" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Процесс загрузки - Разработка и применение программного обеспечения в физических исследованиях</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../intro/intro.html">О книге</a></li><li class="chapter-item expanded affix "><a href="../intro/about-me.html">О себе</a></li><li class="chapter-item expanded affix "><li class="part-title">Ищем помощников</li><li class="chapter-item expanded "><a href="../ai/intro.html"><strong aria-hidden="true">1.</strong> ИИ для разработки</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ai/context.html"><strong aria-hidden="true">1.1.</strong> Контекст и скорость изменений</a></li><li class="chapter-item expanded "><a href="../ai/develop.html"><strong aria-hidden="true">1.2.</strong> ИИ и разработчик</a></li><li class="chapter-item expanded "><a href="../ai/basic.html"><strong aria-hidden="true">1.3.</strong> Технические основы</a></li><li class="chapter-item expanded "><a href="../ai/instruments.html"><strong aria-hidden="true">1.4.</strong> Инструментарий</a></li><li class="chapter-item expanded "><a href="../ai/qa.html"><strong aria-hidden="true">1.5.</strong> Вопросы и ответы</a></li></ol></li><li class="chapter-item expanded "><a href="../dev/python/intro.html"><strong aria-hidden="true">2.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dev/python/basics.html"><strong aria-hidden="true">2.1.</strong> Basics</a></li><li class="chapter-item expanded "><a href="../dev/python/numpy.html"><strong aria-hidden="true">2.2.</strong> Numpy</a></li><li class="chapter-item expanded "><a href="../dev/python/scipy.html"><strong aria-hidden="true">2.3.</strong> Scipy</a></li><li class="chapter-item expanded "><a href="../dev/python/matplotlib.html"><strong aria-hidden="true">2.4.</strong> Matplotlib</a></li><li class="chapter-item expanded "><a href="../dev/python/holo.html"><strong aria-hidden="true">2.5.</strong> Holoviews</a></li><li class="chapter-item expanded "><a href="../dev/python/requirements.html"><strong aria-hidden="true">2.6.</strong> Requirements</a></li></ol></li><li class="chapter-item expanded "><a href="../dev/git.html"><strong aria-hidden="true">3.</strong> Git</a></li><li class="chapter-item expanded affix "><li class="part-title">Загружаем linux</li><li class="chapter-item expanded "><a href="../linux/intro.html"><strong aria-hidden="true">4.</strong> Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linux/booting.html" class="active"><strong aria-hidden="true">4.1.</strong> Процесс загрузки</a></li><li class="chapter-item expanded "><a href="../linux/filesystems.html"><strong aria-hidden="true">4.2.</strong> Файловые системы</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Учимся у других</li><li class="chapter-item expanded "><a href="../examples/intro.html"><strong aria-hidden="true">5.</strong> Коды и скрипты</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../examples/kenv.html"><strong aria-hidden="true">5.1.</strong> Уравнение огибающей Капчинского-Владимирского для пучка заряженных частиц</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Разработка и применение программного обеспечения в физических исследованиях</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/phys-dev/book/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="Загрузка"><a class="header" href="#Загрузка">Загрузка</a></h2>
+<h3 id="1-bios-basic-inputoutput-system"><a class="header" href="#1-bios-basic-inputoutput-system">1. BIOS (Basic Input/Output System)</a></h3>
+<p><strong>BIOS</strong> — это микропрограмма, хранящаяся на чипе материнской платы (во FLASH-памяти). При включении питания процессор выполняет первую инструкцию по адресу <code>0xFFFFFFF0</code> (так называемый <strong>reset vector</strong>), который указывает на код BIOS.</p>
+<p><strong>Основные функции BIOS:</strong></p>
+<ul>
+<li><strong>POST (Power-On Self-Test)</strong>: Проверка целостности самой микропрограммы, инициализация критически важного оборудования (процессор, память, чипсет), запуск встроенного ПО других устройств (видеокарта, сетевая карта).</li>
+<li><strong>Сигналы POST</strong>: Если на этапе самотестирования возникает ошибка, BIOS подаёт сигналы через системный динамик (например, 1 короткий — успех, длинные и короткие комбинации — различные ошибки).</li>
+</ul>
+<h3 id="2-Загрузчик-bootloader"><a class="header" href="#2-Загрузчик-bootloader">2. Загрузчик (Bootloader)</a></h3>
+<p>Задача загрузчика — найти, загрузить в оперативную память и передать управление ядру операционной системы.</p>
+<h4 id="Схемы-загрузки"><a class="header" href="#Схемы-загрузки">Схемы загрузки</a></h4>
+<ul>
+<li>
+<p><strong>BIOS + MBR (Master Boot Record)</strong>:</p>
+<ul>
+<li><strong>MBR</strong> — это первые 512 байт на диске. Содержит:
+<ul>
+<li><strong>Bootstrap Code</strong> (446 байт) — первичный код загрузчика.</li>
+<li><strong>Partition Table</strong> (64 байта) — таблица разделов (до 4 первичных).</li>
+<li><strong>Signature</strong> (2 байта) — сигнатура <code>55 AA</code>.</li>
+</ul>
+</li>
+<li>Ограничение MBR: работа с дисками до 2 ТБ.</li>
+<li>Процесс: BIOS загружает MBR, код из MBR находит <strong>активный раздел</strong> и загружает следующий этап загрузчика (например, GRUB2), который уже находится в этом разделе.</li>
+</ul>
+</li>
+<li>
+<p><strong>UEFI + GPT (GUID Partition Table)</strong>:</p>
+<ul>
+<li><strong>UEFI</strong> — современный стандарт, пришедший на смену BIOS. Умеет читать файловые системы (например, FAT32) и поддерживает безопасную загрузку (<strong>Secure Boot</strong>).</li>
+<li><strong>GPT</strong> — современная схема разделов, не имеющая ограничений MBR.</li>
+<li>Процесс: UEFI напрямую обращается к специальному <strong>FAT32-разделу (EFI System Partition)</strong>, где хранятся файлы загрузчиков с расширением <code>.efi</code> (например, <code>grubx64.efi</code>). Загрузочные записи хранятся в NVRAM.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Полезные команды:</strong></p>
+<ul>
+<li>Просмотр UEFI-записей: <code>efibootmgr -v</code></li>
+<li>Просмотр разделов: <code>fdisk -l</code></li>
+</ul>
+<h4 id="grub2-grand-unified-bootloader-2"><a class="header" href="#grub2-grand-unified-bootloader-2">GRUB2 (Grand Unified Bootloader 2)</a></h4>
+<p>Самый распространённый загрузчик в Linux.</p>
+<ul>
+<li>Позволяет выбирать ядро или ОС для загрузки.</li>
+<li>Загружает необходимые модули для поддержки оборудования и файловых систем.</li>
+<li>Основной конфигурационный файл: <code>/boot/grub/grub.cfg</code> (генерируется автоматически).</li>
+</ul>
+<h3 id="3-Ядро-kernel"><a class="header" href="#3-Ядро-kernel">3. Ядро (Kernel)</a></h3>
+<p><strong>Ядро Linux</strong> — это сжатый исполняемый файл (обычно <code>vmlinuz-&lt;версия&gt;</code> в каталоге <code>/boot</code>).</p>
+<ol>
+<li>GRUB загружает ядро в оперативную память.</li>
+<li>Ядро распаковывается.</li>
+<li>Ядро запускается с параметрами командной строки (можно посмотреть в <code>/proc/cmdline</code>).</li>
+<li>Ядро монтирует в памяти начальную RAM-диск (<strong>initramfs</strong>).</li>
+</ol>
+<h4 id="initramfs-initial-ram-file-system"><a class="header" href="#initramfs-initial-ram-file-system">Initramfs (Initial RAM File System)</a></h4>
+<p>Это временная корневая файловая система в памяти.</p>
+<ul>
+<li>Содержит необходимые на раннем этапе загрузки драйверы, модули ядра, микрокод и скрипты.</li>
+<li>Его главная задача — смонтировать реальную корневую файловую систему (<code>/</code>), после чего управление передаётся процессу <code>init</code>.</li>
+</ul>
+<h3 id="4-init-и-systemd"><a class="header" href="#4-init-и-systemd">4. Init и systemd</a></h3>
+<p>Процесс с PID 1 (<code>init</code> или <code>systemd</code>) является родителем для всех остальных процессов в системе.</p>
+<p><strong>Его основные задачи:</strong></p>
+<ul>
+<li>Управление порядком запуска служб (демонов).</li>
+<li>Монтирование файловых систем (согласно <code>/etc/fstab</code>).</li>
+<li>Управление всеми запущенными процессами.</li>
+</ul>
+<p><strong>systemd</strong> — современная и самая распространённая реализация init.</p>
+<ul>
+<li>Использует концепцию <strong>юнитов (units)</strong> (сервисы, монтирования, сокеты и т.д.).</li>
+<li>Позволяет просматривать зависимости: <code>systemctl list-dependencies default.target</code></li>
+<li>Имеет множество утилит для управления системой (<code>systemctl</code>, <code>journalctl</code> и др.).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../linux/intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../linux/filesystems.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../linux/intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../linux/filesystems.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
