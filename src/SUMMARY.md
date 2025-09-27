@@ -25,8 +25,7 @@
 - [Linux](./linux/intro.md)
     - [Процесс загрузки](./linux/booting.md)
     - [Файловые системы](./linux/filesystems.md)
-
-[//]: # (    - [Инструменты]&#40;./linux/tools.md&#41;)
+    - [Инструменты](./linux/tools.md)
 
 [//]: # (    - [Внутренности]&#40;./linux/internals.md&#41;)
 
