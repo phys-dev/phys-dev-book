@@ -179,214 +179,278 @@
                 <div id="content" class="content">
                     <main>
                         <h2 id="Инструменты-linux"><a class="header" href="#Инструменты-linux">Инструменты Linux</a></h2>
-<h3 id="1-Инструменты-для-работы-в-терминале"><a class="header" href="#1-Инструменты-для-работы-в-терминале">1. Инструменты для работы в терминале</a></h3>
-<h4 id="Слепая-печать"><a class="header" href="#Слепая-печать">Слепая печать</a></h4>
-<p>Первым шагом к эффективной работе в терминале является освоение слепой десятипальцевой печати.</p>
+<p>Лекция посвящена основным инструментам для эффективной работы в Linux-терминале. Мы рассмотрим всё: от настройки окружения до продвинутых методов диагностики проблем.</p>
+<h2 id="Часть-1-Подготовка-и-окружение"><a class="header" href="#Часть-1-Подготовка-и-окружение">Часть 1: Подготовка и окружение</a></h2>
+<h3 id="Слепая-печать"><a class="header" href="#Слепая-печать">Слепая печать</a></h3>
+<p>Первый и самый важный навык — умение печатать, не глядя на клавиатуру.</p>
 <ul>
-<li><strong>Преимущества:</strong> увеличение скорости, меньше ошибок.</li>
-<li><strong>Сложность:</strong> первые месяцы будут тяжелыми, но результат того стоит.</li>
+<li><strong>Преимущества:</strong> Увеличение скорости, меньше ошибок, полный контроль над терминалом.</li>
+<li><strong>Сложности:</strong> Первые месяцы будут тяжелыми, но результат того стоит.</li>
 </ul>
-<p><strong>Тренажеры:</strong></p>
+<p><strong>Инструменты для тренировки:</strong></p>
 <ul>
-<li><strong>GNU Typist:</strong> консольный тренажер. Установка: <code>apt-get install gtypist</code> или <code>brew install gtypist</code>.</li>
-<li><strong>Monkeytype:</strong> современный онлайн-тренажер для программистов.</li>
-<li><strong>Keybr.com:</strong> еще один популярный онлайн-тренажер.</li>
+<li><code>GNU Typist</code> (<code>gtypist</code>) — консольный тренажер. Устанавливается через <code>apt-get install gtypist</code> или <code>brew install gtypist</code>.</li>
+<li><code>monkeytype</code> — современный онлайн-тренажер.</li>
+<li><code>www.keybr.com</code> — еще один популярный онлайн-тренажер.</li>
 </ul>
-<h4 id="Эмуляторы-терминала"><a class="header" href="#Эмуляторы-терминала">Эмуляторы терминала</a></h4>
-<p>Стандартные терминалы часто ограничены в функциональности. Хороший эмулятор должен поддерживать:</p>
+<h3 id="Эмулятор-терминала"><a class="header" href="#Эмулятор-терминала">Эмулятор терминала</a></h3>
+<p>Стандартные терминалы часто бедны на функции. Хороший терминал должен иметь:</p>
 <ul>
-<li>Табы</li>
-<li>Разделение окон (split)</li>
-<li>Копирование при выделении</li>
-<li>Поддержку кликабельных ссылок</li>
-<li>Плагины и кастомизацию</li>
+<li>Вкладки (табы).</li>
+<li>Разделение окна (split panels).</li>
+<li>Копирование в буфер обмена просто при выделении текста.</li>
+<li>Поддержка кликабельных ссылок.</li>
+<li>Система плагинов для расширения функционала.</li>
+<li>Прочие "рюшечки" (темы, прозрачность и т.д.).</li>
 </ul>
-<p><strong>Рекомендации:</strong></p>
+<p><strong>Рекомендуемые терминалы:</strong></p>
 <ul>
-<li><strong>macOS:</strong> iTerm2</li>
-<li><strong>Linux:</strong> Terminator, Kitty, Konsole</li>
-<li><strong>Windows 10/11:</strong> Windows Terminal</li>
-<li><strong>Windows (условно-бесплатный):</strong> MobaXterm (также включает SSH-клиент, X-сервер и сетевые инструменты)</li>
+<li><strong>macOS:</strong> <code>iTerm2</code></li>
+<li><strong>Linux:</strong> <code>Terminator</code>, <code>Kitty</code>, <code>Konsole</code></li>
+<li><strong>Windows 10/11:</strong> <code>Windows Terminal</code></li>
+<li><strong>Windows (условно-бесплатный):</strong> <code>MobaXterm</code> (также включает SSH-клиент, X-сервер и сетевые инструменты).</li>
 </ul>
-<h4 id="Моноширинные-шрифты"><a class="header" href="#Моноширинные-шрифты">Моноширинные шрифты</a></h4>
-<p>Для удобства чтения кода используйте моноширинные шрифты. Примеры хороших шрифтов:</p>
+<h3 id="Моноширинные-шрифты"><a class="header" href="#Моноширинные-шрифты">Моноширинные шрифты</a></h3>
+<p>Для удобства чтения кода в терминале необходимы качественные моноширинные шрифты.</p>
 <ul>
-<li>Source Code Pro</li>
-<li>Inconsolata</li>
-<li>Anonymous Pro</li>
+<li><strong>Source Code Pro</strong> (Adobe)</li>
+<li><strong>Inconsolata</strong> (Google)</li>
+<li><strong>Anonymous Pro</strong></li>
 </ul>
-<p>Ссылки для скачивания обычно можно найти на GitHub или сайтах разработчиков.</p>
-<h4 id="Командные-оболочки-shell"><a class="header" href="#Командные-оболочки-shell">Командные оболочки (Shell)</a></h4>
-<p>Оболочка — это интерпретатор команд, с которым вы взаимодействуете в терминале.</p>
+<p>Ссылки для скачивания приведены в презентации.</p>
+<h3 id="Командные-оболочки-shell"><a class="header" href="#Командные-оболочки-shell">Командные оболочки (Shell)</a></h3>
+<p>Это интерпретатор команд, с которым вы взаимодействуете в терминале.</p>
 <ul>
-<li><strong>bash (Bourne-Again SHell):</strong> Универсальный и стандартный выбор. Идеален для разнородной инфраструктуры.</li>
-<li><strong>zsh (Z Shell):</strong> Обладает расширенными возможностями и поддержкой плагинов (например, Oh My Zsh). Хорош для локальной разработки и контролируемой инфраструктуры.</li>
-<li><strong>fish (Friendly Interactive SHell):</strong> Современный shell с богатым функционалом и удобной автодополнением по умолчанию.</li>
+<li><strong>bash (Bourne-Again SHell):</strong> Универсальный стандарт. Лучший выбор для разнородной инфраструктуры.</li>
+<li><strong>zsh (Z Shell):</strong> Обладает расширенными возможностями и богатой экосистемой плагинов. Идеален для локальной разработки и контролируемой инфраструктуры. Фреймворк <code>Oh My Zsh</code> делает настройку zsh простой и приятной.</li>
+<li><strong>fish (Friendly Interactive SHell):</strong> Современный shell с удобством "из коробки". Выбирается по тем же причинам, что и zsh.</li>
 </ul>
-<p><strong>Oh My Zsh</strong> — фреймворк для управления конфигурацией zsh, который предоставляет множество тем, плагинов и функций.</p>
-<h3 id="2-Азы-командной-строки"><a class="header" href="#2-Азы-командной-строки">2. Азы командной строки</a></h3>
-<h4 id="Основы-навигации-и-справки"><a class="header" href="#Основы-навигации-и-справки">Основы навигации и справки</a></h4>
+<h2 id="Часть-2-Основы-командной-строки"><a class="header" href="#Часть-2-Основы-командной-строки">Часть 2: Основы командной строки</a></h2>
+<h3 id="Структура-команд"><a class="header" href="#Структура-команд">Структура команд</a></h3>
 <ul>
-<li><code>which &lt;команда&gt;</code>, <code>type &lt;команда&gt;</code> — показывают путь к исполняемому файлу команды.</li>
-<li><code>man &lt;команда&gt;</code> — выводит руководство (manual) по команде. Для навигации в <code>man</code> (который использует <code>less</code>) полезны клавиши:
+<li><code>syscall exec</code> — ищет исполняемый файл по путям, указанным в переменной окружения <code>$PATH</code>.</li>
+<li><code>which &lt;команда&gt;</code> или <code>type &lt;команда&gt;</code> — показывают полный путь к исполняемому файлу команды. Флаг <code>-a</code> покажет все возможные пути в <code>$PATH</code>.</li>
+<li>Флаги команд не стандартизированы, но есть соглашения:
 <ul>
-<li><code>h</code> — помощь</li>
-<li><code>PgUp</code>, <code>PgDn</code>, <code>↑</code>, <code>↓</code> — прокрутка</li>
-<li><code>/KEYWORD</code> — поиск</li>
-<li><code>n</code> / <code>N</code> — следующее/предыдущее совпадение</li>
-<li><code>g</code> / <code>G</code> — переход в начало/конец документа</li>
+<li><code>-v</code> / <code>--version</code> — показать версию.</li>
+<li><code>-h</code> / <code>--help</code> — показать справку.</li>
+<li><code>-y</code> / <code>-f</code> — пропустить подтверждение (yes/force).</li>
 </ul>
 </li>
-<li><code>man bash</code> — содержит информацию о встроенных командах (shell builtins) и настройках строки ввода (readline).</li>
 </ul>
-<h4 id="Управление-процессами"><a class="header" href="#Управление-процессами">Управление процессами</a></h4>
+<h3 id="Справка-man"><a class="header" href="#Справка-man">Справка <code>man</code></a></h3>
+<p>Основной источник информации — команда <code>man</code> (manual).</p>
 <ul>
-<li><code>Ctrl+C</code> — послать сигнал <code>SIGINT</code> (прерывание процесса).</li>
-<li><code>Ctrl+Z</code> — послать сигнал <code>SIGTSTP</code> (приостановка процесса).</li>
-<li><code>fg</code> — вернуть приостановленный процесс на передний план (foreground).</li>
-<li><code>bg</code> — запустить приостановленный процесс в фоне (background).</li>
-<li><code>stty -a</code> — показать настройки терминала.</li>
-</ul>
-<h4 id="Управление-вводом-и-выводом-io-redirection"><a class="header" href="#Управление-вводом-и-выводом-io-redirection">Управление вводом и выводом (I/O Redirection)</a></h4>
+<li><strong>Пейджер:</strong> По умолчанию для просмотра используется <code>less</code>. Можно изменить переменной окружения <code>$MANPAGER</code> (например, <code>MANPAGER=cat</code>).</li>
+<li><strong>Основные клавиши в <code>less</code>:</strong>
 <ul>
-<li><code>stdin</code> (0) — стандартный поток ввода.</li>
-<li><code>stdout</code> (1) — стандартный поток вывода.</li>
-<li><code>stderr</code> (2) — стандартный поток ошибок.</li>
+<li><code>h</code> — помощь.</li>
+<li><code>PgUp</code>, <code>PgDown</code>, <code>↓</code>, <code>↑</code> — навигация.</li>
+<li><code>/KEYWORD</code> — поиск.</li>
+<li><code>N</code>, <code>n</code> — переход к следующему/предыдущему совпадению.</li>
+<li><code>g</code> — в начало документа.</li>
+<li><code>G</code> — в конец документа.</li>
 </ul>
-<p><strong>Примеры перенаправления:</strong></p>
+</li>
+<li><code>man &lt;раздел&gt; &lt;команда&gt;</code> — например, <code>man 1 bash</code> (справка по bash из раздела "пользовательские команды").</li>
+<li><code>man -P 'less +/KEYWORD' bash</code> — открыть man с поиском по ключевому слову.</li>
+</ul>
+<h3 id="Управление-процессами"><a class="header" href="#Управление-процессами">Управление процессами</a></h3>
+<ul>
+<li><code>Ctrl + C</code> — послать сигнал <code>SIGINT</code> (завершение процесса).</li>
+<li><code>Ctrl + \</code> — послать сигнал <code>SIGQUIT</code> (завершение с дампом памяти).</li>
+<li><code>Ctrl + Z</code> — послать сигнал <code>SIGTSTP</code> (приостановка процесса).</li>
+<li><code>fg</code> — вернуть приостановленный процесс на передний план.</li>
+<li><code>bg</code> — запустить приостановленный процесс в фоновом режиме.</li>
+<li><code>stty -a</code> — посмотреть и перенастроить настройки терминала.</li>
+</ul>
+<h3 id="Управление-вводомвыводом-io-redirection"><a class="header" href="#Управление-вводомвыводом-io-redirection">Управление вводом/выводом (I/O Redirection)</a></h3>
+<ul>
+<li><strong>Потоки данных:</strong>
+<ul>
+<li><code>stdin</code> (0) — стандартный вход.</li>
+<li><code>stdout</code> (1) — стандартный выход.</li>
+<li><code>stderr</code> (2) — стандартный вывод ошибок.</li>
+</ul>
+</li>
+<li><strong>Перенаправление:</strong>
 <ul>
 <li><code>команда &gt; файл</code> — записать <code>stdout</code> в файл (перезаписать).</li>
 <li><code>команда &gt;&gt; файл</code> — дописать <code>stdout</code> в конец файла.</li>
 <li><code>команда 2&gt; файл</code> — записать <code>stderr</code> в файл.</li>
+<li><code>команда &amp;&gt; файл</code> — записать <code>stdout</code> и <code>stderr</code> в файл.</li>
 <li><code>команда 2&gt;&amp;1</code> — перенаправить <code>stderr</code> в <code>stdout</code>.</li>
-<li><code>команда | другая_команда</code> — передать <code>stdout</code> первой команды на <code>stdin</code> второй (<code>pipe</code>).</li>
-<li><code>/dev/null</code> — "черная дыра" для данных.</li>
-</ul>
-<h4 id="Помощники-командной-строки"><a class="header" href="#Помощники-командной-строки">Помощники командной строки</a></h4>
-<ul>
-<li><strong>Автодополнение (Tab Completion):</strong> Клавиша <code>Tab</code> — ваш лучший друг.
-<ul>
-<li><code>Tab</code> — дополнить команду или путь.</li>
-<li><code>Tab Tab</code> — показать все возможные варианты дополнения.</li>
+<li><code>команда | другая_команда</code> — передать <code>stdout</code> первой команды на <code>stdin</code> второй.</li>
 </ul>
 </li>
-<li><strong>История команд (<code>~/.bash_history</code> или <code>~/.zsh_history</code>):</strong>
+<li><strong>Специальные файлы:</strong>
 <ul>
-<li><code>Ctrl+R</code> — обратный поиск по истории.</li>
+<li><code>/dev/null</code> — "черная дыра".</li>
+<li><code>/dev/zero</code> — источник нулей.</li>
+<li><code>/dev/urandom</code> — источник псевдослучайных чисел.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Полезные-помощники"><a class="header" href="#Полезные-помощники">Полезные помощники</a></h3>
+<ul>
+<li><strong>Автодополнение (completion):</strong> Клавиша <code>TAB</code> — ваш лучший друг.
+<ul>
+<li>Одно нажатие — дополнить команду/файл.</li>
+<li>Двойное нажатие — показать все возможные варианты.</li>
+</ul>
+</li>
+<li><strong>История команд (<code>~/.bash_history</code>, <code>~/.zsh_history</code>):</strong>
+<ul>
+<li><code>Ctrl + R</code> — реверсивный поиск по истории.</li>
 <li><code>history | grep &lt;ключевое_слово&gt;</code> — поиск по истории.</li>
 <li><code>sudo !!</code> — выполнить предыдущую команду с <code>sudo</code>.</li>
+<li><code>!$</code> — подставить последний аргумент предыдущей команды.</li>
 </ul>
 </li>
 </ul>
-<h3 id="3-Полезные-команды-общего-назначения"><a class="header" href="#3-Полезные-команды-общего-назначения">3. Полезные команды общего назначения</a></h3>
-<h4 id="Ветвления-циклы-и-подоболочки-subshell"><a class="header" href="#Ветвления-циклы-и-подоболочки-subshell">Ветвления, циклы и подоболочки (Subshell)</a></h4>
+<h3 id="Ветвления-циклы-и-подоболочки-subshell"><a class="header" href="#Ветвления-циклы-и-подоболочки-subshell">Ветвления, циклы и подоболочки (Subshell)</a></h3>
 <ul>
-<li><code>;</code> — разделитель команд.</li>
-<li>Циклы <code>while</code>, <code>for</code>.</li>
-<li><code>read</code> — встроенная команда для чтения ввода в переменные.</li>
-<li><code>$(команда)</code> или <code>`команда`</code> — подстановка команд (command substitution). Результат выполнения команды подставляется в строку.</li>
-<li><code>[</code> или <code>test</code> — команда для проверки условий в скриптах.</li>
-</ul>
-<h4 id="Многопоточность-find-и-xargs"><a class="header" href="#Многопоточность-find-и-xargs">Многопоточность: <code>find</code> и <code>xargs</code></a></h4>
-<ul>
-<li><code>find</code> — мощный инструмент для поиска файлов и директорий.</li>
-<li><code>xargs</code> — строит и выполняет командные строки из входных данных с <code>stdin</code>.</li>
-<li><code>-P &lt;N&gt;</code> в <code>xargs</code> — запуск до N процессов параллельно.</li>
-</ul>
-<p><strong>Пример:</strong></p>
-<pre><code class="language-bash">find /etc -type f -name "nginx*" | xargs -n1 md5sum
+<li><code>;</code> — разделитель команд (выполняются последовательно).</li>
+<li>Циклы и условия:
+<pre><code class="language-bash">while true; do ...; done
+for i in $(seq 1 10); do echo $i; done
+if [ $(wc -l file.txt) -gt 3 ]; then ...; fi
 </code></pre>
-<p>Этот пример найдет все файлы, начинающиеся с "nginx" в <code>/etc</code>, и подсчитает их MD5-хэш.</p>
-<p><strong>Аналог:</strong> <code>GNU parallel</code> — более мощный инструмент для параллельного выполнения задач.</p>
-<h4 id="Утилиты-для-долгих-задач-и-сессий"><a class="header" href="#Утилиты-для-долгих-задач-и-сессий">Утилиты для долгих задач и сессий</a></h4>
+</li>
+<li><code>read</code> — встроенная команда для чтения ввода в переменные.</li>
+<li><strong>Подоболочка (Command Substitution):</strong>
 <ul>
-<li><code>watch -d -n1 "команда"</code> — выполнять команду каждую секунду и подсвечивать различия.</li>
-<li><code>screen</code> / <code>tmux</code> — менеджеры терминальных сессий, которые позволяют отключаться от сессии и подключаться к ней снова.
-<ul>
-<li><code>screen</code>: Запуск — <code>screen</code>, детач — <code>Ctrl+A D</code>, список — <code>screen -ls</code>, подключение — <code>screen -r &lt;сессия&gt;</code>.</li>
-<li><code>tmux</code>: Запуск — <code>tmux</code>, детач — <code>Ctrl+B D</code>, список — <code>tmux ls</code>, подключение — <code>tmux attach -t &lt;сессия&gt;</code>.</li>
+<li><code>$(команда)</code> или <code>`команда`</code> — вывод команды подставляется в строку.</li>
 </ul>
 </li>
+<li><code>[</code> — это бинарник, а не синтаксис shell. Подробнее: <code>man [</code> или <code>man test</code>.</li>
 </ul>
-<h3 id="4-Редактирование-текста"><a class="header" href="#4-Редактирование-текста">4. Редактирование текста</a></h3>
-<h4 id="Текстовые-редакторы"><a class="header" href="#Текстовые-редакторы">Текстовые редакторы</a></h4>
+<hr />
+<h2 id="Часть-3-Полезные-команды-и-утилиты"><a class="header" href="#Часть-3-Полезные-команды-и-утилиты">Часть 3: Полезные команды и утилиты</a></h2>
+<h3 id="find-и-многопоточность"><a class="header" href="#find-и-многопоточность">Find и многопоточность</a></h3>
 <ul>
-<li><strong>Vim:</strong> Мощный модальный редактор. Кривая обучения крутая, но эффективность высокая.
+<li><code>find</code> — мощный поиск файлов и директорий.
 <ul>
-<li><code>vimtutor</code> — встроенное интерактивное руководство.</li>
-<li><code>:q!</code> — выход без сохранения (первое, что нужно запомнить).</li>
+<li>Пример: <code>find /etc -type f -name "nginx*"</code></li>
 </ul>
 </li>
-<li><strong>Emacs:</strong> Другой мощный редактор с огромными возможностями. Выбор часто зависит от личных предпочтений.</li>
-</ul>
-<h4 id="Система-контроля-версий"><a class="header" href="#Система-контроля-версий">Система контроля версий</a></h4>
+<li><code>xargs</code> — передает результаты из <code>stdin</code> в аргументы другой команды.
 <ul>
-<li><strong>Git:</strong> Стандарт де-факто для современной разработки. Обязателен для изучения.</li>
+<li><code>-P &lt;N&gt;</code> — запуск до N процессов параллельно.</li>
+<li><code>-n1</code> — передавать по одному аргументу за раз.</li>
+<li>Пример: <code>find ... | xargs -P10 -n1 md5sum</code></li>
 </ul>
-<h3 id="5-Аналитика-и-потоковая-обработка-текста"><a class="header" href="#5-Аналитика-и-потоковая-обработка-текста">5. Аналитика и потоковая обработка текста</a></h3>
-<p><strong>Важно:</strong> Эти инструменты мощны, но не стоит строить на них критические продакшен-процессы без дополнительной надежности.</p>
-<p>Основные инструменты конвейерной обработки (pipe):</p>
+</li>
+<li><code>GNU parallel</code> — более мощная альтернатива <code>xargs</code> для параллельного выполнения.</li>
+</ul>
+<h3 id="Управление-сессиями-screen-и-tmux"><a class="header" href="#Управление-сессиями-screen-и-tmux">Управление сессиями: screen и tmux</a></h3>
+<p>Позволяют запускать процессы, которые продолжают работать после разрыва соединения.</p>
 <ul>
-<li><code>grep</code> — поиск по тексту с использованием регулярных выражений.</li>
-<li><code>awk</code> — язык для обработки текстовых данных, особенно с структурированными полями (например, колонками в логах).</li>
-<li><code>sed</code> — потоковый текстовый редактор (поиск, замена, удаление).</li>
-<li><code>cut</code> — извлечение определенных колонок из текста.</li>
+<li>
+<p><strong><code>screen</code>:</strong></p>
+<ul>
+<li><code>screen</code> — создать новую сессию.</li>
+<li><code>Ctrl + A, D</code> — отключиться от сессии (detach).</li>
+<li><code>screen -ls</code> — список сессий.</li>
+<li><code>screen -r &lt;session&gt;</code> — подключиться к сессии.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>tmux</code> (рекомендуется):</strong></p>
+<ul>
+<li><code>tmux</code> — создать сессию.</li>
+<li><code>Ctrl + B, D</code> — отключиться.</li>
+<li><code>tmux ls</code> — список сессий.</li>
+<li><code>tmux a -t &lt;session&gt;</code> — подключиться.</li>
+<li>Интеграция с <code>iTerm2</code>: <code>tmux -CC</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>watch -d -n1 "команда"</code> — выполняет команду раз в секунду и подсвечивает различия.</p>
+</li>
+</ul>
+<h3 id="Редактирование-текста"><a class="header" href="#Редактирование-текста">Редактирование текста</a></h3>
+<ul>
+<li><strong>Vim:</strong>
+<ul>
+<li>Мощный, вездесущий, имеет крутую кривую обучения.</li>
+<li><code>vimtutor</code> — встроенный интерактивный учебник. Пройдите его!</li>
+<li>Основы: <code>i</code> — вход в режим вставки, <code>ESC</code> — возврат в нормальный режим, <code>:wq</code> — сохранить и выйти, <code>:q!</code> — выйти без сохранения.</li>
+<li><code>vimdiff file1 file2</code> — сравнение файлов.</li>
+</ul>
+</li>
+<li><strong>Emacs:</strong> Другой мощный редактор. "Если вы знаете, что это, скорее всего, вам не нужна эта лекция".</li>
+<li><strong>Система контроля версий Git:</strong> Обязательный инструмент для любой современной IT-профессии.</li>
+</ul>
+<h3 id="Потоковая-обработка-текста"><a class="header" href="#Потоковая-обработка-текста">Потоковая обработка текста</a></h3>
+<p>Мощные утилиты для фильтрации и преобразования текстовых потоков. <strong>Не используйте их для построения продакшен-процессов!</strong></p>
+<ul>
+<li><code>grep</code> — фильтрация строк по регулярному выражению.</li>
+<li><code>awk</code> — целый язык для обработки текста, основанный на колонках.</li>
+<li><code>sed</code> — потоковый текстовый редактор (замена, удаление строк и т.д.).</li>
+<li><code>cut</code> — извлечение конкретных колонок.</li>
 <li><code>head</code> / <code>tail</code> — вывод начала/конца файла.</li>
 <li><code>tr</code> — замена или удаление символов.</li>
-<li><code>wc</code> (word count) — подсчет строк, слов, байт.</li>
+<li><code>wc</code> — подсчет строк, слов, символов.</li>
 <li><code>sort</code> — сортировка строк.</li>
 <li><code>uniq</code> — фильтрация повторяющихся строк.</li>
 </ul>
-<p><strong>Пример из логов nginx:</strong></p>
-<pre><code class="language-bash">head /var/log/nginx/access.log | awk '{print $6}' | tr '\n' ','
-</code></pre>
-<p>Эта команда извлекает из начала файла логов (URL-пути) из 6-го столбца и объединяет их через запятую.</p>
-<h4 id="Тренажеры-и-практика"><a class="header" href="#Тренажеры-и-практика">Тренажеры и практика</a></h4>
-<p>Существуют интерактивные тренажеры для оттачивания навыков работы с <code>grep</code>, <code>sed</code> и <code>awk</code>. Установить их можно через <code>pip</code>:</p>
-<pre><code class="language-bash">pip install grepexercises sedexercises awkexercises
-</code></pre>
-<p>Также отличным практическим заданием является текстовый квест <strong>"The Command Line Murders"</strong> (https://github.com/veltman/clmystery), где нужно использовать терминал для расследования.</p>
-<h3 id="6-Диагностика-и-поиск-проблем"><a class="header" href="#6-Диагностика-и-поиск-проблем">6. Диагностика и поиск проблем</a></h3>
-<h4 id="Ресурсы-для-углубленного-изучения"><a class="header" href="#Ресурсы-для-углубленного-изучения">Ресурсы для углубленного изучения</a></h4>
+<p><strong>Тренажеры:</strong> <code>grepexercises</code>, <code>sedexercises</code>, <code>awkexercises</code> (устанавливаются через <code>pip</code>).</p>
+<p><strong>Практика:</strong> <code>The Command Line Murders</code> — текстовый квест в терминале для отработки навыков. (https://github.com/veltman/clmystery)</p>
+<hr />
+<h2 id="Часть-4-Диагностика-и-поиск-проблем"><a class="header" href="#Часть-4-Диагностика-и-поиск-проблем">Часть 4: Диагностика и поиск проблем</a></h2>
+<h3 id="Методология-и-ресурсы"><a class="header" href="#Методология-и-ресурсы">Методология и ресурсы</a></h3>
 <ul>
-<li><strong>Brendan Gregg:</strong> Авторитет в области производительности Linux. На его сайте (https://www.brendangregg.com/linuxperf.html) можно найти огромное количество материалов, включая диаграммы выбора инструментов.</li>
-<li><strong>Книга "Systems Performance: Enterprise and the Cloud" (Brendan Gregg):</strong> Исчерпывающее руководство (928 страниц).</li>
+<li><strong>Брендан Грегг (Brendan Gregg)</strong> — гуру производительности.</li>
+<li>Его сайт — кладезь информации: https://www.brendangregg.com/linuxperf.html</li>
+<li>Книга "Systems Performance: Enterprise and the Cloud" — must-read для углубленного изучения.</li>
 </ul>
-<h4 id="Мини-топ-полезных-утилит"><a class="header" href="#Мини-топ-полезных-утилит">Мини-топ полезных утилит</a></h4>
-<p><strong>Мониторинг системы и процессов:</strong></p>
+<p>На его сайте можно найти бесценные диаграммы выбора инструментов:</p>
 <ul>
-<li><code>top</code>, <code>htop</code> — интерактивный просмотр процессов и ресурсов.</li>
-<li><code>atop</code> — более продвинутый мониторинг, может записывать данные в файл.</li>
-<li><code>ps auxfw | less</code> — статический список процессов.</li>
-<li><code>pidof &lt;имя_процесса&gt;</code> — найти PID по имени.</li>
+<li>Linux Observability Tools</li>
+<li>Linux Static Performance Tools</li>
+<li>Linux Benchmarking Tools</li>
+<li>Linux Tuning Tools</li>
 </ul>
-<p><strong>Диски и файловая система:</strong></p>
+<h3 id="Мини-топ-полезных-утилит"><a class="header" href="#Мини-топ-полезных-утилит">Мини-топ полезных утилит</a></h3>
 <ul>
-<li><code>df -h</code> / <code>df -ih</code> — место на дисках / информация об inodes.</li>
-<li><code>du -sh &lt;путь&gt;</code> — размер директории.</li>
+<li><strong>Мониторинг процессов и системы:</strong>
+<ul>
+<li><code>top</code> / <code>htop</code> — интерактивный просмотр процессов.</li>
+<li><code>atop</code> — расширенный мониторинг, может записывать данные в файл.</li>
+<li><code>pidof</code> — найти PID по имени процесса.</li>
+<li><code>ps fauxw | less</code> — детальный список процессов.</li>
+</ul>
+</li>
+<li><strong>Диски и файловая система:</strong>
+<ul>
+<li><code>df -h</code> / <code>df -ih</code> — место на дисках и inodes.</li>
+<li><code>du -sh /path/*</code> — размер директорий.</li>
 <li><code>iostat -x 1</code> — статистика ввода-вывода.</li>
 </ul>
-<p><strong>Сеть:</strong></p>
+</li>
+<li><strong>Сеть:</strong>
 <ul>
-<li><code>ss -s</code> / <code>netstat -ntlp</code> — статистика сокетов и прослушивающие порты.</li>
-<li><code>ping</code>, <code>traceroute</code>, <code>mtr</code> — диагностика сетевой связности.</li>
-<li><code>tcpdump</code> — "сниффер" сетевого трафика.</li>
-<li><code>ethtool &lt;интерфейс&gt;</code> — информация о сетевом интерфейсе.</li>
+<li><code>ss -s</code> / <code>netstat -ntlp</code> — статистика сокетов и открытые порты.</li>
+<li><code>ping</code> / <code>traceroute</code> / <code>mtr</code> — диагностика сетевой связности.</li>
+<li><code>tcpdump</code> — "сниффер" сетевых пакетов.</li>
+<li><code>ethtool eth0</code> — настройки и статистика сетевого интерфейса.</li>
 </ul>
-<p><strong>Разное:</strong></p>
+</li>
+<li><strong>Прочее:</strong>
 <ul>
-<li><code>lsof -i:&lt;порт&gt;</code> / <code>lsof -p &lt;PID&gt;</code> — список открытых файлов (включая сетевые соединения) для порта или процесса.</li>
-<li><code>strace -fp &lt;PID&gt;</code> / <code>strace &lt;команда&gt;</code> — трассировка системных вызовов.</li>
-<li><code>dmesg -T</code> — просмотр сообщений ядра.</li>
-<li><code>perf top</code> — профилирование системы в реальном времени.</li>
-<li><code>ulimit -a</code> — лимиты текущей сессии.</li>
+<li><code>lsof -i:포트</code> / <code>lsof -p $PID</code> — список открытых файлов сокетов процессом.</li>
+<li><code>strace -fp $PID</code> / <code>strace $cmd</code> — трассировка системных вызовов.</li>
+<li><code>dmesg -T</code> — просмотр логов ядра.</li>
+<li><code>perf top -F99</code> — профилирование системы в реальном времени.</li>
+<li><code>curl</code> — мастер на все руки для работы с HTTP/сетью.</li>
 </ul>
-<h4 id="Мастер-класс-по-curl"><a class="header" href="#Мастер-класс-по-curl">Мастер-класс по <code>curl</code></a></h4>
-<p>Для глубокого понимания сетевой диагностики рекомендуется посмотреть мастер-класс от создателя <code>curl</code> Даниэля Стейнберга.</p>
-<h3 id="Заключение"><a class="header" href="#Заключение">Заключение</a></h3>
-<p>Работа в Linux-терминале — это ключевой навык для IT-специалистов. Освоение инструментов, представленных в лекции,
-позволяет эффективно решать повседневные задачи, от редактирования файлов до диагностики сложных проблем в системе.
-Практика и использование тренажеров — лучший способ закрепить эти знания.</p>
+</li>
+</ul>
+<hr />
+<h2 id="Заключение"><a class="header" href="#Заключение">Заключение</a></h2>
+<p>Освоение терминала и его инструментов — это путь к настоящей эффективности в Linux. Начинайте с основ: печать, терминал, справка <code>man</code>. Постепенно внедряйте в свою практику более сложные инструменты, такие как <code>vim</code>, <code>tmux</code>, <code>grep</code>, <code>awk</code> и <code>sed</code>. Не бойтесь экспериментировать и использовать ресурсы, подобные сайту Брендана Грегга, для углубления знаний.</p>
+<p>Удачи в освоении мощного мира Linux-инструментов!</p>
 
                     </main>
 
