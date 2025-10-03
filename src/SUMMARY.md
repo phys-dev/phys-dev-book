@@ -22,10 +22,12 @@
   
 # Загружаем linux
 
-- [Linux](./linux/intro.md)
+- [Основы Linux](./linux/intro.md)
     - [Процесс загрузки](./linux/booting.md)
     - [Файловые системы](./linux/filesystems.md)
     - [Инструменты](./linux/tools.md)
+
+- [Установка Arch Linux](./linux/install-arch-linux.md)
 
 [//]: # (    - [Внутренности]&#40;./linux/internals.md&#41;)
 
