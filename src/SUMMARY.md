@@ -106,11 +106,11 @@
 
 # Работаем самостоятельно
 
-- [Ищем ошибки в чужом коде](https://github.com/phys-dev/review-code-task)
-- [Делаем свою LLM](https://github.com/phys-dev/markov-chain-task)
-- [Установка Linux](https://github.com/phys-dev/booting-linux-task)
-- [Набор упражнений для работы в Linux](https://github.com/phys-dev/linux-tools-task)
-- [Маленькая задачка c Linux](https://github.com/phys-dev/linux-tools-task)
+- [Ищем ошибки в чужом коде](./practicum/review-code-task.md)
+- [Делаем свою LLM](./practicum/markov-chain-task.md)
+- [Установка Linux](./practicum/booting-linux-task.md)
+- [Набор упражнений для работы в Linux](./practicum/linux-tools-task.md)
+- [Маленькая задачка c Linux](./practicum/linux-structure-task.md)
 
 [//]: # ()
 [//]: # (# Резюме)
