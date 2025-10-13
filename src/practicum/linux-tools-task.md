@@ -62,4 +62,4 @@
 
 Формат отчета - свободный (можно комбинировать текст, скриншоты, ссылки на записи)
 
-https://github.com/phys-dev/linux-tools-task
+[Ссылка на репозиторий](https://github.com/phys-dev/linux-tools-task)

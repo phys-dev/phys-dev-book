@@ -23,4 +23,4 @@
 
 3. Перенаправить выводы в соответствующие файлы
 
-https://github.com/phys-dev/linux-structure-task
+[Ссылка на репозиторий](https://github.com/phys-dev/linux-structure-task)

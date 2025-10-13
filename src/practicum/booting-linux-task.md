@@ -25,4 +25,4 @@
 - Скриншоты ключевых этапов
 - Комбинация указанных выше методов
 
-https://github.com/phys-dev/booting-linux-task
+[Ссылка на репозиторий](https://github.com/phys-dev/booting-linux-task)
