@@ -28,6 +28,7 @@
     - [Инструменты](./linux/tools.md)
 
 - [Установка Arch Linux](./linux/install-arch-linux.md)
+- [Внутреннее устройство Linux](./linux/structure.md)
 
 [//]: # (    - [Внутренности]&#40;./linux/internals.md&#41;)
 
