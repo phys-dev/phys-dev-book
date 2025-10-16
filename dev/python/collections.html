@@ -1,0 +1,422 @@
+<!DOCTYPE HTML>
+<html lang="ru" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Коллекции - Разработка и применение программного обеспечения в физических исследованиях</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../intro/intro.html">О книге</a></li><li class="chapter-item expanded affix "><a href="../../intro/about-me.html">О себе</a></li><li class="chapter-item expanded affix "><li class="part-title">Ищем помощников</li><li class="chapter-item expanded "><a href="../../ai/intro.html"><strong aria-hidden="true">1.</strong> ИИ для разработки</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../ai/context.html"><strong aria-hidden="true">1.1.</strong> Контекст и скорость изменений</a></li><li class="chapter-item expanded "><a href="../../ai/develop.html"><strong aria-hidden="true">1.2.</strong> ИИ и разработчик</a></li><li class="chapter-item expanded "><a href="../../ai/basic.html"><strong aria-hidden="true">1.3.</strong> Технические основы</a></li><li class="chapter-item expanded "><a href="../../ai/instruments.html"><strong aria-hidden="true">1.4.</strong> Инструментарий</a></li><li class="chapter-item expanded "><a href="../../ai/qa.html"><strong aria-hidden="true">1.5.</strong> Вопросы и ответы</a></li></ol></li><li class="chapter-item expanded "><a href="../../dev/python/intro.html"><strong aria-hidden="true">2.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../dev/python/basics.html"><strong aria-hidden="true">2.1.</strong> Basics</a></li><li class="chapter-item expanded "><a href="../../dev/python/numpy.html"><strong aria-hidden="true">2.2.</strong> Numpy</a></li><li class="chapter-item expanded "><a href="../../dev/python/scipy.html"><strong aria-hidden="true">2.3.</strong> Scipy</a></li><li class="chapter-item expanded "><a href="../../dev/python/matplotlib.html"><strong aria-hidden="true">2.4.</strong> Matplotlib</a></li><li class="chapter-item expanded "><a href="../../dev/python/holo.html"><strong aria-hidden="true">2.5.</strong> Holoviews</a></li><li class="chapter-item expanded "><a href="../../dev/python/requirements.html"><strong aria-hidden="true">2.6.</strong> Requirements</a></li></ol></li><li class="chapter-item expanded "><a href="../../dev/git.html"><strong aria-hidden="true">3.</strong> Git</a></li><li class="chapter-item expanded affix "><li class="part-title">Загружаем linux</li><li class="chapter-item expanded "><a href="../../linux/intro.html"><strong aria-hidden="true">4.</strong> Основы Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../linux/booting.html"><strong aria-hidden="true">4.1.</strong> Процесс загрузки</a></li><li class="chapter-item expanded "><a href="../../linux/filesystems.html"><strong aria-hidden="true">4.2.</strong> Файловые системы</a></li><li class="chapter-item expanded "><a href="../../linux/tools.html"><strong aria-hidden="true">4.3.</strong> Инструменты</a></li></ol></li><li class="chapter-item expanded "><a href="../../linux/install-arch-linux.html"><strong aria-hidden="true">5.</strong> Установка Arch Linux</a></li><li class="chapter-item expanded "><a href="../../linux/structure.html"><strong aria-hidden="true">6.</strong> Внутреннее устройство Linux</a></li><li class="chapter-item expanded affix "><li class="part-title">Погружаемся в Python</li><li class="chapter-item expanded "><a href="../../dev/python/objects.html"><strong aria-hidden="true">7.</strong> Объекты и память</a></li><li class="chapter-item expanded "><a href="../../dev/python/collections.html" class="active"><strong aria-hidden="true">8.</strong> Коллекции</a></li><li class="chapter-item expanded "><a href="../../dev/python/o-notation.html"><strong aria-hidden="true">9.</strong> Асимптотическая сложность</a></li><li class="chapter-item expanded affix "><li class="part-title">Учимся у других</li><li class="chapter-item expanded "><a href="../../examples/intro.html"><strong aria-hidden="true">10.</strong> Коды и скрипты</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../examples/kenv.html"><strong aria-hidden="true">10.1.</strong> Уравнение огибающей Капчинского-Владимирского для пучка заряженных частиц</a></li><li class="chapter-item expanded "><a href="../../examples/envelope-optimize.html"><strong aria-hidden="true">10.2.</strong> Оптимизация огибающей пучка заряженных частиц с помощью генетического алгоритма</a></li><li class="chapter-item expanded "><a href="../../examples/redpic.html"><strong aria-hidden="true">10.3.</strong> Релятивистская разностная схема для расчета динамики частиц в сложных электрических и магнитных полях</a></li></ol></li><li class="chapter-item expanded "><a href="../../resume/literature.html"><strong aria-hidden="true">11.</strong> Литература и статьи</a></li><li class="chapter-item expanded affix "><li class="part-title">Работаем самостоятельно</li><li class="chapter-item expanded "><a href="../../practicum/review-code-task.html"><strong aria-hidden="true">12.</strong> Ищем ошибки в чужом коде</a></li><li class="chapter-item expanded "><a href="../../practicum/markov-chain-task.html"><strong aria-hidden="true">13.</strong> Делаем свою LLM</a></li><li class="chapter-item expanded "><a href="../../practicum/booting-linux-task.html"><strong aria-hidden="true">14.</strong> Установка Linux</a></li><li class="chapter-item expanded "><a href="../../practicum/linux-tools-task.html"><strong aria-hidden="true">15.</strong> Набор упражнений для работы в Linux</a></li><li class="chapter-item expanded "><a href="../../practicum/linux-structure-task.html"><strong aria-hidden="true">16.</strong> Маленькая задачка c Linux</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Разработка и применение программного обеспечения в физических исследованиях</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/phys-dev/book/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="Коллекции-в-python-от-основ-к-тонкостям"><a class="header" href="#Коллекции-в-python-от-основ-к-тонкостям">Коллекции в Python: от основ к тонкостям</a></h1>
+<p>Коллекции — это основа хранения и обработки данных в Python. Понимание их внутреннего устройства, сильных и слабых сторон — ключ к написанию эффективного и идиоматичного кода.</p>
+<h2 id="Что-такое-коллекция"><a class="header" href="#Что-такое-коллекция">Что такое коллекция?</a></h2>
+<p>В Python <strong>коллекция</strong> — это объект, который одновременно является:</p>
+<ul>
+<li><strong>Контейнером</strong> (<code>Container</code>) — поддерживает оператор <code>in</code> для проверки вхождения.</li>
+<li><strong>Итерируемым объектом</strong> (<code>Iterable</code>) — его элементы можно перебирать в цикле.</li>
+<li><strong>Объектом ограниченной длины</strong> (<code>Sized</code>) — поддерживает функцию <code>len()</code>.</li>
+</ul>
+<pre><code class="language-python">from collections.abc import Collection
+
+# Проверим, является ли список коллекцией
+print(isinstance([1, 2, 3], Collection))  # True
+</code></pre>
+<h3 id="Любопытные-исключения"><a class="header" href="#Любопытные-исключения">Любопытные исключения</a></h3>
+<ul>
+<li><strong>Интервал чисел</strong> может быть контейнером, но не быть итерируемым или иметь длину.</li>
+<li><strong>Генератор</strong> является итерируемым, но не контейнером и не имеет длины.</li>
+</ul>
+<pre><code class="language-python"># Пример: Интервал как контейнер
+from dataclasses import dataclass
+
+@dataclass
+class Interval:
+    a: float
+    b: float
+
+    def __contains__(self, x):
+        return self.a &lt; x &lt; self.b
+
+interval = Interval(0, 1)
+print(0.5 in interval)  # True
+print(len(interval))    # TypeError: object of type 'Interval' has no len()
+</code></pre>
+<h2 id="Иерархия-коллекций"><a class="header" href="#Иерархия-коллекций">Иерархия коллекций</a></h2>
+<p>Стандартная библиотека Python определяет абстрактные базовые классы (ABC) для классификации коллекций:</p>
+<pre><code>Container -&gt; Iterable -&gt; Sized -&gt; Collection
+                                      |
+                              --------+--------
+                              |               |
+                          Sequence        Mapping
+</code></pre>
+<ul>
+<li><strong>Sequence</strong> (Последовательности): элементы упорядочены и доступны по индексу (списки, кортежи, строки).</li>
+<li><strong>Mapping</strong> (Отображения): хранят пары «ключ-значение» (словари).</li>
+</ul>
+<h2 id="Списки-list-универсальные-и-изменяемые"><a class="header" href="#Списки-list-универсальные-и-изменяемые">Списки (list): универсальные и изменяемые</a></h2>
+<p>Списки — это, пожалуй, самая часто используемая коллекция.</p>
+<h3 id="Неочевидные-особенности-инициализации"><a class="header" href="#Неочевидные-особенности-инициализации">Неочевидные особенности инициализации</a></h3>
+<pre><code class="language-python"># Кажется, что это создаст матрицу 2x1
+chunks = [[0]] * 2
+chunks[0][0] = 42
+print(chunks)  # [[42], [42]] Оба элемента ссылаются на один и тот же список!
+
+# Правильные способы инициализации матрицы:
+correct_chunks = [[0] for _ in range(2)]
+correct_chunks = [[0]] * 2  # Так делать нельзя, если планируется изменение вложенных списков!
+</code></pre>
+<h3 id="Эффективные-операции"><a class="header" href="#Эффективные-операции">Эффективные операции</a></h3>
+<ul>
+<li><code>append(item)</code> и <code>pop()</code> — амортизированная сложность O(1).</li>
+<li><code>insert(0, item)</code> и <code>pop(0)</code> — сложность O(n), так как требуют сдвига всех элементов.</li>
+<li><code>extend(iterable)</code> эффективнее, чем многократный вызов <code>append()</code>.</li>
+</ul>
+<p><strong>Совет:</strong> Используйте <code>collections.deque</code>, если вам нужны частые операции с обоих концов.</p>
+<h2 id="Кортежи-tuple-неизменяемые-и-хэшируемые"><a class="header" href="#Кортежи-tuple-неизменяемые-и-хэшируемые">Кортежи (tuple): неизменяемые и хэшируемые</a></h2>
+<p>Кортежи не только защищают данные от изменений, но и могут быть использованы как ключи в словарях или элементы множеств, так как они <strong>хэшируемы</strong>.</p>
+<h3 id="Распаковка-кортежей--мощный-инструмент"><a class="header" href="#Распаковка-кортежей--мощный-инструмент">Распаковка кортежей — мощный инструмент</a></h3>
+<pre><code class="language-python"># Распаковка с упаковкой «лишних» элементов в переменную
+first, second, *rest = range(10)
+print(first, second, rest)  # 0 1 [2, 3, 4, 5, 6, 7, 8, 9]
+
+# Игнорирование ненужных значений
+x, _, z = (1, 2, 3)
+
+# Распаковка в аргументы функции
+def greet(name, greeting):
+    return f"{greeting}, {name}!"
+
+person = ("Alice", "Hello")
+print(greet(*person))  # "Hello, Alice!"
+</code></pre>
+<h3 id="Именованные-кортежи-namedtuple"><a class="header" href="#Именованные-кортежи-namedtuple">Именованные кортежи (namedtuple)</a></h3>
+<p><code>collections.namedtuple</code> — это фабрика классов, создающая подтип кортежа с именованными полями. Это делает код самодокументируемым.</p>
+<pre><code class="language-python">from collections import namedtuple
+
+Point = namedtuple('Point', ['x', 'y'])
+p = Point(10, y=20)
+print(p.x, p.y)  # 10 20
+print(p._asdict()) # {'x': 10, 'y': 20}
+</code></pre>
+<h2 id="Множества-set-уникальность-и-скорость"><a class="header" href="#Множества-set-уникальность-и-скорость">Множества (set): уникальность и скорость</a></h2>
+<p>Множества реализованы как хэш-таблицы, поэтому проверка вхождения (<code>in</code>) имеет среднюю сложность O(1).</p>
+<h3 id="Неочевидные-применения-множеств"><a class="header" href="#Неочевидные-применения-множеств">Неочевидные применения множеств</a></h3>
+<ol>
+<li>
+<p><strong>Удаление дубликатов из списка</strong> — классика, но всегда актуально.</p>
+<pre><code class="language-python">unique_list = list(set(duplicated_list))
+</code></pre>
+</li>
+<li>
+<p><strong>Подсчет общих элементов</strong> между двумя коллекциями.</p>
+<pre><code class="language-python">common = set(list1) &amp; set(list2)
+</code></pre>
+</li>
+<li>
+<p><strong>Фильтрация «мусора»</strong> при разборе данных.</p>
+<pre><code class="language-python">valid_tags = {'python', 'tutorial', 'advanced'}
+tags = ['python', 'beginner', 'advanced']
+filtered_tags = [tag for tag in tags if tag in valid_tags]
+# ['python', 'advanced']
+</code></pre>
+</li>
+</ol>
+<h3 id="frozenset-неизменяемое-множество"><a class="header" href="#frozenset-неизменяемое-множество">frozenset: неизменяемое множество</a></h3>
+<p>Поскольку обычные множества изменяемы и, следовательно, нехэшируемы, их нельзя вложить в другие множества или использовать как ключи словаря. Для этого нужен <code>frozenset</code>.</p>
+<pre><code class="language-python"># Множество множеств? Нет.
+# {set([1,2]), set([3,4])}  # TypeError: unhashable type: 'set'
+
+# А так — можно.
+fs1 = frozenset([1, 2])
+fs2 = frozenset([3, 4])
+meta_set = {fs1, fs2}  # Valid
+</code></pre>
+<h2 id="Словари-dict-сердце-python"><a class="header" href="#Словари-dict-сердце-python">Словари (dict): сердце Python</a></h2>
+<p>Современные словари (Python 3.7+) сохраняют <strong>порядок добавления</strong> элементов.</p>
+<h3 id="Малоизвестные-возможности-словарей"><a class="header" href="#Малоизвестные-возможности-словарей">Малоизвестные возможности словарей</a></h3>
+<ol>
+<li>
+<p><strong>Метод <code>setdefault()</code></strong> — проверяет наличие ключа и, если его нет, устанавливает значение за один проход по хэш-таблице.</p>
+<pre><code class="language-python">data = {}
+# Классический, но неэффективный способ
+if 'key' not in data:
+    data['key'] = []
+data['key'].append(1)
+
+# Эффективный способ с setdefault
+data.setdefault('key', []).append(1)
+</code></pre>
+</li>
+<li>
+<p><strong>Метод <code>popitem()</code></strong> — удаляет и возвращает пару <code>(ключ, значение)</code> в порядке LIFO (последним пришел — первым ушел). Полезно для обработки данных в обратном порядке.</p>
+</li>
+<li>
+<p><strong>Словарные включения (Dict Comprehensions)</strong> — компактный и выразительный синтаксис.</p>
+<pre><code class="language-python">squares = {x: x*x for x in range(5)}
+# {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+</code></pre>
+</li>
+</ol>
+<h3 id="Коллекции-из-модуля-collections"><a class="header" href="#Коллекции-из-модуля-collections">Коллекции из модуля <code>collections</code></a></h3>
+<p>Модуль <code>collections</code> предоставляет специализированные типы данных, которые расширяют возможности стандартных коллекций.</p>
+<ul>
+<li>
+<p><strong><code>defaultdict</code></strong> — словарь с заводской функцией для отсутствующих ключей.</p>
+<pre><code class="language-python">from collections import defaultdict
+graph = defaultdict(list)
+graph['a'].append('b')  # Не нужно проверять, есть ли ключ 'a'
+</code></pre>
+</li>
+<li>
+<p><strong><code>Counter</code></strong> — подкласс словаря для подсчета хэшируемых объектов.</p>
+<pre><code class="language-python">from collections import Counter
+words = ['apple', 'banana', 'apple', 'orange']
+word_count = Counter(words)
+print(word_count.most_common(1))  # [('apple', 2)]
+</code></pre>
+</li>
+<li>
+<p><strong><code>deque</code></strong> — двусторонняя очередь. Идеальна для очередей (FIFO) и стеков (LIFO).</p>
+<pre><code class="language-python">from collections import deque
+queue = deque([1, 2, 3])
+queue.append(4)    # O(1)
+queue.popleft()    # O(1) - в отличие от списка!
+</code></pre>
+</li>
+<li>
+<p><strong><code>OrderedDict</code></strong> — словарь, который помнит порядок. В Python 3.7+ обычный <code>dict</code> тоже упорядочен, но <code>OrderedDict</code> имеет дополнительные методы (<code>move_to_end</code>, <code>popitem(last=True/False)</code>).</p>
+</li>
+</ul>
+<h2 id="Заключение"><a class="header" href="#Заключение">Заключение</a></h2>
+<p>Выбор правильной коллекции — это не просто вопрос синтаксиса. Это вопрос эффективности, читаемости и корректности вашего кода.</p>
+<ul>
+<li>Используйте <strong>списки</strong> для упорядоченных коллекций, которые могут изменяться.</li>
+<li>Используйте <strong>кортежи</strong> для фиксированных данных или когда нужны хэшируемые объекты.</li>
+<li>Используйте <strong>множества</strong> для проверки уникальности и быстрого поиска.</li>
+<li>Используйте <strong>словари</strong> для отображений ключей на значения.</li>
+<li>Не забывайте о <strong>специализированных коллекциях</strong> из модуля <code>collections</code> для решения специфических задач.</li>
+</ul>
+<p>Глубокое понимание коллекций позволит вам писать код, который не только работает, но и работает <strong>хорошо</strong>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../dev/python/objects.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../dev/python/o-notation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../dev/python/objects.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../dev/python/o-notation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
