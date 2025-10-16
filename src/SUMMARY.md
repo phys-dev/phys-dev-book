@@ -30,6 +30,14 @@
 - [Установка Arch Linux](./linux/install-arch-linux.md)
 - [Внутреннее устройство Linux](./linux/structure.md)
 
+
+# Погружаемся в Python
+
+- [Объекты и память](./dev/python/objects.md)
+- [Коллекции](./dev/python/collections.md)
+- [Асимптотическая сложность](./dev/python/o-notation.md)
+
+
 # Учимся у других
 
 - [Коды и скрипты](./examples/intro.md)
