@@ -33,9 +33,10 @@
 
 # Погружаемся в Python
 
-- [Объекты и память](./dev/python/objects.md)
-- [Коллекции](./dev/python/collections.md)
-- [Асимптотическая сложность](./dev/python/o-notation.md)
+- [Начало](./dev/python/init.md)
+  - [Объекты и память](./dev/python/objects.md)
+  - [Коллекции](./dev/python/collections.md)
+  - [Асимптотическая сложность](./dev/python/o-notation.md)
 
 
 # Учимся у других
