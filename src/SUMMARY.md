@@ -55,3 +55,4 @@
 - [Установка Linux](./practicum/booting-linux-task.md)
 - [Набор упражнений для работы в Linux](./practicum/linux-tools-task.md)
 - [Маленькая задачка c Linux](./practicum/linux-structure-task.md)
+- [Пишем эффективный код](./practicum/python-algo-task.md)
