@@ -37,7 +37,8 @@
   - [Объекты и память](./dev/python/objects.md)
   - [Коллекции](./dev/python/collections.md)
   - [Асимптотическая сложность](./dev/python/o-notation.md)
-
+- [Функции](./dev/python/functions.md)
+- [Декораторы и functools](./dev/python/decorators.md)
 
 # Учимся у других
 
