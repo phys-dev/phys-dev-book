@@ -39,6 +39,7 @@
   - [Асимптотическая сложность](./dev/python/o-notation.md)
 - [Функции](./dev/python/functions.md)
 - [Декораторы и functools](./dev/python/decorators.md)
+- [Классы](./dev/python/classes.md)
 
 # Учимся у других
 
