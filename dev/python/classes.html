@@ -1,0 +1,504 @@
+<!DOCTYPE HTML>
+<html lang="ru" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Классы - Разработка и применение программного обеспечения в физических исследованиях</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../intro/intro.html">О книге</a></li><li class="chapter-item expanded affix "><a href="../../intro/about-me.html">О себе</a></li><li class="chapter-item expanded affix "><li class="part-title">Ищем помощников</li><li class="chapter-item expanded "><a href="../../ai/intro.html"><strong aria-hidden="true">1.</strong> ИИ для разработки</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../ai/context.html"><strong aria-hidden="true">1.1.</strong> Контекст и скорость изменений</a></li><li class="chapter-item expanded "><a href="../../ai/develop.html"><strong aria-hidden="true">1.2.</strong> ИИ и разработчик</a></li><li class="chapter-item expanded "><a href="../../ai/basic.html"><strong aria-hidden="true">1.3.</strong> Технические основы</a></li><li class="chapter-item expanded "><a href="../../ai/instruments.html"><strong aria-hidden="true">1.4.</strong> Инструментарий</a></li><li class="chapter-item expanded "><a href="../../ai/qa.html"><strong aria-hidden="true">1.5.</strong> Вопросы и ответы</a></li></ol></li><li class="chapter-item expanded "><a href="../../dev/python/intro.html"><strong aria-hidden="true">2.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../dev/python/basics.html"><strong aria-hidden="true">2.1.</strong> Basics</a></li><li class="chapter-item expanded "><a href="../../dev/python/numpy.html"><strong aria-hidden="true">2.2.</strong> Numpy</a></li><li class="chapter-item expanded "><a href="../../dev/python/scipy.html"><strong aria-hidden="true">2.3.</strong> Scipy</a></li><li class="chapter-item expanded "><a href="../../dev/python/matplotlib.html"><strong aria-hidden="true">2.4.</strong> Matplotlib</a></li><li class="chapter-item expanded "><a href="../../dev/python/holo.html"><strong aria-hidden="true">2.5.</strong> Holoviews</a></li><li class="chapter-item expanded "><a href="../../dev/python/requirements.html"><strong aria-hidden="true">2.6.</strong> Requirements</a></li></ol></li><li class="chapter-item expanded "><a href="../../dev/git.html"><strong aria-hidden="true">3.</strong> Git</a></li><li class="chapter-item expanded affix "><li class="part-title">Загружаем linux</li><li class="chapter-item expanded "><a href="../../linux/intro.html"><strong aria-hidden="true">4.</strong> Основы Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../linux/booting.html"><strong aria-hidden="true">4.1.</strong> Процесс загрузки</a></li><li class="chapter-item expanded "><a href="../../linux/filesystems.html"><strong aria-hidden="true">4.2.</strong> Файловые системы</a></li><li class="chapter-item expanded "><a href="../../linux/tools.html"><strong aria-hidden="true">4.3.</strong> Инструменты</a></li></ol></li><li class="chapter-item expanded "><a href="../../linux/install-arch-linux.html"><strong aria-hidden="true">5.</strong> Установка Arch Linux</a></li><li class="chapter-item expanded "><a href="../../linux/structure.html"><strong aria-hidden="true">6.</strong> Внутреннее устройство Linux</a></li><li class="chapter-item expanded affix "><li class="part-title">Погружаемся в Python</li><li class="chapter-item expanded "><a href="../../dev/python/init.html"><strong aria-hidden="true">7.</strong> Начало</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../dev/python/objects.html"><strong aria-hidden="true">7.1.</strong> Объекты и память</a></li><li class="chapter-item expanded "><a href="../../dev/python/collections.html"><strong aria-hidden="true">7.2.</strong> Коллекции</a></li><li class="chapter-item expanded "><a href="../../dev/python/o-notation.html"><strong aria-hidden="true">7.3.</strong> Асимптотическая сложность</a></li></ol></li><li class="chapter-item expanded "><a href="../../dev/python/functions.html"><strong aria-hidden="true">8.</strong> Функции</a></li><li class="chapter-item expanded "><a href="../../dev/python/decorators.html"><strong aria-hidden="true">9.</strong> Декораторы и functools</a></li><li class="chapter-item expanded "><a href="../../dev/python/classes.html" class="active"><strong aria-hidden="true">10.</strong> Классы</a></li><li class="chapter-item expanded affix "><li class="part-title">Учимся у других</li><li class="chapter-item expanded "><a href="../../examples/intro.html"><strong aria-hidden="true">11.</strong> Коды и скрипты</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../examples/kenv.html"><strong aria-hidden="true">11.1.</strong> Уравнение огибающей Капчинского-Владимирского для пучка заряженных частиц</a></li><li class="chapter-item expanded "><a href="../../examples/envelope-optimize.html"><strong aria-hidden="true">11.2.</strong> Оптимизация огибающей пучка заряженных частиц с помощью генетического алгоритма</a></li><li class="chapter-item expanded "><a href="../../examples/redpic.html"><strong aria-hidden="true">11.3.</strong> Релятивистская разностная схема для расчета динамики частиц в сложных электрических и магнитных полях</a></li></ol></li><li class="chapter-item expanded "><a href="../../resume/literature.html"><strong aria-hidden="true">12.</strong> Литература и статьи</a></li><li class="chapter-item expanded affix "><li class="part-title">Работаем самостоятельно</li><li class="chapter-item expanded "><a href="../../practicum/review-code-task.html"><strong aria-hidden="true">13.</strong> Ищем ошибки в чужом коде</a></li><li class="chapter-item expanded "><a href="../../practicum/markov-chain-task.html"><strong aria-hidden="true">14.</strong> Делаем свою LLM</a></li><li class="chapter-item expanded "><a href="../../practicum/booting-linux-task.html"><strong aria-hidden="true">15.</strong> Установка Linux</a></li><li class="chapter-item expanded "><a href="../../practicum/linux-tools-task.html"><strong aria-hidden="true">16.</strong> Набор упражнений для работы в Linux</a></li><li class="chapter-item expanded "><a href="../../practicum/linux-structure-task.html"><strong aria-hidden="true">17.</strong> Маленькая задачка c Linux</a></li><li class="chapter-item expanded "><a href="../../practicum/python-algo-task.html"><strong aria-hidden="true">18.</strong> Пишем эффективный код</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Разработка и применение программного обеспечения в физических исследованиях</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/phys-dev/book/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="Классы-в-python-Основы"><a class="header" href="#Классы-в-python-Основы">Классы в Python. Основы</a></h1>
+<h2 id="Введение-в-ООП"><a class="header" href="#Введение-в-ООП">Введение в ООП</a></h2>
+<p>Прежде чем погружаться в синтаксис классов Python, давайте вспомним, что такое <strong>объектно-ориентированное программирование (ООП)</strong>.</p>
+<p>ООП — это парадигма программирования, где код организуется в виде объектов, содержащих данные (атрибуты) и поведение (методы). Основные концепции ООП:</p>
+<ul>
+<li><strong>Инкапсуляция</strong> — объединение данных и методов в одном объекте</li>
+<li><strong>Наследование</strong> — создание новых классов на основе существующих</li>
+<li><strong>Полиморфизм</strong> — возможность использовать объекты разных классов одинаковым образом</li>
+</ul>
+<p>Python реализует все эти концепции через классы!</p>
+<h2 id="Базовый-синтаксис-классов"><a class="header" href="#Базовый-синтаксис-классов">Базовый синтаксис классов</a></h2>
+<pre><code class="language-python">class Counter:
+    """Я считаю. И это всё."""
+    
+    def __init__(self, initial=0):  # конструктор
+        self.value = initial
+    
+    def increment(self):
+        self.value += 1
+    
+    def get(self):
+        return self.value
+
+# Использование
+c = Counter(42)
+c.increment()
+print(c.get())  # 43
+</code></pre>
+<h3 id="Зачем-нужен-self"><a class="header" href="#Зачем-нужен-self">Зачем нужен self?</a></h3>
+<p>В отличие от Java и C++, в Python нет ключевого слова <code>this</code>. Первый аргумент методов — это сам объект, который принято называть <code>self</code>:</p>
+<pre><code class="language-python">class Noop:
+    def __init__(self):
+        self.data = "hello"
+
+# Технически можно назвать иначе, но не стоит!
+class StrangeNoop:
+    def __init__(ego):  # пожалуйста, не делайте так
+        ego.data = "world"
+</code></pre>
+<h2 id="Атрибуты-экземпляра-vs-класса"><a class="header" href="#Атрибуты-экземпляра-vs-класса">Атрибуты: экземпляра vs класса</a></h2>
+<pre><code class="language-python">class Counter:
+    # Атрибут класса - общий для всех экземпляров
+    all_counters = []
+    
+    def __init__(self, initial=0):
+        # Атрибут экземпляра - уникальный для каждого объекта
+        self.value = initial
+        Counter.all_counters.append(self)
+
+# Добавить атрибут можно и после объявления класса
+Counter.some_other_attribute = 42
+</code></pre>
+<h2 id="Инкапсуляция-и-соглашения-об-именовании"><a class="header" href="#Инкапсуляция-и-соглашения-об-именовании">Инкапсуляция и соглашения об именовании</a></h2>
+<p>Python не имеет строгих модификаторов доступа, но использует соглашения:</p>
+<pre><code class="language-python">class Noop:
+    public_attribute = 42      # публичный атрибут
+    _internal_attribute = []   # внутренний (для разработчиков)
+    __private_attribute = []   # "приватный" (name mangling)
+
+noop = Noop()
+print(noop.public_attribute)        # 42
+print(noop._internal_attribute)     # [] (но не стоит!)
+# print(noop.__private_attribute)   # Ошибка!
+print(noop._Noop__private_attribute) # Работает (но не делайте так!)
+</code></pre>
+<h2 id="Свойства-properties"><a class="header" href="#Свойства-properties">Свойства (Properties)</a></h2>
+<p>Свойства позволяют контролировать доступ к атрибутам:</p>
+<pre><code class="language-python">class Temperature:
+    def __init__(self, celsius=0):
+        self._celsius = celsius
+    
+    @property
+    def celsius(self):
+        return self._celsius
+    
+    @property
+    def fahrenheit(self):
+        return (self._celsius * 9/5) + 32
+    
+    @celsius.setter
+    def celsius(self, value):
+        if value &lt; -273.15:
+            raise ValueError("Температура ниже абсолютного нуля!")
+        self._celsius = value
+
+temp = Temperature(25)
+print(f"{temp.celsius}°C = {temp.fahrenheit}°F")
+temp.celsius = 30  # работает setter
+</code></pre>
+<h2 id="Наследование"><a class="header" href="#Наследование">Наследование</a></h2>
+<pre><code class="language-python">class Animal:
+    def __init__(self, name):
+        self.name = name
+    
+    def speak(self):
+        raise NotImplementedError("Подклассы должны реализовать этот метод")
+
+class Dog(Animal):
+    def speak(self):
+        return f"{self.name} говорит: Гав!"
+
+class Cat(Animal):
+    def speak(self):
+        return f"{self.name} говорит: Мяу!"
+
+animals = [Dog("Бобик"), Cat("Мурка")]
+for animal in animals:
+    print(animal.speak())
+</code></pre>
+<h3 id="Функция-super"><a class="header" href="#Функция-super">Функция super()</a></h3>
+<pre><code class="language-python">class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+class Student(Person):
+    def __init__(self, name, age, student_id):
+        super().__init__(name, age)  # вызов родительского конструктора
+        self.student_id = student_id
+</code></pre>
+<h2 id="Множественное-наследование"><a class="header" href="#Множественное-наследование">Множественное наследование</a></h2>
+<p>Python поддерживает множественное наследование, но используйте его осторожно!</p>
+<pre><code class="language-python">class Flyer:
+    def fly(self):
+        return "Лечу!"
+
+class Swimmer:
+    def swim(self):
+        return "Плыву!"
+
+class Duck(Flyer, Swimmer):
+    pass
+
+donald = Duck()
+print(donald.fly())   # Лечу!
+print(donald.swim())  # Плыву!
+</code></pre>
+<h3 id="Проблема-ромбовидного-наследования"><a class="header" href="#Проблема-ромбовидного-наследования">Проблема ромбовидного наследования</a></h3>
+<pre><code class="language-python">class A:
+    def method(self):
+        return "A"
+
+class B(A):
+    def method(self):
+        return "B"
+
+class C(A):
+    def method(self):
+        return "C"
+
+class D(B, C):
+    pass
+
+print(D().method())  # Каков результат?
+print(D.mro())       # Показывает порядок разрешения методов
+</code></pre>
+<h2 id="Декораторы-классов"><a class="header" href="#Декораторы-классов">Декораторы классов</a></h2>
+<p>Декораторы могут преобразовывать классы:</p>
+<pre><code class="language-python">import functools
+
+def singleton(cls):
+    """Декоратор, превращающий класс в singleton"""
+    instance = None
+    
+    @functools.wraps(cls)
+    def wrapper(*args, **kwargs):
+        nonlocal instance
+        if instance is None:
+            instance = cls(*args, **kwargs)
+        return instance
+    
+    return wrapper
+
+@singleton
+class DatabaseConnection:
+    def __init__(self):
+        print("Создано соединение с БД")
+
+db1 = DatabaseConnection()  # Создано соединение с БД
+db2 = DatabaseConnection()  # (ничего не выводится)
+print(db1 is db2)  # True
+</code></pre>
+<h2 id="Магические-методы"><a class="header" href="#Магические-методы">Магические методы</a></h2>
+<p>Магические методы (dunder methods) позволяют определить поведение объектов в различных ситуациях.</p>
+<h3 id="Строковое-представление"><a class="header" href="#Строковое-представление">Строковое представление</a></h3>
+<pre><code class="language-python">class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+    
+    def __str__(self):
+        return f"'{self.title}' by {self.author}"
+    
+    def __repr__(self):
+        return f"Book('{self.title}', '{self.author}')"
+
+book = Book("Война и мир", "Л. Толстой")
+print(str(book))    # 'Война и мир' by Л. Толстой
+print(repr(book))   # Book('Война и мир', 'Л. Толстой')
+</code></pre>
+<h3 id="Операторы-сравнения"><a class="header" href="#Операторы-сравнения">Операторы сравнения</a></h3>
+<pre><code class="language-python">import functools
+
+@functools.total_ordering
+class Money:
+    def __init__(self, amount, currency):
+        self.amount = amount
+        self.currency = currency
+    
+    def __eq__(self, other):
+        return (self.amount == other.amount and 
+                self.currency == other.currency)
+    
+    def __lt__(self, other):
+        if self.currency != other.currency:
+            raise ValueError("Нельзя сравнивать разные валюты")
+        return self.amount &lt; other.amount
+
+m1 = Money(100, "USD")
+m2 = Money(150, "USD")
+print(m1 &lt; m2)  # True
+</code></pre>
+<h3 id="Вызываемые-объекты"><a class="header" href="#Вызываемые-объекты">Вызываемые объекты</a></h3>
+<pre><code class="language-python">class Multiplier:
+    def __init__(self, factor):
+        self.factor = factor
+    
+    def __call__(self, x):
+        return x * self.factor
+
+double = Multiplier(2)
+triple = Multiplier(3)
+
+print(double(5))   # 10
+print(triple(5))   # 15
+</code></pre>
+<h2 id="Практический-пример-Умный-словарь"><a class="header" href="#Практический-пример-Умный-словарь">Практический пример: Умный словарь</a></h2>
+<pre><code class="language-python">from collections import deque
+
+class MemorizingDict(dict):
+    """Словарь, который запоминает историю изменений"""
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.history = deque(maxlen=10)
+    
+    def __setitem__(self, key, value):
+        self.history.append(key)
+        super().__setitem__(key, value)
+    
+    def get_history(self):
+        return list(self.history)
+
+# Использование
+md = MemorizingDict()
+md["a"] = 1
+md["b"] = 2
+md["c"] = 3
+print(md.get_history())  # ['a', 'b', 'c']
+</code></pre>
+<h2 id="Заключение"><a class="header" href="#Заключение">Заключение</a></h2>
+<p>Классы в Python предоставляют мощный и гибкий инструмент для организации кода. Они сочетают в себе:</p>
+<ul>
+<li><strong>Простоту</strong> — интуитивно понятный синтаксис</li>
+<li><strong>Гибкость</strong> — динамическое добавление атрибутов, множественное наследование</li>
+<li><strong>Мощь</strong> — магические методы для кастомизации поведения</li>
+<li><strong>Элегантность</strong> — декораторы и свойства для читаемого кода</li>
+</ul>
+<p>Помните: классы — это инструмент, а не серебряная пуля. Используйте их там, где они действительно упрощают код и делают его более понятным!</p>
+<blockquote>
+<p>"Простота — залог надежности." — Эдсгер Дейкстра</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../dev/python/decorators.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../examples/intro.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../dev/python/decorators.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../examples/intro.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
