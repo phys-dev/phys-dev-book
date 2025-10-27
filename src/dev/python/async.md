@@ -376,3 +376,15 @@ async def create_item(item: Add):
 ## Заключение
 
 Вы познакомились с основами асинхронного программирования в Python, изучили ключевые концепции итераторов, генераторов и корутин, освоили работу с asyncio и популярными асинхронными фреймворками.
+
+## Полезные ссылки
+
+1. https://dbader.org/blog/python-iterators
+2. https://www.techbeamers.com/python-iterator/
+3. https://realpython.com/introduction-to-python-generators/
+4. https://www.python.org/dev/peps/pep-0255
+5. https://ru.wikipedia.org/wiki/Ленивые_вычисления
+6. https://medium.com/@chandansingh_99754/python-generators-and-coroutines-d54ed9c343ae
+7. https://www.youtube.com/watch?v=AXkOli6BsBY
+8. https://realpython.com/python-sockets/#reference
+9. https://snarky.ca/how-the-heck-does-async-await-work-in-python-3-5/
