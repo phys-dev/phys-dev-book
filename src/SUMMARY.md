@@ -64,3 +64,4 @@
 - [Набор упражнений для работы в Linux](./practicum/linux-tools-task.md)
 - [Маленькая задачка c Linux](./practicum/linux-structure-task.md)
 - [Пишем эффективный код](./practicum/python-algo-task.md)
+- [Деплой стартапа](./practicum/kitty-startup-task.md)
