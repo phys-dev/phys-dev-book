@@ -18,7 +18,7 @@
   - [Holoviews](./dev/python/holo.md)
   - [Requirements](./dev/python/requirements.md)
 - [Git](./dev/git.md)
-
+- [Docker](./dev/docker.md)
   
 # Загружаем linux
 
@@ -29,7 +29,6 @@
 
 - [Установка Arch Linux](./linux/install-arch-linux.md)
 - [Внутреннее устройство Linux](./linux/structure.md)
-
 
 # Погружаемся в Python
 
@@ -42,7 +41,7 @@
 - [Классы](./dev/python/classes.md)
 - [Итераторы, генераторы и корутины](./dev/python/async.md)
 
-# Прикладное программирование
+# Изучаем хорошие практики 
 
 - [Жизненный цикл ПО](./dev/life.md)
 
