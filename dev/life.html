@@ -1,0 +1,427 @@
+<!DOCTYPE HTML>
+<html lang="ru" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Жизненный цикл ПО - Разработка и применение программного обеспечения в физических исследованиях</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../intro/intro.html">О книге</a></li><li class="chapter-item expanded affix "><a href="../intro/about-me.html">О себе</a></li><li class="chapter-item expanded affix "><li class="part-title">Ищем помощников</li><li class="chapter-item expanded "><a href="../ai/intro.html"><strong aria-hidden="true">1.</strong> ИИ для разработки</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ai/context.html"><strong aria-hidden="true">1.1.</strong> Контекст и скорость изменений</a></li><li class="chapter-item expanded "><a href="../ai/develop.html"><strong aria-hidden="true">1.2.</strong> ИИ и разработчик</a></li><li class="chapter-item expanded "><a href="../ai/basic.html"><strong aria-hidden="true">1.3.</strong> Технические основы</a></li><li class="chapter-item expanded "><a href="../ai/instruments.html"><strong aria-hidden="true">1.4.</strong> Инструментарий</a></li><li class="chapter-item expanded "><a href="../ai/qa.html"><strong aria-hidden="true">1.5.</strong> Вопросы и ответы</a></li></ol></li><li class="chapter-item expanded "><a href="../dev/python/intro.html"><strong aria-hidden="true">2.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dev/python/basics.html"><strong aria-hidden="true">2.1.</strong> Basics</a></li><li class="chapter-item expanded "><a href="../dev/python/numpy.html"><strong aria-hidden="true">2.2.</strong> Numpy</a></li><li class="chapter-item expanded "><a href="../dev/python/scipy.html"><strong aria-hidden="true">2.3.</strong> Scipy</a></li><li class="chapter-item expanded "><a href="../dev/python/matplotlib.html"><strong aria-hidden="true">2.4.</strong> Matplotlib</a></li><li class="chapter-item expanded "><a href="../dev/python/holo.html"><strong aria-hidden="true">2.5.</strong> Holoviews</a></li><li class="chapter-item expanded "><a href="../dev/python/requirements.html"><strong aria-hidden="true">2.6.</strong> Requirements</a></li></ol></li><li class="chapter-item expanded "><a href="../dev/git.html"><strong aria-hidden="true">3.</strong> Git</a></li><li class="chapter-item expanded affix "><li class="part-title">Загружаем linux</li><li class="chapter-item expanded "><a href="../linux/intro.html"><strong aria-hidden="true">4.</strong> Основы Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../linux/booting.html"><strong aria-hidden="true">4.1.</strong> Процесс загрузки</a></li><li class="chapter-item expanded "><a href="../linux/filesystems.html"><strong aria-hidden="true">4.2.</strong> Файловые системы</a></li><li class="chapter-item expanded "><a href="../linux/tools.html"><strong aria-hidden="true">4.3.</strong> Инструменты</a></li></ol></li><li class="chapter-item expanded "><a href="../linux/install-arch-linux.html"><strong aria-hidden="true">5.</strong> Установка Arch Linux</a></li><li class="chapter-item expanded "><a href="../linux/structure.html"><strong aria-hidden="true">6.</strong> Внутреннее устройство Linux</a></li><li class="chapter-item expanded affix "><li class="part-title">Погружаемся в Python</li><li class="chapter-item expanded "><a href="../dev/python/init.html"><strong aria-hidden="true">7.</strong> Начало</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dev/python/objects.html"><strong aria-hidden="true">7.1.</strong> Объекты и память</a></li><li class="chapter-item expanded "><a href="../dev/python/collections.html"><strong aria-hidden="true">7.2.</strong> Коллекции</a></li><li class="chapter-item expanded "><a href="../dev/python/o-notation.html"><strong aria-hidden="true">7.3.</strong> Асимптотическая сложность</a></li></ol></li><li class="chapter-item expanded "><a href="../dev/python/functions.html"><strong aria-hidden="true">8.</strong> Функции</a></li><li class="chapter-item expanded "><a href="../dev/python/decorators.html"><strong aria-hidden="true">9.</strong> Декораторы и functools</a></li><li class="chapter-item expanded "><a href="../dev/python/classes.html"><strong aria-hidden="true">10.</strong> Классы</a></li><li class="chapter-item expanded "><a href="../dev/python/async.html"><strong aria-hidden="true">11.</strong> Итераторы, генераторы и корутины</a></li><li class="chapter-item expanded affix "><li class="part-title">Прикладное программирование</li><li class="chapter-item expanded "><a href="../dev/life.html" class="active"><strong aria-hidden="true">12.</strong> Жизненный цикл ПО</a></li><li class="chapter-item expanded affix "><li class="part-title">Учимся у других</li><li class="chapter-item expanded "><a href="../examples/intro.html"><strong aria-hidden="true">13.</strong> Коды и скрипты</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../examples/kenv.html"><strong aria-hidden="true">13.1.</strong> Уравнение огибающей Капчинского-Владимирского для пучка заряженных частиц</a></li><li class="chapter-item expanded "><a href="../examples/envelope-optimize.html"><strong aria-hidden="true">13.2.</strong> Оптимизация огибающей пучка заряженных частиц с помощью генетического алгоритма</a></li><li class="chapter-item expanded "><a href="../examples/redpic.html"><strong aria-hidden="true">13.3.</strong> Релятивистская разностная схема для расчета динамики частиц в сложных электрических и магнитных полях</a></li><li class="chapter-item expanded "><a href="../examples/async-api.html"><strong aria-hidden="true">13.4.</strong> Асинхронное API для кинотеатра</a></li></ol></li><li class="chapter-item expanded "><a href="../resume/literature.html"><strong aria-hidden="true">14.</strong> Литература и статьи</a></li><li class="chapter-item expanded affix "><li class="part-title">Работаем самостоятельно</li><li class="chapter-item expanded "><a href="../practicum/review-code-task.html"><strong aria-hidden="true">15.</strong> Ищем ошибки в чужом коде</a></li><li class="chapter-item expanded "><a href="../practicum/markov-chain-task.html"><strong aria-hidden="true">16.</strong> Делаем свою LLM</a></li><li class="chapter-item expanded "><a href="../practicum/booting-linux-task.html"><strong aria-hidden="true">17.</strong> Установка Linux</a></li><li class="chapter-item expanded "><a href="../practicum/linux-tools-task.html"><strong aria-hidden="true">18.</strong> Набор упражнений для работы в Linux</a></li><li class="chapter-item expanded "><a href="../practicum/linux-structure-task.html"><strong aria-hidden="true">19.</strong> Маленькая задачка c Linux</a></li><li class="chapter-item expanded "><a href="../practicum/python-algo-task.html"><strong aria-hidden="true">20.</strong> Пишем эффективный код</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Разработка и применение программного обеспечения в физических исследованиях</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/phys-dev/book/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="Жизненный-цикл-программного-обеспечения"><a class="header" href="#Жизненный-цикл-программного-обеспечения">Жизненный цикл программного обеспечения</a></h1>
+<h2 id="Введение"><a class="header" href="#Введение">Введение</a></h2>
+<p>Жизненный цикл программного обеспечения (ПО) — это процесс, который охватывает все этапы разработки, от возникновения идеи до завершения поддержки продукта. Понимание этих этапов помогает создавать качественное, надежное и востребованное программное обеспечение.</p>
+<h2 id="Основные-стадии-жизненного-цикла"><a class="header" href="#Основные-стадии-жизненного-цикла">Основные стадии жизненного цикла</a></h2>
+<p>Жизненный цикл ПО состоит из шести основных стадий:</p>
+<ol>
+<li><strong>Анализ</strong></li>
+<li><strong>Проектирование</strong></li>
+<li><strong>Разработка</strong></li>
+<li><strong>Тестирование</strong></li>
+<li><strong>Релиз</strong></li>
+<li><strong>Поддержка</strong></li>
+</ol>
+<h2 id="Анализ-и-планирование"><a class="header" href="#Анализ-и-планирование">Анализ и планирование</a></h2>
+<p>На этапе анализа происходит сбор и анализ требований к будущему продукту. Результатом этого этапа является документ <strong>Software Requirements Specification (SRS)</strong>.</p>
+<h3 id="ieee-830-1998"><a class="header" href="#ieee-830-1998">IEEE 830-1998</a></h3>
+<p>Это стандарт, который рекомендует структуру для документирования требований к ПО. Примерная структура SRS:</p>
+<ol>
+<li>Назначение</li>
+<li>Общее описание</li>
+<li>Конкретные требования</li>
+<li>Интерфейсы</li>
+<li>Ограничения</li>
+<li>Атрибуты качества</li>
+</ol>
+<h3 id="Ключевые-задачи-этапа-анализа"><a class="header" href="#Ключевые-задачи-этапа-анализа">Ключевые задачи этапа анализа:</a></h3>
+<ul>
+<li>Планирование</li>
+<li>Определение требований</li>
+<li>Установка целей</li>
+<li>Планирование ресурсов</li>
+<li>Утверждение сроков и бюджетов</li>
+</ul>
+<h2 id="Проектирование"><a class="header" href="#Проектирование">Проектирование</a></h2>
+<p>На этапе проектирования разрабатывается архитектура системы и интерфейсы на основе технического задания.</p>
+<h3 id="design-review"><a class="header" href="#design-review">Design-review</a></h3>
+<p>Проводится для оценки целесообразности реализации системы и качества её проектирования. Обсуждаются:</p>
+<ul>
+<li>Что планируется сделать</li>
+<li>Мотивация (цели, заказчики, пользователи)</li>
+<li>Сравнение с аналогами</li>
+<li>Roadmap</li>
+</ul>
+<h3 id="security-review"><a class="header" href="#security-review">Security-review</a></h3>
+<p>Проводится всегда, но особенно важен в случаях:</p>
+<ul>
+<li>Создания нового сервиса</li>
+<li>Работы с финансовыми функциями</li>
+<li>Передачи конфиденциальных данных</li>
+<li>Реализации аутентификации/авторизации</li>
+</ul>
+<h3 id="mvp-minimum-viable-product"><a class="header" href="#mvp-minimum-viable-product">MVP (Minimum Viable Product)</a></h3>
+<p>Минимально жизнеспособный продукт — версия продукта с минимальными, но достаточными функциями для удовлетворения первых потребителей.</p>
+<h2 id="Разработка"><a class="header" href="#Разработка">Разработка</a></h2>
+<h3 id="Системы-контроля-версий-vcs"><a class="header" href="#Системы-контроля-версий-vcs">Системы контроля версий (VCS)</a></h3>
+<p>VCS — программное обеспечение для управления изменениями в документах и коде.</p>
+<p><strong>Преимущества VCS:</strong></p>
+<ul>
+<li>Хранение нескольких версий</li>
+<li>Возврат к предыдущим версиям</li>
+<li>Отслеживание авторов изменений</li>
+<li>Совместная работа</li>
+</ul>
+<h4 id="История-vcs"><a class="header" href="#История-vcs">История VCS:</a></h4>
+<ul>
+<li>1960-е: IEBUPDATE</li>
+<li>1970-е: SCCS</li>
+<li>1980-е: RCS, CVS</li>
+<li>1990-е: SVN, Git</li>
+</ul>
+<h4 id="cvcs-vs-dvcs"><a class="header" href="#cvcs-vs-dvcs">CVCS vs DVCS</a></h4>
+<ul>
+<li><strong>CVCS</strong> (Centralized): централизованное хранилище, требуется подключение к серверу</li>
+<li><strong>DVCS</strong> (Distributed): каждый разработчик имеет полную копию репозитория</li>
+</ul>
+<h3 id="git"><a class="header" href="#git">Git</a></h3>
+<p>Создан Линусом Торвальдсом в 2005 году для разработки ядра Linux.</p>
+<h4 id="Изучение-git"><a class="header" href="#Изучение-git">Изучение Git</a></h4>
+<p>Рекомендуется изучить Git с помощью ресурсов:</p>
+<ul>
+<li>Официальная документация</li>
+<li>Интерактивные tutorials</li>
+<li>Практика работы с ветками</li>
+</ul>
+<h4 id="Ветвление-в-git"><a class="header" href="#Ветвление-в-git">Ветвление в Git</a></h4>
+<ul>
+<li>Легковесное</li>
+<li>Мгновенное</li>
+<li>Поощряется частое ветвление и слияние</li>
+</ul>
+<h4 id="Методики-ветвления"><a class="header" href="#Методики-ветвления">Методики ветвления:</a></h4>
+<ul>
+<li>Git Flow</li>
+<li>GitHub Flow</li>
+<li>GitLab Flow</li>
+</ul>
+<h3 id="code-review"><a class="header" href="#code-review">Code-review</a></h3>
+<p><strong>Pull Request (PR)</strong> — запрос на слияние изменений. Позволяет:</p>
+<ul>
+<li>Обеспечить видимость изменений</li>
+<li>Проводить обсуждение до слияния</li>
+<li>Автоматизировать проверки</li>
+</ul>
+<h3 id="Монорепозиторий"><a class="header" href="#Монорепозиторий">Монорепозиторий</a></h3>
+<p>Хранение кода нескольких проектов в одном репозитории с единой системой сборки, тестирования и развертывания.</p>
+<p><strong>Преимущества:</strong></p>
+<ul>
+<li>Упрощение управления зависимостями</li>
+<li>Упрощение межкомандного взаимодействия</li>
+<li>Централизованное управление версиями</li>
+</ul>
+<h2 id="Тестирование"><a class="header" href="#Тестирование">Тестирование</a></h2>
+<p>После разработки важно убедиться, что приложение соответствует требованиям.</p>
+<h3 id="Виды-тестирования"><a class="header" href="#Виды-тестирования">Виды тестирования:</a></h3>
+<ul>
+<li>Статический анализ кода</li>
+<li>Модульное тестирование (Unit testing)</li>
+<li>Интеграционное тестирование</li>
+<li>Функциональное тестирование</li>
+<li>Нагрузочное тестирование</li>
+<li>Тестирование безопасности</li>
+</ul>
+<h3 id="Статический-анализ-кода"><a class="header" href="#Статический-анализ-кода">Статический анализ кода</a></h3>
+<p>Автоматизированная проверка кода на:</p>
+<ul>
+<li>Соответствие стандартам</li>
+<li>Наличие ошибок и уязвимостей</li>
+<li>Метрики качества (покрытие тестами, цикломатическая сложность, дублирование кода)</li>
+</ul>
+<blockquote>
+<p><em>"Самое важное, что я сделал как программист за последние годы — это начал агрессивно применять статический анализ кода"</em> — Джон Кармак</p>
+</blockquote>
+<h3 id="Модульное-тестирование"><a class="header" href="#Модульное-тестирование">Модульное тестирование</a></h3>
+<p>Проверка корректности отдельных модулей кода. Позволяет быстро выявлять ошибки при изменениях.</p>
+<h3 id="Интеграционное-тестирование"><a class="header" href="#Интеграционное-тестирование">Интеграционное тестирование</a></h3>
+<p>Проверка взаимодействия между модулями и внешними системами.</p>
+<h3 id="Нагрузочное-тестирование"><a class="header" href="#Нагрузочное-тестирование">Нагрузочное тестирование</a></h3>
+<p><strong>Профили нагрузки:</strong></p>
+<ul>
+<li><strong>Performance testing</strong> — постепенное увеличение нагрузки</li>
+<li><strong>Load testing</strong> — длительная штатная нагрузка</li>
+<li><strong>Stress testing</strong> — нагрузки выше граничных значений</li>
+<li><strong>Spike testing</strong> — резкие повышения нагрузки</li>
+<li><strong>Warm-up testing</strong> — прогрев перед рабочей нагрузкой</li>
+</ul>
+<h2 id="Релиз"><a class="header" href="#Релиз">Релиз</a></h2>
+<h3 id="Стратегии-развертывания"><a class="header" href="#Стратегии-развертывания">Стратегии развертывания:</a></h3>
+<ul>
+<li><strong>Blue-green deployment</strong> — две идентичные среды, переключение между ними</li>
+<li><strong>Canary deployment</strong> — постепенный rollout на небольшую группу пользователей</li>
+<li><strong>Rolling update</strong> — постепенная замена экземпляров приложения</li>
+<li><strong>A/B testing</strong> — тестирование разных версий на разных группах пользователей</li>
+</ul>
+<h3 id="feature-флаги"><a class="header" href="#feature-флаги">Feature-флаги</a></h3>
+<p>Включение/выключение функциональности без изменения кода. Позволяют:</p>
+<ul>
+<li>Скрывать неготовые функции</li>
+<li>Тестировать на подмножествах пользователей</li>
+<li>Быстро откатывать изменения</li>
+</ul>
+<h3 id="feature-freeze"><a class="header" href="#feature-freeze">Feature freeze</a></h3>
+<p>Период запрета выкаток для повышения надежности системы (например, во время высоконагруженных периодов).</p>
+<h3 id="Релизные-окна"><a class="header" href="#Релизные-окна">Релизные окна</a></h3>
+<p>Определенные временные промежутки, когда разрешены выкатки в продакшен.</p>
+<h2 id="cicd"><a class="header" href="#cicd">CI/CD</a></h2>
+<h3 id="Непрерывная-интеграция-continuous-integration"><a class="header" href="#Непрерывная-интеграция-continuous-integration">Непрерывная интеграция (Continuous Integration)</a></h3>
+<ul>
+<li>Хранение кода в VCS</li>
+<li>Code review</li>
+<li>Автоматизированные сборки</li>
+<li>Модульное тестирование</li>
+<li>Статический анализ кода</li>
+</ul>
+<h3 id="Непрерывная-поставка-continuous-delivery"><a class="header" href="#Непрерывная-поставка-continuous-delivery">Непрерывная поставка (Continuous Delivery)</a></h3>
+<ul>
+<li>Хранение дистрибутивов</li>
+<li>Автоматизация развертывания на тестовые среды</li>
+<li>Готовность к развертыванию в любой момент</li>
+</ul>
+<h3 id="Непрерывное-развертывание-continuous-deployment"><a class="header" href="#Непрерывное-развертывание-continuous-deployment">Непрерывное развертывание (Continuous Deployment)</a></h3>
+<p>Автоматическая выкатка в продакшен после прохождения всех проверок.</p>
+<h2 id="Сопровождение"><a class="header" href="#Сопровождение">Сопровождение</a></h2>
+<h3 id="Ключевые-аспекты-поддержки"><a class="header" href="#Ключевые-аспекты-поддержки">Ключевые аспекты поддержки:</a></h3>
+<ul>
+<li>Непрерывный мониторинг</li>
+<li>Сбор и анализ логов</li>
+<li>Дежурства и реагирование на инциденты</li>
+<li>Использование feature-флагов</li>
+<li>Chaos engineering</li>
+<li>Регулярные учения</li>
+</ul>
+<h2 id="Завершение-жизненного-цикла-end-of-life"><a class="header" href="#Завершение-жизненного-цикла-end-of-life">Завершение жизненного цикла (End of Life)</a></h2>
+<p>Рано или поздно каждый сервис завершает свой жизненный цикл. Важно планировать заранее, обеспечивая плавный переход пользователей на альтернативные решения.</p>
+<h2 id="Заключение"><a class="header" href="#Заключение">Заключение</a></h2>
+<p>Понимание и правильное применение принципов жизненного цикла ПО позволяет создавать качественные, надежные и востребованные продукты. Каждый этап важен и вносит свой вклад в успех проекта.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../dev/python/async.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../examples/intro.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../dev/python/async.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../examples/intro.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
