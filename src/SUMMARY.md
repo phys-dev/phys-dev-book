@@ -64,3 +64,4 @@
 - [Маленькая задачка c Linux](./practicum/linux-structure-task.md)
 - [Пишем эффективный код](./practicum/python-algo-task.md)
 - [Деплой стартапа](./practicum/kitty-startup-task.md)
+- [Итоговый проект](./practicum/final-project-requirements.md)
