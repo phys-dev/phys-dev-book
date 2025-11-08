@@ -1,0 +1,1040 @@
+<!DOCTYPE HTML>
+<html lang="ru" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Оптимизация по времени и памяти - Разработка и применение программного обеспечения в физических исследованиях</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../intro/intro.html">О книге</a></li><li class="chapter-item expanded affix "><a href="../../intro/about-me.html">О себе</a></li><li class="chapter-item expanded affix "><li class="part-title">Ищем помощников</li><li class="chapter-item expanded "><a href="../../ai/intro.html"><strong aria-hidden="true">1.</strong> ИИ для разработки</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../ai/context.html"><strong aria-hidden="true">1.1.</strong> Контекст и скорость изменений</a></li><li class="chapter-item expanded "><a href="../../ai/develop.html"><strong aria-hidden="true">1.2.</strong> ИИ и разработчик</a></li><li class="chapter-item expanded "><a href="../../ai/basic.html"><strong aria-hidden="true">1.3.</strong> Технические основы</a></li><li class="chapter-item expanded "><a href="../../ai/instruments.html"><strong aria-hidden="true">1.4.</strong> Инструментарий</a></li><li class="chapter-item expanded "><a href="../../ai/qa.html"><strong aria-hidden="true">1.5.</strong> Вопросы и ответы</a></li></ol></li><li class="chapter-item expanded "><a href="../../dev/python/intro.html"><strong aria-hidden="true">2.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../dev/python/basics.html"><strong aria-hidden="true">2.1.</strong> Basics</a></li><li class="chapter-item expanded "><a href="../../dev/python/numpy.html"><strong aria-hidden="true">2.2.</strong> Numpy</a></li><li class="chapter-item expanded "><a href="../../dev/python/scipy.html"><strong aria-hidden="true">2.3.</strong> Scipy</a></li><li class="chapter-item expanded "><a href="../../dev/python/matplotlib.html"><strong aria-hidden="true">2.4.</strong> Matplotlib</a></li><li class="chapter-item expanded "><a href="../../dev/python/holo.html"><strong aria-hidden="true">2.5.</strong> Holoviews</a></li><li class="chapter-item expanded "><a href="../../dev/python/requirements.html"><strong aria-hidden="true">2.6.</strong> Requirements</a></li></ol></li><li class="chapter-item expanded "><a href="../../dev/git.html"><strong aria-hidden="true">3.</strong> Git</a></li><li class="chapter-item expanded "><a href="../../dev/docker.html"><strong aria-hidden="true">4.</strong> Docker</a></li><li class="chapter-item expanded affix "><li class="part-title">Загружаем linux</li><li class="chapter-item expanded "><a href="../../linux/intro.html"><strong aria-hidden="true">5.</strong> Основы Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../linux/booting.html"><strong aria-hidden="true">5.1.</strong> Процесс загрузки</a></li><li class="chapter-item expanded "><a href="../../linux/filesystems.html"><strong aria-hidden="true">5.2.</strong> Файловые системы</a></li><li class="chapter-item expanded "><a href="../../linux/tools.html"><strong aria-hidden="true">5.3.</strong> Инструменты</a></li></ol></li><li class="chapter-item expanded "><a href="../../linux/install-arch-linux.html"><strong aria-hidden="true">6.</strong> Установка Arch Linux</a></li><li class="chapter-item expanded "><a href="../../linux/structure.html"><strong aria-hidden="true">7.</strong> Внутреннее устройство Linux</a></li><li class="chapter-item expanded affix "><li class="part-title">Погружаемся в Python</li><li class="chapter-item expanded "><a href="../../dev/python/init.html"><strong aria-hidden="true">8.</strong> Начало</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../dev/python/objects.html"><strong aria-hidden="true">8.1.</strong> Объекты и память</a></li><li class="chapter-item expanded "><a href="../../dev/python/collections.html"><strong aria-hidden="true">8.2.</strong> Коллекции</a></li><li class="chapter-item expanded "><a href="../../dev/python/o-notation.html"><strong aria-hidden="true">8.3.</strong> Асимптотическая сложность</a></li></ol></li><li class="chapter-item expanded "><a href="../../dev/python/functions.html"><strong aria-hidden="true">9.</strong> Функции</a></li><li class="chapter-item expanded "><a href="../../dev/python/decorators.html"><strong aria-hidden="true">10.</strong> Декораторы и functools</a></li><li class="chapter-item expanded "><a href="../../dev/python/classes.html"><strong aria-hidden="true">11.</strong> Классы</a></li><li class="chapter-item expanded "><a href="../../dev/python/async.html"><strong aria-hidden="true">12.</strong> Итераторы, генераторы и корутины</a></li><li class="chapter-item expanded affix "><li class="part-title">Изучаем хорошие практики</li><li class="chapter-item expanded "><a href="../../dev/life.html"><strong aria-hidden="true">13.</strong> Жизненный цикл ПО</a></li><li class="chapter-item expanded "><a href="../../dev/python/optimization.html" class="active"><strong aria-hidden="true">14.</strong> Оптимизация по времени и памяти</a></li><li class="chapter-item expanded affix "><li class="part-title">Учимся у других</li><li class="chapter-item expanded "><a href="../../examples/intro.html"><strong aria-hidden="true">15.</strong> Коды и скрипты</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../examples/kenv.html"><strong aria-hidden="true">15.1.</strong> Уравнение огибающей Капчинского-Владимирского для пучка заряженных частиц</a></li><li class="chapter-item expanded "><a href="../../examples/envelope-optimize.html"><strong aria-hidden="true">15.2.</strong> Оптимизация огибающей пучка заряженных частиц с помощью генетического алгоритма</a></li><li class="chapter-item expanded "><a href="../../examples/redpic.html"><strong aria-hidden="true">15.3.</strong> Релятивистская разностная схема для расчета динамики частиц в сложных электрических и магнитных полях</a></li><li class="chapter-item expanded "><a href="../../examples/async-api.html"><strong aria-hidden="true">15.4.</strong> Асинхронное API для кинотеатра</a></li><li class="chapter-item expanded "><a href="../../examples/matrix-product.html"><strong aria-hidden="true">15.5.</strong> Перемножение матриц</a></li></ol></li><li class="chapter-item expanded "><a href="../../resume/literature.html"><strong aria-hidden="true">16.</strong> Литература и статьи</a></li><li class="chapter-item expanded affix "><li class="part-title">Работаем самостоятельно</li><li class="chapter-item expanded "><a href="../../practicum/review-code-task.html"><strong aria-hidden="true">17.</strong> Ищем ошибки в чужом коде</a></li><li class="chapter-item expanded "><a href="../../practicum/markov-chain-task.html"><strong aria-hidden="true">18.</strong> Делаем свою LLM</a></li><li class="chapter-item expanded "><a href="../../practicum/booting-linux-task.html"><strong aria-hidden="true">19.</strong> Установка Linux</a></li><li class="chapter-item expanded "><a href="../../practicum/linux-tools-task.html"><strong aria-hidden="true">20.</strong> Набор упражнений для работы в Linux</a></li><li class="chapter-item expanded "><a href="../../practicum/linux-structure-task.html"><strong aria-hidden="true">21.</strong> Маленькая задачка c Linux</a></li><li class="chapter-item expanded "><a href="../../practicum/python-algo-task.html"><strong aria-hidden="true">22.</strong> Пишем эффективный код</a></li><li class="chapter-item expanded "><a href="../../practicum/kitty-startup-task.html"><strong aria-hidden="true">23.</strong> Деплой стартапа</a></li><li class="chapter-item expanded "><a href="../../practicum/final-project-requirements.html"><strong aria-hidden="true">24.</strong> Итоговый проект</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Разработка и применение программного обеспечения в физических исследованиях</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/phys-dev/book/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="Почему-python-не-очень-быстрый"><a class="header" href="#Почему-python-не-очень-быстрый">Почему Python не очень быстрый</a></h1>
+<p>Python - очень гибкий язык. Однако именно эта гибкость не позволяет делать многие оптимизации. <br>
+Эффективные оптимизации закладываются на предположения и ограничения. <br>
+Меньше ограничений - меньше простора для оптимизации.</p>
+<h2 id="1-Динамическая-типизация"><a class="header" href="#1-Динамическая-типизация">1. Динамическая типизация</a></h2>
+<p>Чему это мешает:</p>
+<ul>
+<li>Много проверяем в Runtime. Тратим время.</li>
+<li>Не знаем точно с чем работаем - должны все время честно исполнять весь код</li>
+</ul>
+<h2 id="2-Изменяемость-всего-и-вся"><a class="header" href="#2-Изменяемость-всего-и-вся">2. Изменяемость всего и вся</a></h2>
+<p>Несколько примеров:</p>
+<pre><code class="language-python">import builtins
+
+print(len("abc"))
+len = lambda obj: "mock!"
+print(len("abc"))
+len = builtins.len
+</code></pre>
+<pre><code>3
+mock!
+</code></pre>
+<pre><code class="language-python">def my_func(a, b):
+    return a + b
+
+print(my_func(1, 2))
+
+def new_func(a, b):
+    return a * b
+
+my_func.__code__ = new_func.__code__
+print(my_func(1, 2))
+</code></pre>
+<pre><code>3
+2
+</code></pre>
+<pre><code class="language-python">import sys
+import ctypes
+
+def change_local_variable():
+    # Get prev frame object from the caller
+    frame = sys._getframe(1)
+    frame.f_locals['my_var'] = "hello"
+    # Force update
+    ctypes.pythonapi.PyFrame_LocalsToFast(ctypes.py_object(frame),
+                                          ctypes.c_int(0))
+
+def do_smth():
+    my_var = 1
+    change_local_variable()
+    print(my_var)
+
+    
+do_smth()
+</code></pre>
+<pre><code>hello
+</code></pre>
+<p><strong>Следствие: честно исполняем код</strong></p>
+<pre><code class="language-python">def do1():
+    a = [-1] * 1000
+    for i in range(len(a)):
+        if i == 0:
+            a[i] = 1
+        else:
+            a[i] = i
+            
+def do2():
+    a = [-1] * 1000
+    a[0] = 1
+    for i in range(1, len(a)):
+        a[i] = i
+</code></pre>
+<pre><code class="language-python">%timeit -n100 do1()
+%timeit -n100 do2()
+</code></pre>
+<pre><code>42.2 μs ± 970 ns per loop (mean ± std. dev. of 7 runs, 100 loops each)
+30.6 μs ± 1.14 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<h2 id="3-cpython"><a class="header" href="#3-cpython">3. CPython</a></h2>
+<ol>
+<li>Старый проект, написан задолго до многоядерных процессоров и т.д.</li>
+<li>Производительность - не самая главная цель</li>
+<li>Необходимость поддерживать совместимость с C API (особенности внутреннего дизайна)</li>
+</ol>
+<p>Но есть и хорошое:</p>
+<p>https://docs.python.org/3/whatsnew/3.11.html#summary-release-highlights</p>
+<p>https://docs.python.org/3/whatsnew/3.11.html#faster-cpython</p>
+<p>Будущее:</p>
+<ol>
+<li>https://github.com/faster-cpython/</li>
+<li>Multithreaded Python without the GIL - https://docs.google.com/document/d/18CXhDb1ygxg-YXNBJNzfzZsDFosB5e6BfnXLlejd9l0/edit#</li>
+</ol>
+<h1 id="Когда-оптимизировать"><a class="header" href="#Когда-оптимизировать">Когда оптимизировать</a></h1>
+<h3 id="premature-optimization-is-the-root-of-all-evil"><a class="header" href="#premature-optimization-is-the-root-of-all-evil"><em>Premature optimization is the root of all evil</em></a></h3>
+<p>Так ли это?</p>
+<p><strong>Утверждение:</strong></p>
+<p>В первую очередь мы пишим работающий код, а потом быстрый. Мы будем заниматься оптимизацией, когда функционал будет готов.</p>
+<p><strong>Следствие:</strong></p>
+<p>Производительность будет одна и та же все время, пока кто-то не найдет легко исправимые вещи, которые сделаю программу быстрее без неоходимости переделки большого количества кода.</p>
+<p>Может повезти, а может не повезти.</p>
+<p><strong>Правильный путь:</strong></p>
+<p>Если вам нужна быстрая программа - сразу обращайте внимание на производительность. <br>
+Ваш прототип должен быть быстрый - может даже быстрее, чем финальная версия.</p>
+<p>Лучше начать с производительного решения и поддерживать его, чем надеятся, что получится оптимизировать медленное решение.</p>
+<p><strong>Антипаттерн: большой комок грязи</strong></p>
+<pre><code>If you think good architecture is expensive, try bad architecture.
+</code></pre>
+<p>http://www.laputan.org/mud/mud.html
+https://ru.wikipedia.org/wiki/%D0%91%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B9_%D0%BA%D0%BE%D0%BC%D0%BE%D0%BA_%D0%B3%D1%80%D1%8F%D0%B7%D0%B8</p>
+<h2 id="Мантра-оптимизаций"><a class="header" href="#Мантра-оптимизаций">Мантра оптимизаций</a></h2>
+<ol>
+<li>Не делай</li>
+<li>Делай это позже</li>
+<li>Делай это оптимально</li>
+</ol>
+<h1 id="Как-оптимизировать"><a class="header" href="#Как-оптимизировать">Как оптимизировать</a></h1>
+<center><img src="http://lh6.ggpht.com/_AALI9OaE6pk/Sjio4NqVK0I/AAAAAAAAAEM/9xwU-xHtEBY/s800/premature2.PNG">
+<a href="https://dl.acm.org/citation.cfm?doid=356635.356640"> Knuth, D. E. 1974. Structured Programming with go to Statements</a>, ACM Comput. Surv. 6, 4 (Dec. 1974), 261-301.</center>
+<p><strong>Нужно найти место, куда прикладывать усилия!</strong></p>
+<h2 id="Правило-1-Профилируй-код"><a class="header" href="#Правило-1-Профилируй-код">Правило 1. Профилируй код</a></h2>
+<p>Возможно вы оптимизируете какую-то функцию в 10 раз. <br>
+Однако она исполняется всего в 1% случаев.  <br>
+В итоге польза от такой оптимизации довольно маленькая.</p>
+<p>Не надо гадать какая часть чаще всего используется и дольше всего работает. <br>
+Профилирование позволяет понять какая именно часть нужно оптимизировать.</p>
+<h2 id="Правило-2-Не-забывай-про-корректность"><a class="header" href="#Правило-2-Не-забывай-про-корректность">Правило 2. Не забывай про корректность</a></h2>
+<p>Ваши оптимизации вполне могут сломать код. <br>
+Стоит покрыть дополнительными тестами те части, которые вы хотите поменять.</p>
+<h1 id="Профилирование"><a class="header" href="#Профилирование">Профилирование</a></h1>
+<p>Основной инструментарий:</p>
+<ol>
+<li>cProfile</li>
+<li>pstats</li>
+<li>SnakeViz</li>
+</ol>
+<p>Profile demo</p>
+<p>Дополнительно хочется выделить два инструмента:</p>
+<ol>
+<li><a href="https://github.com/benfred/py-spy">py-spy</a> - позволяет снять профиль с работающей программы, без изменений кода</li>
+<li><a href="https://github.com/pyutils/line_profiler">line_profiler</a> - профилирование по строчкам (показывает количество времени проведенную в каждой строчке)</li>
+</ol>
+<h1 id="Измерение-времени"><a class="header" href="#Измерение-времени">Измерение времени</a></h1>
+<p>Иногда хочется просто замерить время, а не снимать полноценный профиль. <br>
+Например, когда мы оптимизируем одну конкретную функцию.
+Для этого есть модуль <code>timeit</code></p>
+<pre><code class="language-python">import timeit
+
+setup = '''
+s='abcdefghijklmnopqrstuvwxyz'
+
+def reverse_0(s: str) -&gt; str:
+    reversed_output = ''
+    s_length = len(s)
+    for i in range(s_length-1, 0-1, -1):
+        reversed_output = reversed_output + s[i]
+    return reversed_output
+
+def reverse_5(s: str) -&gt; str:
+    return s[::-1]
+'''
+</code></pre>
+<pre><code class="language-python">timeit.timeit('reverse_0(s)', setup, number=10000)
+</code></pre>
+<pre><code>0.020173080999484228
+</code></pre>
+<pre><code class="language-python">timeit.timeit('reverse_5(s)', setup, number=10000)
+</code></pre>
+<pre><code>0.001456363000215788
+</code></pre>
+<p>Функция <code>timeit</code> замеряет время с помощью функции <code>time.perf_counter</code>. <br>
+На время измерений отключается сборщик мусора. <br>
+При этом замеряется общее время нужное для <code>N</code> запусков, а не среднее.</p>
+<p>Q: Почему все в строках?</p>
+<p>A: Сам код <code>timeit</code> сделан в виде <a href="https://github.com/python/cpython/blob/master/Lib/timeit.py#L69">шаблоннонй строки</a>, куда подставляются параметры. <br>
+Это позволяет сэкономить время на вызове функции, если бы мы ее передавали в виде объекта. <br>
+В <code>timeit</code> можно передавать и функции по честному.</p>
+<p>В IPython есть упрощение работы с функцией <code>timeit</code> - специальная команда <code>%timeit</code>. <br>
+В отличии от функции эта команда выводит среднее время работы и стандартное отклонение.</p>
+<pre><code class="language-python">def reverse_0(s: str) -&gt; str:
+    reversed_output = ''
+    s_length = len(s)
+    for i in range(s_length-1, 0-1, -1):
+        reversed_output = reversed_output + s[i]
+    return reversed_output
+
+%timeit -n100 reverse_0('abcdefghijklmnopqrstuvwxyz')
+</code></pre>
+<pre><code>2.09 μs ± 130 ns per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<h1 id="Оптимизация"><a class="header" href="#Оптимизация">Оптимизация</a></h1>
+<h2 id="Часть-1-Что-оптимизировать"><a class="header" href="#Часть-1-Что-оптимизировать">Часть 1. Что оптимизировать</a></h2>
+<p>Оптимизация - это не только изменение кода. <br>
+Можно выделить следующие уровни оптимизации:</p>
+<h3 id="1-Общая-архитектура"><a class="header" href="#1-Общая-архитектура">1. Общая архитектура</a></h3>
+<p>То как система работает. Какие данные обрабатываются, как обрабатываются, объем данных, хранение и т.д.</p>
+<h3 id="2-Алгоритмы-и-структуры-данных"><a class="header" href="#2-Алгоритмы-и-структуры-данных">2. Алгоритмы и структуры данных</a></h3>
+<p>Выбор того или иного алгоритма/структуры данных при обработке.</p>
+<h3 id="3-Реализация-код"><a class="header" href="#3-Реализация-код">3. Реализация (код)</a></h3>
+<p>Непосредственная реализация алгоритма/структуры данных</p>
+<h3 id="4-Оптимизации-во-время-компиляции"><a class="header" href="#4-Оптимизации-во-время-компиляции">4. Оптимизации во время компиляции</a></h3>
+<h3 id="5-Оптимизации-во-время-исполнения"><a class="header" href="#5-Оптимизации-во-время-исполнения">5. Оптимизации во время исполнения</a></h3>
+<p>Мы будем обсуждать оптимизации на уровнях 3-5. <br>
+Однако оптимизации на уровне 1-2 тоже важны. <br>
+Более того у них больший потенциал для ускорения, но в тоже время они наиболее сложные.</p>
+<p>В целом оптимизация - это не только про скорость, но еще и:</p>
+<ul>
+<li>Память</li>
+<li>Диск (место, I\O)</li>
+<li>Сеть</li>
+<li>Потребление энергии</li>
+<li>И многое другое</li>
+</ul>
+<p>Мы обсудим только скорость работы и память.</p>
+<p>Оптимизация - может быть сложной.</p>
+<ol>
+<li>На оптимизацию тратится время. Кроме того не факт что ваши оптимизации что-то то дадут</li>
+<li>Скорее всего система в целом станет сложнее, а код непонятнее</li>
+<li>Не любые оптимизации полезны: можно выиграть скорость, но существенно проиграть память</li>
+</ol>
+<h2 id="Часть-2-Пишем-хороший-python-код"><a class="header" href="#Часть-2-Пишем-хороший-python-код">Часть 2. Пишем хороший Python код</a></h2>
+<p>Будем оптимизировать 3 уровень - реализацию (код).</p>
+<h3 id="Совет-1-Используй-builtins"><a class="header" href="#Совет-1-Используй-builtins">Совет 1. Используй builtins</a></h3>
+<p>Посчитаем количество элементов в списке:</p>
+<pre><code class="language-python">one_million_elements = [i for i in range(1000000)]
+
+def calc_total(elements):
+    total = 0
+    for item in elements:
+        total += 1
+    
+%timeit calc_total(one_million_elements)
+</code></pre>
+<pre><code>31.6 ms ± 404 μs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</code></pre>
+<pre><code class="language-python">%timeit len(one_million_elements)
+</code></pre>
+<pre><code>43.6 ns ± 1.03 ns per loop (mean ± std. dev. of 7 runs, 10,000,000 loops each)
+</code></pre>
+<p>Пример выше - игрушечный. <br>
+Однако в большинстве случаев вместо того, чтобы писать что-то свое лучше использовать готовую функцию из <code>builtins.</code></p>
+<h3 id="Совет-2-Правильная-фильтрация"><a class="header" href="#Совет-2-Правильная-фильтрация">Совет 2. Правильная фильтрация</a></h3>
+<p>Попробум получить новый список, отфильтровав только нечетные элементы. <br>
+Кроме того воспользуемся предыдущим советом и будем использовать <code>filter</code> из <code>builtins</code>.</p>
+<pre><code class="language-python">def my_filter1(elements):
+    result = []
+    for item in elements:
+        if item % 2:
+            result.append(item)
+    return result
+            
+def my_filter2(elements):
+    return list(filter(lambda x: x % 2, elements))
+</code></pre>
+<pre><code class="language-python">%timeit my_filter1(one_million_elements)
+</code></pre>
+<pre><code>45.6 ms ± 344 μs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</code></pre>
+<pre><code class="language-python">%timeit my_filter2(one_million_elements)
+</code></pre>
+<pre><code>76.8 ms ± 780 μs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</code></pre>
+<p>Q: Почему код стал медленнее?</p>
+<p>A: Потому что у нас есть накладные расходы на создание генератора, а потом превращения генератора в список.</p>
+<p>Давайте напишим код, который лучше отражает наши намеренья и будет сразу создавать нужный список:</p>
+<pre><code class="language-python">def my_filter3(elements):
+    return [item for item in elements if item % 2]
+
+%timeit my_filter3(one_million_elements)
+</code></pre>
+<pre><code>40.3 ms ± 1.01 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</code></pre>
+<pre><code class="language-python">one_million_elements_str = [str(i) for i in range(1000000)]
+
+def str_filter1(elements):
+    return [item for item in elements if item.isdigit()]
+
+def str_filter2(elements):
+    return list(filter(str.isdigit, elements))
+</code></pre>
+<pre><code class="language-python">%timeit str_filter1(one_million_elements_str)
+</code></pre>
+<pre><code>55.3 ms ± 244 μs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</code></pre>
+<pre><code class="language-python">%timeit str_filter2(one_million_elements_str)
+</code></pre>
+<pre><code>49.8 ms ± 166 μs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</code></pre>
+<p>Мораль: Не всегда использование <code>builtins</code> и генераторов делает код быстрее. <br>
+Стоит проверять конкретно ваш случай.</p>
+<h3 id="Совет-3-Правильная-проверка-вхождений"><a class="header" href="#Совет-3-Правильная-проверка-вхождений">Совет 3. Правильная проверка вхождений</a></h3>
+<p>Напишим код, проверяющий наличие элемента:</p>
+<pre><code class="language-python">def check_in1(elements, number):
+    for item in elements:
+        if item == number:
+            return True
+    return False
+
+%timeit check_in1(one_million_elements, 500000)
+</code></pre>
+<pre><code>9.02 ms ± 34.1 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<pre><code class="language-python">%timeit 500000 in one_million_elements
+</code></pre>
+<pre><code>5.65 ms ± 21.4 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<p>Однако, время поиска зависит от того, где именно находится элемент</p>
+<pre><code class="language-python">%timeit 42 in one_million_elements
+</code></pre>
+<pre><code>492 ns ± 2.24 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+</code></pre>
+<p>В Python есть <code>set</code> - стандартный инструмент для такой задачи</p>
+<pre><code class="language-python">one_million_elements_set = set(one_million_elements)
+%timeit 500000 in one_million_elements_set
+</code></pre>
+<pre><code>37.3 ns ± 0.345 ns per loop (mean ± std. dev. of 7 runs, 10,000,000 loops each)
+</code></pre>
+<pre><code class="language-python">%timeit 42 in one_million_elements_set
+</code></pre>
+<pre><code>23.5 ns ± 0.223 ns per loop (mean ± std. dev. of 7 runs, 10,000,000 loops each)
+</code></pre>
+<p>Однако, конечно же, мы проиграем время при создании множества:</p>
+<pre><code class="language-python">%timeit set(one_million_elements)
+</code></pre>
+<pre><code>46.7 ms ± 358 μs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</code></pre>
+<p>Кроме того, конечно же мы проиграли память.</p>
+<h3 id="Совет-4-Сортировка"><a class="header" href="#Совет-4-Сортировка">Совет 4. Сортировка</a></h3>
+<pre><code class="language-python">%timeit sorted(one_million_elements)
+</code></pre>
+<pre><code>16.9 ms ± 819 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<pre><code class="language-python">%timeit one_million_elements.sort()
+</code></pre>
+<pre><code>8.52 ms ± 700 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<p>Мораль: inplace сортировка заметно быстрее. При возможности пользуйтесь именно ей.</p>
+<h3 id="Совет-5-Условия-if"><a class="header" href="#Совет-5-Условия-if">Совет 5. Условия if</a></h3>
+<p>Условия в конструкции if можно писать по разному:</p>
+<pre><code class="language-python">count = 100000
+
+def check_false1(flag):
+    for i in range(count):
+        if flag == False:
+            pass
+    
+def check_false2(flag):
+    for i in range(count):
+        if flag is False:
+            pass
+
+def check_false3(flag):
+    for i in range(count):
+        if not flag:
+            pass
+</code></pre>
+<p>При этом эти варианты работают разное время:</p>
+<pre><code class="language-python">%timeit check_false1(True)
+</code></pre>
+<pre><code>3.7 ms ± 31.6 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<pre><code class="language-python">%timeit check_false2(True)
+</code></pre>
+<pre><code>2.6 ms ± 9.39 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<pre><code class="language-python">%timeit check_false3(True)
+</code></pre>
+<pre><code>2.14 ms ± 13.9 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<p>Попробуем угадать какой способ проверки на пустоту быстрее:</p>
+<ol>
+<li><code>if len(elements) == 0:</code></li>
+<li><code>if elements == []:</code></li>
+<li><code>if not element:</code></li>
+</ol>
+<pre><code class="language-python">def check_empty1(elements):
+    for i in range(count):
+        if len(elements) == 0:
+            pass
+    
+def check_empty2(elements):
+    for i in range(count):
+        if elements == []:
+            pass
+
+def check_empty2_new(elements):
+    for i in range(count):
+        if elements == list():
+            pass
+        
+def check_empty3(elements):
+    for i in range(count):
+        if not elements:
+            pass
+</code></pre>
+<pre><code class="language-python">%timeit check_empty1(one_million_elements)
+</code></pre>
+<pre><code>5.98 ms ± 38.9 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<pre><code class="language-python">%timeit check_empty2(one_million_elements)
+</code></pre>
+<pre><code>5.54 ms ± 53.1 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<pre><code class="language-python">%timeit check_empty2_new(one_million_elements)
+</code></pre>
+<pre><code>8.73 ms ± 33.4 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<pre><code class="language-python">%timeit check_empty3(one_million_elements)
+</code></pre>
+<pre><code>2.97 ms ± 43 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<p>Мораль: пользуйтесь самым быстрым способом. Кроме производительности этот способ более Python-way.</p>
+<h3 id="Совет-6-Спрашивать-разрешения-или-обрабатывать-последствия"><a class="header" href="#Совет-6-Спрашивать-разрешения-или-обрабатывать-последствия">Совет 6. Спрашивать разрешения или обрабатывать последствия</a></h3>
+<p>Предпололжим мы хотим написать код, который будет обрабатывать объекты как имеющие некоторый аттрибут, так и нет.</p>
+<pre><code class="language-python">class Foo:
+    attr1 = 'hello'
+    
+foo = Foo()
+</code></pre>
+<pre><code class="language-python">def check_attr1(obj):
+    for i in range(count):
+        if hasattr(obj, 'attr1'):
+            obj.attr1
+            
+def check_attr2(obj):
+    for i in range(count):
+        try:
+            obj.attr1
+        except AttributeError:
+            pass
+</code></pre>
+<p>Какой способ быстрее?</p>
+<pre><code class="language-python">%timeit check_attr1(foo)
+</code></pre>
+<pre><code>8.42 ms ± 70.3 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<pre><code class="language-python">%timeit check_attr2(foo)
+</code></pre>
+<pre><code>4.63 ms ± 29.5 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<p>Разница станет еще большей, если нужно будет проверять несколько аттрибутов.</p>
+<p>Где подвох?</p>
+<p>Предположим, что у объектов в основном нет нужного аттрибута.</p>
+<pre><code class="language-python">class Bar:
+    pass
+
+bar = Bar()
+</code></pre>
+<pre><code class="language-python">%timeit check_attr1(bar)
+</code></pre>
+<pre><code>5.91 ms ± 74.3 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<pre><code class="language-python">%timeit check_attr2(bar)
+</code></pre>
+<pre><code>59.5 ms ± 897 μs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</code></pre>
+<p>Мораль: думайте какая ситуация чаще встречается и исходя из этого выбирайте из двух вариантов. <br></p>
+<p>Этот принцип работает для всех ситуаций, например, при создании запроса по сети.</p>
+<h3 id="Совет-7-Особенности-определения-словаря-и-списка"><a class="header" href="#Совет-7-Особенности-определения-словаря-и-списка">Совет 7. Особенности определения словаря и списка</a></h3>
+<p>В Python можно по разному объявлять словарь и список:</p>
+<pre><code class="language-python">def create_list1():
+    for i in range(count):
+        a = []
+
+def create_list2():
+    for i in range(count):
+        a = list()
+        
+def create_dict1():
+    for i in range(count):
+        a = {}
+
+def create_dict2():
+    for i in range(count):
+        a = dict()
+</code></pre>
+<p>При этом способы через <code>[]</code> и <code>{}</code> быстрее <code>list()</code> и <code>dict()</code> соответственно:</p>
+<pre><code class="language-python">%timeit create_list1()
+</code></pre>
+<pre><code>4.12 ms ± 127 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<pre><code class="language-python">%timeit create_list2()
+</code></pre>
+<pre><code>7.16 ms ± 164 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<pre><code class="language-python">%timeit create_dict1()
+</code></pre>
+<pre><code>4.04 ms ± 93.6 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<pre><code class="language-python">%timeit create_dict2()
+</code></pre>
+<pre><code>7.82 ms ± 115 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<p>Q: Почему есть разница?</p>
+<p>A: Обращение к имени занимает время. Интерпретатору нужно найти на что указывает имя. Можно посмотреть на код через модуль <code>dis</code> и убедиться, что код разный.</p>
+<pre><code class="language-python">import dis
+
+dis.dis("[]")
+</code></pre>
+<pre><code>  0           0 RESUME                   0
+
+  1           2 BUILD_LIST               0
+              4 RETURN_VALUE
+</code></pre>
+<pre><code class="language-python">import dis
+
+dis.dis("list()")
+</code></pre>
+<pre><code>  0           0 RESUME                   0
+
+  1           2 PUSH_NULL
+              4 LOAD_NAME                0 (list)
+              6 CALL                     0
+             14 RETURN_VALUE
+</code></pre>
+<h3 id="Совет-8-Вызов-функции"><a class="header" href="#Совет-8-Вызов-функции">Совет 8. Вызов функции</a></h3>
+<p>Если есть возможность не вызывать функцию - лучше это сделать. <br>
+Вызов функции и создание frame требует значительного количества времени.</p>
+<pre><code class="language-python">def square(num):
+    return num ** 2
+</code></pre>
+<pre><code class="language-python">%timeit [square(num) for num in range(10000)]
+</code></pre>
+<pre><code>1.05 ms ± 6.03 μs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+</code></pre>
+<pre><code class="language-python">%timeit [num ** 2 for num in range(10000)]
+</code></pre>
+<pre><code>694 μs ± 6.45 μs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+</code></pre>
+<h3 id="Совет-9-Избегайте-активной-работы-с-глобальными-переменными"><a class="header" href="#Совет-9-Избегайте-активной-работы-с-глобальными-переменными">Совет 9. Избегайте активной работы с глобальными переменными</a></h3>
+<pre><code class="language-python">count = 100000
+
+some_global = 0
+def work_with_global():
+    global some_global
+    for i in range(count):
+        some_global += 1
+        
+def work_with_local():
+    some_local = 0
+    for i in range(count):
+        some_local += 1
+</code></pre>
+<pre><code class="language-python">%timeit work_with_global()
+</code></pre>
+<pre><code>6.98 ms ± 56.6 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<pre><code class="language-python">%timeit work_with_local()
+</code></pre>
+<pre><code>4.16 ms ± 41.8 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<pre><code class="language-python">some_global = 0
+def work_with_global_optimized():
+    global some_global
+    some_local = some_global
+    for i in range(count):
+        some_local += 1
+    some_global = some_local
+</code></pre>
+<pre><code class="language-python">%timeit work_with_global_optimized()
+</code></pre>
+<pre><code>4.14 ms ± 75.4 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<h3 id="Совет-10-Для-математики-используйте-соответвующие-библиотеки"><a class="header" href="#Совет-10-Для-математики-используйте-соответвующие-библиотеки">Совет 10. Для математики используйте соответвующие библиотеки</a></h3>
+<p>Не надо пытаться писать математические вычисления на Python. <br>
+Используйте готовые библиотеки, которые написаны на C\Fortran</p>
+<pre><code class="language-python">def list_slow():
+    a = range(10000)
+    return [i ** 2 for i in a]
+
+%timeit list_slow()
+</code></pre>
+<pre><code>658 μs ± 4.81 μs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+</code></pre>
+<pre><code class="language-python">import numpy as np
+
+def list_fast():
+    a = np.arange(10000)
+    return a ** 2
+
+%timeit list_fast()
+</code></pre>
+<pre><code>10.4 μs ± 32.3 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+</code></pre>
+<h3 id="danger-zone-warning"><a class="header" href="#danger-zone-warning"><font color=red>Danger zone warning</font></a></h3>
+<p>Используйте советы ниже только если это действительно даст какой-то сущетсвенный выигрыш</p>
+<h3 id="Совет-11-Множественное-присваивание"><a class="header" href="#Совет-11-Множественное-присваивание">Совет 11. Множественное присваивание</a></h3>
+<pre><code class="language-python">def create_variables1():
+    for i in range(10000):
+        a = 0
+        b = 1
+        c = 2
+        d = 3
+        e = 4
+        f = 5
+        g = 6
+        h = 7
+        i = 8
+        j = 9
+        
+def create_variables2():
+    for i in range(10000):
+        a, b, c, d, e, f, g, h, i, j = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+</code></pre>
+<pre><code class="language-python">%timeit create_variables1()
+</code></pre>
+<pre><code>616 μs ± 5.26 μs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+</code></pre>
+<pre><code class="language-python">%timeit create_variables2()
+</code></pre>
+<pre><code>503 μs ± 8.69 μs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+</code></pre>
+<p>Объявление переменных на одной строчки работает действительно быстрее, но не стоит так делать</p>
+<h3 id="Совет-12-Поиск-функций-и-аттрибутов"><a class="header" href="#Совет-12-Поиск-функций-и-аттрибутов">Совет 12. Поиск функций и аттрибутов</a></h3>
+<p>В Python поиск аттрибута сложная операция. Вызывается <code>__getattr__</code> и <code>__getattribute__</code>. <br>
+Можно найти аттрибут один раз и сохранить его, чтобы не искать повторно:</p>
+<pre><code class="language-python">def squares1(elements):
+    result = []
+    for item in elements:
+        result.append(item)
+
+def squares2(elements):
+    result = []
+    append = result.append
+    for item in elements:
+        append(item)
+</code></pre>
+<pre><code class="language-python">%timeit squares1(one_million_elements)
+</code></pre>
+<pre><code>24.6 ms ± 255 μs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</code></pre>
+<pre><code class="language-python">%timeit squares2(one_million_elements)
+</code></pre>
+<pre><code>29 ms ± 367 μs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</code></pre>
+<h3 id="Прочее"><a class="header" href="#Прочее">Прочее</a></h3>
+<p>Проекты, заслуживающего внимания:</p>
+<ol>
+<li><a href="https://github.com/yglukhov/nimpy">nimpy</a> - Используем функции на языке Nim из Python</li>
+<li><a href="https://pythran.readthedocs.io/en/latest/">Pythran</a> - Другой подход к компиляции кода</li>
+<li><a href="https://github.com/pyston/pyston">Pyston</a> - еще один интерпретатор с JIT-компилятором</li>
+</ol>
+<h1 id="Оптимизируем-память"><a class="header" href="#Оптимизируем-память">Оптимизируем память</a></h1>
+<h2 id="Замеряем-память"><a class="header" href="#Замеряем-память">Замеряем память</a></h2>
+<p>Замерять память в Python - довольно сложно.</p>
+<pre><code class="language-python">import sys
+
+print(sys.getsizeof([i for i in range(1000000)]))
+print(sys.getsizeof([i for i in range(100000)]))
+</code></pre>
+<pre><code>8448728
+800984
+</code></pre>
+<p>Кажется, что все работает как надо. Однако:</p>
+<pre><code class="language-python">class SomeClass:
+    def __init__(self, i):
+        self.i = i
+        self.j = i * 2
+        
+sys.getsizeof([SomeClass(i) for i in range(1000000)])
+</code></pre>
+<pre><code>8448728
+</code></pre>
+<p>Почему-то список из <code>SomeClass</code> занимает столько же места как и список целых чисел. <br>
+По факту <code>sys.getsizeof</code> хорошо работает только для простых типов и встроенных структур.</p>
+<p>Q: Что делать?
+A: Использовать профилировщик памяти!</p>
+<pre><code class="language-python">%load_ext memory_profiler
+%memit
+</code></pre>
+<pre><code>peak memory: 625.96 MiB, increment: 0.00 MiB
+</code></pre>
+<p>Этот подход тоже не идеален. Он замеряет лишь потребление памяти в один конкретный момент времени. <br>
+Поэтому он не может все учитывать, а его результаты будут заметно плавать.</p>
+<pre><code class="language-python">%memit [n for n in range(10000000)]
+</code></pre>
+<pre><code>peak memory: 1007.02 MiB, increment: 377.12 MiB
+</code></pre>
+<pre><code class="language-python">%memit [n for n in range(1000000)]
+</code></pre>
+<pre><code>peak memory: 632.71 MiB, increment: 0.07 MiB
+</code></pre>
+<h2 id="Можно-ли-получить-memory-leakage-в-python"><a class="header" href="#Можно-ли-получить-memory-leakage-в-python">Можно ли получить memory-leakage в Python</a></h2>
+<p>Зависит от того, что считать memory-leakage. Как в C++ - только если явно работать со счетчиком ссылок, так как есть Garbage collection.</p>
+<p>Немного подробнее: https://rushter.com/blog/python-garbage-collector/</p>
+<p>Однако, можно получить долго-живущие "бесполезные" объекты.</p>
+<p>Плюс есть особенности старых версий Python (2.7, до 3.4)</p>
+<pre><code class="language-python">def mutable_argument(arr=[]):
+    arr.append(42)
+    return a
+</code></pre>
+<pre><code class="language-python">def unused_variable_in_long_process(arg1, arg2, arg3, unused_variable):
+    pass
+</code></pre>
+<pre><code class="language-python">class ClassCaching:
+    cache = {}
+
+    def calc(arg):
+        result = cache.get(arg)
+        if result is not None:
+            return result
+        result = do_calc(arg)
+        cache[arg] = result
+        return result
+</code></pre>
+<h2 id="array"><a class="header" href="#array">Array</a></h2>
+<p><code>array</code> позволяет более компактно хранить объекты примитвных типов.</p>
+<pre><code class="language-python">import array
+
+%memit array.array('q', range(10000000))
+</code></pre>
+<pre><code>peak memory: 702.93 MiB, increment: 70.22 MiB
+</code></pre>
+<p>Подробнее про типы: https://docs.python.org/3/library/array.html</p>
+<h2 id="nparray"><a class="header" href="#nparray">np.array</a></h2>
+<p><code>np.array</code> так же хранит объекты определенных типов и занимает меньше места, чем стандартный <code>list</code>.</p>
+<pre><code class="language-python">%memit np.arange(10000000)
+</code></pre>
+<pre><code>peak memory: 632.75 MiB, increment: 0.00 MiB
+</code></pre>
+<h2 id="tuple-vs-list"><a class="header" href="#tuple-vs-list">tuple vs list</a></h2>
+<pre><code class="language-python">sys.getsizeof([i for i in one_million_elements])
+</code></pre>
+<pre><code>8448728
+</code></pre>
+<pre><code class="language-python">sys.getsizeof(tuple(one_million_elements))
+</code></pre>
+<pre><code>8000040
+</code></pre>
+<pre><code class="language-python">sys.getsizeof(list(one_million_elements))
+</code></pre>
+<pre><code>8000056
+</code></pre>
+<h2 id="slots"><a class="header" href="#slots">Slots</a></h2>
+<p>Использование <code>__slots__</code> позволяет заметно сократить объем занимаемой памяти:</p>
+<pre><code class="language-python">class SomeClass:
+    def __init__(self, i):
+        self.a = i
+        self.b = 2 * i
+        self.c = 3 * i
+        self.d = 4 * i
+        self.e = 5 * i
+</code></pre>
+<pre><code class="language-python">%memit [SomeClass(i) for i in range(1000000)]
+</code></pre>
+<pre><code>peak memory: 880.38 MiB, increment: 247.62 MiB
+</code></pre>
+<pre><code class="language-python">class SomeClassSlots:
+    __slots__ = ('a', 'b', 'c', 'd', 'e',)
+    def __init__(self, i):
+        self.a = i
+        self.b = 2 * i
+        self.c = 3 * i
+        self.d = 4 * i
+        self.e = 5 * i
+                
+%memit [SomeClassSlots(i) for i in range(1000000)]
+</code></pre>
+<pre><code>peak memory: 853.01 MiB, increment: 217.66 MiB
+</code></pre>
+<p>Кроме того у <code>__slots__</code> есть дополнительный плюс - ускорение времени обращения к аттрибуту</p>
+<pre><code class="language-python">d1 = SomeClass(0)
+d2 = SomeClassSlots(0)
+
+def attr_work(obj):
+    count = 0
+    for i in range(10000):
+        count += obj.a + obj.b + obj.c + obj.d + obj.e
+</code></pre>
+<pre><code class="language-python">%timeit attr_work(d1)
+</code></pre>
+<pre><code>824 μs ± 20.2 μs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+</code></pre>
+<pre><code class="language-python">%timeit attr_work(d2)
+</code></pre>
+<pre><code>845 μs ± 7.76 μs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+</code></pre>
+<p>Однако со <code>__slots__</code> не очень удобно работать при наследовании - необходимо его указывать в каждом классе иерархии.</p>
+<h2 id="bitarray"><a class="header" href="#bitarray">bitarray</a></h2>
+<p>bitarray - пакет для эффективного хранения набора булевских значений. <br>
+Подробнее: https://github.com/ilanschnell/bitarray</p>
+<pre><code class="language-python">import bitarray.util as bu
+
+%memit bu.zeros(10000000)
+</code></pre>
+<pre><code>peak memory: 634.12 MiB, increment: 0.00 MiB
+</code></pre>
+<pre><code class="language-python">%memit [False for i in range(10000000)]
+</code></pre>
+<pre><code>peak memory: 701.93 MiB, increment: 67.81 MiB
+</code></pre>
+<p>Однако нужно понимать, что на обращение к элементу тратится время.</p>
+<h2 id="range---вычисление-вместо-хранения"><a class="header" href="#range---вычисление-вместо-хранения">range - вычисление вместо хранения</a></h2>
+<pre><code class="language-python">a = range(1, 100000, 3)
+print(a[10])
+print(len(a))
+</code></pre>
+<pre><code>31
+33333
+</code></pre>
+<p>Такой же подход можно использовать и для более сложных последовательностей. <br>
+Можно использовать смешанный подход с кешированием результата вычислений.</p>
+<h2 id="Другой-полезный-инструментарий"><a class="header" href="#Другой-полезный-инструментарий">Другой полезный инструментарий</a></h2>
+<ol>
+<li>https://github.com/mgedmin/objgraph</li>
+<li>https://github.com/zhuyifei1999/guppy3</li>
+</ol>
+<pre><code class="language-python">
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../dev/life.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../examples/intro.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../dev/life.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../examples/intro.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
