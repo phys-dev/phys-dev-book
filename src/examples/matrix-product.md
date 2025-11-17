@@ -545,10 +545,10 @@ Y = np.random.randint(-255, 255, shape)
 
 
 ```python
-%timeit -n100 X*Y
+%timeit -n100 X@Y
 ```
 
-    5.84 μs ± 3.84 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+    215 μs ± 3.8 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 
 
 Profit.
