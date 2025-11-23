@@ -45,7 +45,8 @@
 
 - [Жизненный цикл ПО](./dev/life.md)
 - [Оптимизация по времени и памяти](./dev/python/optimization.md)
-- [Numpy & Pandas](./dev/python/numpy-and-pandas.md)
+- [Обработка данных](./dev/python/numpy-and-pandas.md)
+- [Визуализация данных](./dev/python/visualization/practice.md)
 
 # Учимся у других
 
