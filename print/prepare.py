@@ -311,9 +311,9 @@ def fix_images(text, chapter_dir):
         alt, target = match.group(1), match.group(2).strip()
         if target.startswith("http"):
             return ""                      # внешние картинки в печать не берём
-        if target.startswith("img/"):
-            return match.group(0)          # уже обработана
         path = os.path.normpath(os.path.join(chapter_dir, target))
+        if target.startswith("img/") and not os.path.exists(path):
+            return match.group(0)          # уже лежит в каталоге сборки
         if not os.path.exists(path):
             return ""
         if path.lower().endswith(".svg"):

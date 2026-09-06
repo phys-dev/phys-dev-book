@@ -157,7 +157,7 @@ TERMS = {
     "DataFrame": ["DataFrame"],
     "Series": ["pd.Series", "Series"],
     "Matplotlib": ["## Matplotlib", "Часть 1. Matplotlib"],
-    "Seaborn": ["Часть 2. Seaborn"],
+    "Plotly": ["## Plotly"],
     "SciPy": ["## SciPy"],
 
     # --- машинное обучение --------------------------------------------
