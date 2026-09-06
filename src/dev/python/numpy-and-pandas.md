@@ -311,7 +311,7 @@ array[None,0:, None]
 
 т.е. вместо ```matrix[i][j]``` нужно использовать ```matrix[i, j]```
 
-Массив, составленный из номеров, сам годится на роль индекса:
+Массив, подставленный вместо индекса, может быть и списком номеров, и булевой маской:
 
 
 ```python
@@ -657,7 +657,7 @@ np.arange(4)[:, np.newaxis]+np.array([[0, 0, 0], [10, 10, 10], [20, 20, 20], [30
 
 
 
-Ещё в NumPy есть много полезных операций над массивами: [np.min](https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.min.html), [np.max](https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.max.html), [np.sum](https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html), [np.mean](https://docs.scipy.org/doc/numpy/reference/generated/numpy.mean.html) и т.д. Все они возвращают число, посчитанное сразу по всему массиву.
+Ещё в NumPy есть много полезных операций над массивами: [np.min](https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.min.html), [np.max](https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.max.html), [np.sum](https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html), [np.mean](https://docs.scipy.org/doc/numpy/reference/generated/numpy.mean.html) и т.д.
 
 
 ```python
@@ -2410,7 +2410,7 @@ pd.merge(df1, df2, on=["PassengerId"], how="inner").head(5)
 
 ### Группировка
 
-Средний возраст пассажира, разнесённый по классам каюты, считается в лоб, тремя почти одинаковыми строками. Так делать не надо. Классов может оказаться тридцать, и тридцать строк, отличающихся одной цифрой, ты писать не станешь. Для этого и есть `groupby`, который разбивает таблицу на группы и применяет сводку к каждой.
+Средний возраст пассажира, разнесённый по классам каюты, считается в лоб, тремя почти одинаковыми строками. Так делать не надо. Классов может оказаться тридцать, и тридцать строк, отличающихся одной цифрой, ты писать не станешь. Для этого и есть `groupby`, разбивающий таблицу на группы.
 
 ```python
 print("Pclass 1: ", df[df["Pclass"] == 1]["Age"].mean())

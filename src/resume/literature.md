@@ -62,7 +62,7 @@
 
 ## Работы, на которых построены примеры книги
 
-38. Никифоров Д. А. Транспортировка сильноточного электронного пучка в линейном индукционном ускорителе ЛИУ-5 / Д. А. Никифоров, М. Ф. Блинов, В. В. Федоров [и др.] // Письма в журнал «Физика элементарных частиц и атомного ядра». – 2020. – Т. 17, № 2. – С. 158–170.
+38. Никифоров Д. А. Транспортировка сильноточного электронного пучка в линейном индукционном ускорителе ЛИУ-5 / Д. А. Никифоров, М. Ф. Блинов, В. В. Федоров [и др.] // Письма в журнал «Физика элементарных частиц и атомного ядра». – 2020. – Т. 17, № 2(227). – С. 158–167.
 39. Nikiforov D. A. Investigation of high current electron beam dynamics in linear induction accelerator for creation of a high-power THz radiation source / D. A. Nikiforov, A. V. Petrenko, S. L. Sinitsky [и др.] // Journal of Instrumentation. – 2021. – Vol. 16, № 11. – P. P11024.
 40. Никифоров Д. А. Исследование динамики пучка электронов в мощном линейном индукционном ускорителе с фокусировкой на сосредоточенных элементах : дис. … канд. физ.-мат. наук / Д. А. Никифоров. – Новосибирск: ИЯФ СО РАН, 2023. – 94 с.
 41. De Rainville F.-M. DEAP: a Python framework for evolutionary algorithms / F.-M. De Rainville, F.-A. Fortin, M.-A. Gardner [и др.] // Proceedings of the 14th Annual Conference Companion on Genetic and Evolutionary Computation. – 2012. – P. 85–92.
