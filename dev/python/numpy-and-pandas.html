@@ -345,7 +345,7 @@ array([[[0. ],
 </code></pre>
 <p><strong>Замечание</strong>: индексы и срезы, перечисляемые для многомерного массива, разделять квадратными скобками не нужно</p>
 <p>т.е. вместо <code>matrix[i][j]</code> нужно использовать <code>matrix[i, j]</code></p>
-<p>Массив, составленный из номеров, сам годится на роль индекса:</p>
+<p>Массив, подставленный вместо индекса, может быть и списком номеров, и булевой маской:</p>
 <pre><code class="language-python">array[[0, 2, 4, 6, 8, 10]]
 </code></pre>
 <pre><code>array([0., 1., 2., 3., 4., 5.])
@@ -531,7 +531,7 @@ c = a * b  # здесь a.shape = (2, 3, 4), а b.shape считается ра�
        [22, 22, 22],
        [33, 33, 33]])
 </code></pre>
-<p>Ещё в NumPy есть много полезных операций над массивами: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.min.html">np.min</a>, <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.max.html">np.max</a>, <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html">np.sum</a>, <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.mean.html">np.mean</a> и т.д. Все они возвращают число, посчитанное сразу по всему массиву.</p>
+<p>Ещё в NumPy есть много полезных операций над массивами: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.min.html">np.min</a>, <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.max.html">np.max</a>, <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html">np.sum</a>, <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.mean.html">np.mean</a> и т.д.</p>
 <pre><code class="language-python">print('Среднее значение всех значений класса versicolor: %s'%np.mean(features_versicolor))
 print('Среднее значение каждого признака класса versicolor: %s'%np.mean(features_versicolor, axis=0))
 </code></pre>
@@ -1850,7 +1850,7 @@ df2 = df[["Ticket", "Fare", "PassengerId"]].copy()
 </table>
 </div>
 <h3 id="Группировка"><a class="header" href="#Группировка">Группировка</a></h3>
-<p>Средний возраст пассажира, разнесённый по классам каюты, считается в лоб, тремя почти одинаковыми строками. Так делать не надо. Классов может оказаться тридцать, и тридцать строк, отличающихся одной цифрой, ты писать не станешь. Для этого и есть <code>groupby</code>, который разбивает таблицу на группы и применяет сводку к каждой.</p>
+<p>Средний возраст пассажира, разнесённый по классам каюты, считается в лоб, тремя почти одинаковыми строками. Так делать не надо. Классов может оказаться тридцать, и тридцать строк, отличающихся одной цифрой, ты писать не станешь. Для этого и есть <code>groupby</code>, разбивающий таблицу на группы.</p>
 <pre><code class="language-python">print("Pclass 1: ", df[df["Pclass"] == 1]["Age"].mean())
 print("Pclass 2: ", df[df["Pclass"] == 2]["Age"].mean())
 print("Pclass 3: ", df[df["Pclass"] == 3]["Age"].mean())
