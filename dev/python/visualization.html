@@ -1,0 +1,503 @@
+<!DOCTYPE HTML>
+<html lang="ru" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Визуализация на Python - Разработка и применение программного обеспечения в физических исследованиях</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../intro/intro.html">О книге</a></li><li class="chapter-item expanded affix "><a href="../../intro/about-me.html">О себе</a></li><li class="chapter-item expanded affix "><li class="part-title">Собираем инструменты</li><li class="chapter-item expanded "><a href="../../ai/intro.html"><strong aria-hidden="true">1.</strong> ИИ для разработки</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../ai/context.html"><strong aria-hidden="true">1.1.</strong> Контекст и скорость изменений</a></li><li class="chapter-item expanded "><a href="../../ai/develop.html"><strong aria-hidden="true">1.2.</strong> ИИ и разработчик</a></li><li class="chapter-item expanded "><a href="../../ai/basic.html"><strong aria-hidden="true">1.3.</strong> Технические основы</a></li><li class="chapter-item expanded "><a href="../../ai/instruments.html"><strong aria-hidden="true">1.4.</strong> Инструментарий</a></li><li class="chapter-item expanded "><a href="../../ai/copilot.html"><strong aria-hidden="true">1.5.</strong> GitHub Copilot</a></li><li class="chapter-item expanded "><a href="../../ai/qa.html"><strong aria-hidden="true">1.6.</strong> Вопросы и ответы</a></li></ol></li><li class="chapter-item expanded "><a href="../../dev/git.html"><strong aria-hidden="true">2.</strong> Git</a></li><li class="chapter-item expanded affix "><li class="part-title">Осваиваем Linux</li><li class="chapter-item expanded "><a href="../../linux/intro.html"><strong aria-hidden="true">3.</strong> Основы Linux</a></li><li class="chapter-item expanded "><a href="../../linux/tools.html"><strong aria-hidden="true">4.</strong> Инструменты</a></li><li class="chapter-item expanded "><a href="../../linux/booting.html"><strong aria-hidden="true">5.</strong> Процесс загрузки</a></li><li class="chapter-item expanded "><a href="../../linux/filesystems.html"><strong aria-hidden="true">6.</strong> Файловые системы</a></li><li class="chapter-item expanded "><a href="../../linux/install-arch-linux.html"><strong aria-hidden="true">7.</strong> Установка Arch Linux</a></li><li class="chapter-item expanded "><a href="../../linux/structure.html"><strong aria-hidden="true">8.</strong> Внутреннее устройство Linux</a></li><li class="chapter-item expanded "><a href="../../dev/docker.html"><strong aria-hidden="true">9.</strong> Docker</a></li><li class="chapter-item expanded affix "><li class="part-title">Погружаемся в Python</li><li class="chapter-item expanded "><a href="../../dev/python/init.html"><strong aria-hidden="true">10.</strong> Как устроен Python</a></li><li class="chapter-item expanded "><a href="../../dev/python/objects.html"><strong aria-hidden="true">11.</strong> Объекты и память</a></li><li class="chapter-item expanded "><a href="../../dev/python/collections.html"><strong aria-hidden="true">12.</strong> Коллекции</a></li><li class="chapter-item expanded "><a href="../../dev/python/o-notation.html"><strong aria-hidden="true">13.</strong> Сложность операций с коллекциями</a></li><li class="chapter-item expanded "><a href="../../dev/python/functions.html"><strong aria-hidden="true">14.</strong> Функции</a></li><li class="chapter-item expanded "><a href="../../dev/python/async.html"><strong aria-hidden="true">15.</strong> Итераторы, генераторы и корутины</a></li><li class="chapter-item expanded "><a href="../../dev/python/decorators.html"><strong aria-hidden="true">16.</strong> Декораторы и functools</a></li><li class="chapter-item expanded "><a href="../../dev/python/classes.html"><strong aria-hidden="true">17.</strong> Классы</a></li><li class="chapter-item expanded affix "><li class="part-title">Разбираемся в алгоритмах</li><li class="chapter-item expanded "><a href="../../cs/intro.html"><strong aria-hidden="true">18.</strong> Зачем физику алгоритмы</a></li><li class="chapter-item expanded "><a href="../../cs/basic-algos.html"><strong aria-hidden="true">19.</strong> Введение в алгоритмы</a></li><li class="chapter-item expanded "><a href="../../cs/basic-structures.html"><strong aria-hidden="true">20.</strong> Основные структуры данных</a></li><li class="chapter-item expanded "><a href="../../cs/recurs-and-sorts.html"><strong aria-hidden="true">21.</strong> Рекурсия и сортировки</a></li><li class="chapter-item expanded "><a href="../../cs/hash-funcs.html"><strong aria-hidden="true">22.</strong> Хеш-функции</a></li><li class="chapter-item expanded "><a href="../../cs/trees.html"><strong aria-hidden="true">23.</strong> Деревья</a></li><li class="chapter-item expanded "><a href="../../cs/graphs.html"><strong aria-hidden="true">24.</strong> Графы</a></li><li class="chapter-item expanded affix "><li class="part-title">Пишем надёжный код</li><li class="chapter-item expanded "><a href="../../dev/life.html"><strong aria-hidden="true">25.</strong> Жизненный цикл ПО</a></li><li class="chapter-item expanded "><a href="../../dev/python/requirements.html"><strong aria-hidden="true">26.</strong> Требования к коду</a></li><li class="chapter-item expanded "><a href="../../dev/app.html"><strong aria-hidden="true">27.</strong> От скрипта к приложению</a></li><li class="chapter-item expanded "><a href="../../dev/web.html"><strong aria-hidden="true">28.</strong> Сети и веб-технологии</a></li><li class="chapter-item expanded "><a href="../../dev/bd.html"><strong aria-hidden="true">29.</strong> Базы данных</a></li><li class="chapter-item expanded affix "><li class="part-title">Обрабатываем данные</li><li class="chapter-item expanded "><a href="../../dev/python/intro.html"><strong aria-hidden="true">30.</strong> Научные библиотеки Python</a></li><li class="chapter-item expanded "><a href="../../dev/python/numpy-and-pandas.html"><strong aria-hidden="true">31.</strong> NumPy и pandas</a></li><li class="chapter-item expanded "><a href="../../dev/python/scipy.html"><strong aria-hidden="true">32.</strong> SciPy</a></li><li class="chapter-item expanded "><a href="../../dev/python/visualization.html" class="active"><strong aria-hidden="true">33.</strong> Визуализация на Python</a></li><li class="chapter-item expanded "><a href="../../ds/intro.html"><strong aria-hidden="true">34.</strong> Машинное обучение</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../ds/basic.html"><strong aria-hidden="true">34.1.</strong> Основные понятия</a></li><li class="chapter-item expanded "><a href="../../ds/ml.html"><strong aria-hidden="true">34.2.</strong> Классические алгоритмы</a></li><li class="chapter-item expanded "><a href="../../ds/nn.html"><strong aria-hidden="true">34.3.</strong> Нейронные сети</a></li><li class="chapter-item expanded "><a href="../../ds/tools.html"><strong aria-hidden="true">34.4.</strong> Инструменты: scikit-learn</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Ускоряем код</li><li class="chapter-item expanded "><a href="../../perf/intro.html"><strong aria-hidden="true">35.</strong> С чего начинать оптимизацию</a></li><li class="chapter-item expanded "><a href="../../dev/python/optimization.html"><strong aria-hidden="true">36.</strong> Почему Python не очень быстрый</a></li><li class="chapter-item expanded "><a href="../../perf/python-tricks.html"><strong aria-hidden="true">37.</strong> Что выжать из самого Python</a></li><li class="chapter-item expanded "><a href="../../perf/perf.html"><strong aria-hidden="true">38.</strong> Скорость выполнения программ</a></li><li class="chapter-item expanded "><a href="../../perf/gil.html"><strong aria-hidden="true">39.</strong> Многопоточность и GIL</a></li><li class="chapter-item expanded "><a href="../../perf/async.html"><strong aria-hidden="true">40.</strong> Асинхронность</a></li><li class="chapter-item expanded "><a href="../../perf/cuda.html"><strong aria-hidden="true">41.</strong> CUDA и вычисления на GPU</a></li><li class="chapter-item expanded affix "><li class="part-title">Учимся у других</li><li class="chapter-item expanded "><a href="../../examples/intro.html"><strong aria-hidden="true">42.</strong> Коды и скрипты</a></li><li class="chapter-item expanded "><a href="../../examples/kenv.html"><strong aria-hidden="true">43.</strong> Уравнение огибающей Капчинского—Владимирского для пучка заряженных частиц</a></li><li class="chapter-item expanded "><a href="../../examples/envelope-optimize.html"><strong aria-hidden="true">44.</strong> Оптимизация огибающей пучка заряженных частиц с помощью генетического алгоритма</a></li><li class="chapter-item expanded "><a href="../../examples/redpic.html"><strong aria-hidden="true">45.</strong> Релятивистская разностная схема для расчёта динамики частиц</a></li><li class="chapter-item expanded "><a href="../../examples/orbit-correction.html"><strong aria-hidden="true">46.</strong> Коррекция равновесной орбиты с применением матрицы отклика и нейронных сетей</a></li><li class="chapter-item expanded "><a href="../../examples/cadquery/layout.html"><strong aria-hidden="true">47.</strong> Трёхмерная схема установки кодом</a></li><li class="chapter-item expanded "><a href="../../examples/accumulator.html"><strong aria-hidden="true">48.</strong> Цифровой двойник ускорителя</a></li><li class="chapter-item expanded "><a href="../../examples/sava.html"><strong aria-hidden="true">49.</strong> Мультиагентный помощник оператора</a></li><li class="chapter-item expanded "><a href="../../examples/ai-scientist.html"><strong aria-hidden="true">50.</strong> Автономный исследователь на языковых моделях</a></li><li class="chapter-item expanded "><a href="../../examples/async-api.html"><strong aria-hidden="true">51.</strong> Асинхронное API для кинотеатра</a></li><li class="chapter-item expanded affix "><li class="part-title">Работаем самостоятельно</li><li class="chapter-item expanded "><a href="../../practicum/intro.html"><strong aria-hidden="true">52.</strong> Как устроены задания</a></li><li class="chapter-item expanded "><a href="../../practicum/review-code-task.html"><strong aria-hidden="true">53.</strong> Ревью чужого кода</a></li><li class="chapter-item expanded "><a href="../../practicum/markov-chain-task.html"><strong aria-hidden="true">54.</strong> Генерация текста на основе данных</a></li><li class="chapter-item expanded "><a href="../../practicum/booting-linux-task.html"><strong aria-hidden="true">55.</strong> Установка Arch Linux вручную с RAID1 и UEFI</a></li><li class="chapter-item expanded "><a href="../../practicum/linux-tools-task.html"><strong aria-hidden="true">56.</strong> Настройка окружения и работа с утилитами</a></li><li class="chapter-item expanded "><a href="../../practicum/linux-structure-task.html"><strong aria-hidden="true">57.</strong> Работа с долгоиграющими процессами</a></li><li class="chapter-item expanded "><a href="../../practicum/python-algo-task.html"><strong aria-hidden="true">58.</strong> Решение задач на Python и анализ сложности</a></li><li class="chapter-item expanded "><a href="../../practicum/kitty-startup-task.html"><strong aria-hidden="true">59.</strong> Деплой стартапа</a></li><li class="chapter-item expanded "><a href="../../practicum/final-project-requirements.html"><strong aria-hidden="true">60.</strong> Итоговый проект</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Приложение. Экспресс-курс</li><li class="chapter-item expanded "><a href="../../dev/python/basics.html"><strong aria-hidden="true">61.</strong> Основы языка</a></li><li class="chapter-item expanded "><a href="../../dev/python/numpy.html"><strong aria-hidden="true">62.</strong> Массивы NumPy</a></li><li class="chapter-item expanded "><a href="../../dev/python/matplotlib.html"><strong aria-hidden="true">63.</strong> Графики Matplotlib</a></li><li class="chapter-item expanded affix "><a href="../../resume/intro.html">Заключение</a></li><li class="chapter-item expanded affix "><a href="../../resume/literature.html">Литература и статьи</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Разработка и применение программного обеспечения в физических исследованиях</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/phys-dev/soft-dev-book/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="Визуализация-на-python"><a class="header" href="#Визуализация-на-python">Визуализация на Python</a></h1>
+<p>NumPy сложил измерения в массив, SciPy подогнал модель и вернул параметры с погрешностями. Дальше нужен глаз. Две тысячи отсчётов, распечатанные в терминал, не скажут ничего, а те же отсчёты, нарисованные на экране, за секунду выдают и просевший фронт импульса, и наводку от сети, и точку, выпавшую из общего ряда.</p>
+<p>Библиотек, написанных для рисования графиков, в Python много, но физику обычно хватает трёх. Matplotlib служит рабочей лошадкой и отдаёт статическую картинку, вставленную потом в статью. Plotly добавляет интерактив, ценный при разборе сырых данных: наведение с точными числами, зум, много измерений сразу на одном полотне. HoloViews идёт третьим путём и предлагает описывать данные вместо того, чтобы рисовать график.</p>
+<p>Все данные, показанные ниже, посчитаны прямо в листингах, так что код главы запускается подряд, от первой строки до последней.</p>
+<h2 id="matplotlib"><a class="header" href="#matplotlib">Matplotlib</a></h2>
+<p>У matplotlib два интерфейса, и первый из них, <code>pyplot</code>, унаследованный от MATLAB, держит скрытую «текущую фигуру», куда и дописывают команды вроде <code>plt.plot</code>. Второй отдаёт фигуру и оси явными объектами, названными в коде своими именами. Пиши сразу вторым: в нём видно, к каким осям относится каждый вызов, и код, растущий вместе с задачей, не ломается, когда фигур становится несколько.</p>
+<p>Начнём с осциллограммы, записанной с цилиндра Фарадея, то есть с импульса тока пучка на фоне шума оцифровки.</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(42)
+
+t = np.linspace(0, 10, 2000)                        # время, мкс
+current = 4.2 * np.exp(-((t - 3.5) / 0.45) ** 2)    # импульс тока пучка, мА
+current += rng.normal(0, 0.10, t.size)              # шум оцифровки
+
+fig, ax = plt.subplots(figsize=(7, 3))
+ax.plot(t, current, lw=0.8)
+ax.set_xlabel('Время, мкс')
+ax.set_ylabel('Ток пучка, мА')
+ax.grid(alpha=0.3)
+fig.tight_layout()
+fig.savefig('waveform.png', dpi=300)
+</code></pre>
+<p><code>subplots</code> возвращает пару, где фигура <code>fig</code> — это весь холст с полями и общим заголовком, а <code>ax</code> — прямоугольник с координатной сеткой, отведённый под сам график. Правило простое: рисуют в оси, сохраняют фигуру. Вызов <code>tight_layout</code> подбирает поля так, чтобы подписи, поставленные у осей, не срезались краем. <code>savefig</code> пишет файл, а <code>plt.show()</code> открывает окно, блокирующее скрипт до закрытия, и в программе нужно либо одно, либо другое.</p>
+<p>Сырой сигнал редко показывают в одиночку: рядом кладут сглаженную кривую, а найденный максимум подписывают стрелкой.</p>
+<pre><code class="language-python">from scipy.signal import savgol_filter
+
+smooth = savgol_filter(current, 101, 3)   # окно 101 отсчёт, полином 3-й степени
+top = smooth.argmax()
+
+fig, ax = plt.subplots(figsize=(7, 3))
+ax.plot(t, current, lw=0.6, alpha=0.4, label='сырой сигнал')
+ax.plot(t, smooth, lw=1.6, color='crimson', label='после Савицкого—Голея')
+ax.annotate(f'{smooth[top]:.2f} мА при {t[top]:.2f} мкс',
+            xy=(t[top], smooth[top]), xytext=(t[top] + 1.0, smooth[top] - 0.5),
+            arrowprops={'arrowstyle': '-&gt;'})
+ax.set_xlabel('Время, мкс')
+ax.set_ylabel('Ток пучка, мА')
+ax.legend(loc='upper right')
+fig.tight_layout()
+fig.savefig('waveform-smooth.png', dpi=300)
+</code></pre>
+<p>Две кривые, наложенные в одних осях, различают толщиной, прозрачностью и цветом, а метод <code>legend</code> собирает подписи, переданные параметром <code>label</code>. Метод <code>annotate</code> ставит надпись со стрелкой, протянутой от точки <code>xytext</code> к точке <code>xy</code> на самом графике.</p>
+<p>Следующий сюжет — скан по параметру. Меняя силу квадрупольной линзы перед экраном, снимают размер пучка, а по параболе, восстановленной подгонкой, считают эмиттанс; сам метод разобран в главе про SciPy. Измерения, снабжённые погрешностями, рисует <code>errorbar</code>.</p>
+<pre><code class="language-python">l = 1.2                                        # расстояние «линза — экран», м
+eps, beta0, alpha0 = 0.12e-6, 6.94, -1.69      # эмиттанс, м·рад, и Твисс
+gamma0 = (1 + alpha0 ** 2) / beta0
+
+k = np.linspace(-1.5, 1.5, 25)                 # сила линзы, 1/м²
+R11, R12 = 1 - k * l, l
+sigma = np.sqrt(eps * (R11**2 * beta0 - 2*R11*R12*alpha0 + R12**2*gamma0))
+meas = sigma + rng.normal(0, 20e-6, k.size)    # измерение с ошибкой 20 мкм
+
+fig, ax = plt.subplots(figsize=(6, 3.4))
+ax.errorbar(k, meas * 1e3, yerr=0.02, fmt='o', ms=4, capsize=3, label='экран')
+ax.plot(k, sigma * 1e3, color='crimson', label='модель')
+ax.set_xlabel(r'Сила линзы $k$, м$^{-2}$')
+ax.set_ylabel(r'Размер пучка $\sigma$, мм')
+ax.legend()
+fig.tight_layout()
+fig.savefig('quadscan.png', dpi=300)
+</code></pre>
+<p>Подписи осей понимают подмножество TeX, заключённое в знаки доллара, поэтому индексы и греческие буквы пишутся привычно. Строку, отданную в подпись, помечай префиксом <code>r</code>, иначе обратный слеш будет съеден Python раньше matplotlib.</p>
+<p>Двумерный массив показывает <code>imshow</code>, красящий каждую клетку по её значению; возьмём для него матрицу отклика замкнутой орбиты, посчитанную в главе про коррекцию.</p>
+<pre><code class="language-python">n_bpm, n_cor, nu = 64, 48, 8.42
+phi_b = np.sort(rng.uniform(0, 2 * np.pi * nu, n_bpm))   # фазы мониторов
+phi_c = np.sort(rng.uniform(0, 2 * np.pi * nu, n_cor))   # фазы корректоров
+beta_b = rng.uniform(4.0, 24.0, n_bpm)                   # бета-функция, м
+beta_c = rng.uniform(4.0, 24.0, n_cor)
+
+dphi = np.abs(phi_b[:, None] - phi_c[None, :])
+R = (np.sqrt(beta_b[:, None] * beta_c[None, :]) / (2 * np.sin(np.pi * nu))
+     * np.cos(dphi - np.pi * nu))
+print(R.shape)
+
+lim = np.abs(R).max()
+fig, ax = plt.subplots(figsize=(5.5, 4.5))
+im = ax.imshow(R, cmap='RdBu_r', vmin=-lim, vmax=lim, aspect='auto')
+fig.colorbar(im, ax=ax, label=r'$R_{ij}$, мм/мрад')
+ax.set_xlabel('Номер корректора $j$')
+ax.set_ylabel('Номер монитора $i$')
+fig.tight_layout()
+fig.savefig('response.png', dpi=300)
+</code></pre>
+<pre><code>(64, 48)
+</code></pre>
+<p>Палитру выбирают по смыслу величины: матрице отклика, где знак меняется от элемента к элементу, идёт расходящаяся <code>RdBu_r</code> с белым нулём, и границы <code>vmin</code> и <code>vmax</code>, заданные вручную, обязаны стоять симметрично. Иначе белый цвет уедет с нуля и картинка соврёт. Для знакопостоянной величины бери <code>viridis</code>, не меняющий светлоту скачками и потому различимый даже в чёрно-белой печати. Радужный <code>jet</code>, который достался в наследство от старых пакетов, рисует ложные границы там, где данные меняются плавно.</p>
+<p>Клетки у <code>imshow</code> равны между собой, а физическая сетка часто неравномерна, и для неё берут <code>pcolormesh</code>, принимающий сами координаты узлов. Физические границы картинки выставляют параметром <code>extent</code>, и номера пикселей на осях сменяются метрами.</p>
+<p>Настройки, повторённые из графика в график, выносят в <code>rcParams</code> один раз на весь скрипт.</p>
+<pre><code class="language-python">plt.rcParams.update({
+    'figure.figsize': (6.5, 3.6),   # ширина колонки статьи
+    'font.size': 11,
+    'axes.grid': True,
+    'grid.alpha': 0.3,
+    'savefig.dpi': 300,
+    'savefig.bbox': 'tight',
+})
+
+fig, (up, down) = plt.subplots(2, 1, sharex=True, figsize=(6.5, 5))
+up.plot(t, current, lw=0.6)
+up.set_ylabel('Ток, мА')
+down.plot(t, smooth, color='crimson')
+down.set_ylabel('Сглажено, мА')
+down.set_xlabel('Время, мкс')
+fig.align_ylabels()
+fig.savefig('report.pdf')          # вектор, не рассыпающийся при печати
+</code></pre>
+<p>Параметр <code>sharex=True</code> связывает оси подграфиков, и подписи по времени печатаются только под нижним. В печать сохраняй вектор, <code>.pdf</code> или <code>.svg</code>, не размываемый при увеличении; растровый <code>.png</code> с плотностью 300 точек на дюйм оставь для слайдов и веба. Все картинки, собранные в одну статью, полезно строить одним скриптом, потому что правка стиля чинит тогда сразу весь набор.</p>
+<h2 id="plotly"><a class="header" href="#plotly">Plotly</a></h2>
+<p>Статическая картинка, напечатанная в статье, хороша для читателя, а пока данные разбираешь ты сам, хочется другого: подвести курсор и прочитать точное число, выделить рамкой кусок и увеличить, погасить лишнюю кривую щелчком по легенде. Ровно это даёт <a href="https://plotly.com/python/">Plotly</a>, рисующий график в браузере поверх библиотеки plotly.js.</p>
+<pre><code class="language-bash">pip install plotly
+</code></pre>
+<p>Возьмём задачу потяжелее осциллограммы, то есть огибающую пучка, посчитанную вдоль тракта. Уравнение Капчинского—Владимирского, выведенное в отдельной главе, работает здесь поставщиком данных, а тракт собран из пяти соленоидов, расставленных через полметра.</p>
+<pre><code class="language-python">import numpy as np
+from scipy.integrate import solve_ivp
+
+gamma = 1 + 2.0 / 0.511                            # пучок 2 МэВ
+beta = np.sqrt(1 - gamma ** -2)
+perv = 2 * 100.0 / (17045 * (beta * gamma) ** 3)   # первеанс при токе 100 А
+eps = 1e-6                                         # эмиттанс, м·рад
+
+z_lens = np.arange(0.5, 3.0, 0.5)                  # пять соленоидов через 0.5 м
+z = np.linspace(0, 3, 400)                         # сетка вдоль тракта, м
+
+def envelope(k):
+    """Радиус пучка a(z), м, при жёсткостях соленоидов k."""
+    def rhs(s, y):
+        ks = (k * np.exp(-((s - z_lens) / 0.06) ** 2)).sum()
+        a, ap = y
+        return [ap, -ks * a + perv / a + eps ** 2 / a ** 3]
+    return solve_ivp(rhs, (0, 3), [5e-3, 0.0], t_eval=z, max_step=0.005).y[0]
+
+a = envelope(np.full(5, 25.0)) * 1e3               # огибающая, мм
+print(f'{a.min():.2f} {a.max():.2f}')
+</code></pre>
+<pre><code>2.36 7.13
+</code></pre>
+<p>Первую картинку соберём вручную из объектов <code>graph_objects</code>, дающих полный контроль над каждой линией.</p>
+<pre><code class="language-python">import plotly.graph_objects as go
+
+fig = go.Figure()
+fig.add_scatter(x=z, y=a, name='верх', line={'color': 'crimson'},
+                hovertemplate='z = %{x:.2f} м&lt;br&gt;a = %{y:.2f} мм&lt;extra&gt;&lt;/extra&gt;')
+fig.add_scatter(x=z, y=-a, name='низ', line={'color': 'crimson'},
+                fill='tonexty', fillcolor='rgba(220,20,60,0.15)',
+                hoverinfo='skip')
+for zi in z_lens:
+    fig.add_vline(x=zi, line_dash='dot', line_color='gray')
+fig.update_layout(xaxis_title='z, м', yaxis_title='Радиус пучка, мм',
+                  showlegend=False, height=350)
+fig.write_html('envelope.html', include_plotlyjs='cdn')
+</code></pre>
+<p>Параметр <code>hovertemplate</code> задаёт содержимое всплывающей подсказки: <code>%{x}</code> и <code>%{y}</code> подставляют координаты точки, а <code>&lt;extra&gt;&lt;/extra&gt;</code> убирает служебную рамку с именем кривой. Метод <code>write_html</code> кладёт рядом самодостаточный файл, открываемый в любом браузере без Python. С ключом <code>include_plotlyjs='cdn'</code> он тянет plotly.js из сети, а со значением <code>True</code> зашивает библиотеку внутрь и разрастается до нескольких мегабайт.</p>
+<p>Скан по параметру удобно показывать картой, поэтому прогоним расчёт для сорока одной жёсткости соленоидов и сложим полученные огибающие в один двумерный массив.</p>
+<pre><code class="language-python">k_grid = np.linspace(15.0, 35.0, 41)
+scan = np.array([envelope(np.full(5, k)) for k in k_grid]) * 1e3
+
+heat = go.Figure(go.Heatmap(
+    x=z, y=k_grid, z=scan, colorscale='Viridis',
+    colorbar={'title': 'a, мм'},
+    hovertemplate='z = %{x:.2f} м&lt;br&gt;k = %{y:.1f} 1/м²'
+                  '&lt;br&gt;a = %{z:.2f} мм&lt;extra&gt;&lt;/extra&gt;'))
+heat.update_layout(xaxis_title='z, м',
+                   yaxis_title='Жёсткость соленоидов k, 1/м²', height=380)
+heat.write_html('scan.html', include_plotlyjs='cdn')
+</code></pre>
+<p>Наведя курсор на любую точку карты, ты сразу читаешь три числа: положение вдоль тракта, жёсткость линз и радиус пучка. В matplotlib за тем же пришлось бы лезть в массив по индексам. Картинка, сохранённая в HTML, остаётся живой и после закрытия Python: масштаб меняется колесом, а прямоугольник, выделенный мышью, растягивается на всё поле, и такими картами удобно искать рабочую точку установки.</p>
+<p>Миллион точек plotly рисует уже медленно, потому что каждая линия, отданная в браузер, живёт отдельным объектом JavaScript. Для больших массивов есть <code>Scattergl</code>, у которого отрисовка переложена на видеокарту.</p>
+<p>Когда осей нужно больше трёх, плоскость кончается. Тогда выручают параллельные координаты, где каждая переменная получает свою вертикальную ось, а один опыт превращается в ломаную, пересекающую все оси разом. Разыграем триста случайных настроек тракта и оценим каждую по среднеквадратичному отклонению радиуса от целевых четырёх миллиметров.</p>
+<pre><code class="language-python">import pandas as pd
+import plotly.express as px
+
+rng = np.random.default_rng(1)
+trials = rng.uniform(18.0, 32.0, size=(300, 5))     # 300 случайных настроек
+loss = np.array([np.sqrt(np.mean((envelope(k) - 4e-3) ** 2)) * 1e3
+                 for k in trials])                  # отклонение от 4 мм, мм
+
+runs = pd.DataFrame(trials, columns=[f'k{i}' for i in range(1, 6)])
+runs['loss'] = loss
+
+par = px.parallel_coordinates(runs, color='loss',
+                              color_continuous_scale='Blues_r')
+par.write_html('parallel.html', include_plotlyjs='cdn')
+print(f'лучшая настройка: {loss.min():.2f} мм, худшая: {loss.max():.2f} мм')
+</code></pre>
+<pre><code>лучшая настройка: 1.18 мм, худшая: 3.18 мм
+</code></pre>
+<p><img src="img/parallel-coordinates.png" alt="Тысяча вариантов настройки оптики линака: каждая линия — один расчёт" /></p>
+<p>Картинка выше нарисована тем же вызовом, только на настоящей задаче: тысяча прогонов оптимизации оптики линейного ускорителя инжектора ЦКП «СКИФ». Осей восемь, и крайняя левая несёт значение целевой функции, заключённое между 0.461 и 17.752, а остальные отданы добавкам к токам квадруполей, то есть каналам <code>MG-LA1:QLD1-Iadd</code>, <code>MG-LA1:QLF1-Iadd</code>, <code>MG-LA2:QLD2-Iadd</code> и так далее. Цветом закодирована та же целевая функция, и тёмные линии отмечают удачные прогоны.</p>
+<p>Тысяча расчётов, выписанная таблицей, остаётся нечитаемой: это тысяча строк по восемь чисел. Параллельные координаты показывают другое. В том месте, где жгут линий сливается в узкую и почти неразличимую полосу, параметр решает дело, и в эту полосу обязательно попасть. Там, где линии размазаны по оси ровно, параметр на результат почти не влияет, и его отдают оптимизатору целиком. Хорошие сочетания видны сразу, потому что тёмные ломаные идут пучком, а не поодиночке. В браузере оси перетаскиваются мышью, а по каждой выделяется диапазон, и на экране остаются одни прогоны, которые прошли отбор.</p>
+<h2 id="holoviews"><a class="header" href="#holoviews">HoloViews</a></h2>
+<p>Matplotlib рисует буквально то, что ему велено, и потому заставляет расписывать каждый шаг, от подписи оси до заданного вручную цвета. Иногда хочется обратного: описать, <em>что</em> за данные у тебя в руках, и дать библиотеке решить, как их показать.</p>
+<p><a href="https://holoviews.org">HoloViews</a> построен на принципе «аннотируй данные, а не рисуй график». Ты описываешь сами данные и их семантику, то есть что здесь аргумент, что значение и в каких они единицах, а библиотека уже сама выбирает представление. Один и тот же объект, собранный однажды, отрисовывается разными бэкендами: интерактивным <code>bokeh</code>, привычным <code>matplotlib</code> или <code>plotly</code>. Кода про пиксели становится меньше, а кода про изучаемую физику больше.</p>
+<pre><code class="language-bash">pip install holoviews bokeh
+</code></pre>
+<p>Базовым кирпичиком служит элемент — контейнер с данными, знающий свой тип визуализации. <code>hv.Curve</code> задаёт непрерывную зависимость, <code>hv.Scatter</code> показывает дискретные измерения, <code>hv.Image</code> отображает величину на регулярной сетке. Измерениям задают человеческие подписи и единицы, попадающие потом на оси и во всплывающие подсказки.</p>
+<pre><code class="language-python">import numpy as np
+import holoviews as hv
+
+hv.extension('bokeh')     # можно 'matplotlib' или 'plotly'
+
+rng = np.random.default_rng(42)
+t = np.linspace(0, 10, 2000)
+current = 4.2 * np.exp(-((t - 3.5) / 0.45) ** 2) + rng.normal(0, 0.10, t.size)
+
+dim_t = hv.Dimension('t', label='Время', unit='мкс')
+dim_i = hv.Dimension('I', label='Ток пучка', unit='мА')
+
+wave = hv.Curve((t, current), dim_t, dim_i)
+wave
+</code></pre>
+<p>В Jupyter объект, возвращённый последней строкой ячейки, рисуется сам, так что аналог <code>%matplotlib inline</code> не нужен. С бэкендом <code>bokeh</code> панорамирование, зум и подсказки достаются бесплатно, и подозрительный выброс, замеченный на графике, разглядывается вблизи без перестроения картинки.</p>
+<p><code>hv.Points</code> внешне похож на <code>Scatter</code>, но семантика у него другая: обе координаты выступают независимыми измерениями, а точки просто живут на плоскости. Классическим примером служат частицы, разбросанные по фазовой плоскости. Готовые элементы комбинируются операторами, из которых <code>+</code> кладёт графики рядом, а <code>*</code> накладывает их в одних осях.</p>
+<pre><code class="language-python">x = rng.normal(0, 1.0, 2000)        # координата частиц, мм
+xp = rng.normal(0, 0.3, 2000)       # угол, мрад
+phase = hv.Points((x, xp), ['x', "x'"])
+
+grid = np.linspace(-3, 3, 200)
+xx, yy = np.meshgrid(grid, grid)
+spot = hv.Image(np.exp(-2 * (xx ** 2 + yy ** 2) / 1.2 ** 2),   # пятно на экране
+                bounds=(-3, -3, 3, 3), kdims=['x', 'y'], vdims='I')
+
+sparse = hv.Scatter((t[::200], current[::200]), dim_t, dim_i)
+overlay = wave * sparse                       # в одних осях
+layout = (wave + phase + spot).cols(3)        # рядом, в три колонки
+</code></pre>
+<p>Совмещение работает потому, что каждый элемент самодостаточен: HoloViews видит, что измерения у <code>wave</code> и <code>sparse</code> совпали, и сам выравнивает оси, подписи и легенду. Число колонок в layout задаёт метод <code>.cols()</code>, вызываемый на готовой сборке.</p>
+<p>Отдельная выгода начинается там, где графиков нужно семейство. В matplotlib скан по параметру превращается в цикл, склеивающий десяток подграфиков в одну фигуру, а <code>HoloMap</code> делает из того же параметра слайдер.</p>
+<pre><code class="language-python">from scipy.integrate import solve_ivp
+
+# модель тракта (z_lens, perv, eps, z) взята из раздела про Plotly
+dim_z = hv.Dimension('z', label='Положение', unit='м')
+dim_a = hv.Dimension('a', label='Радиус пучка', unit='мм')
+
+def curve(k):
+    """Огибающая пучка при жёсткости всех соленоидов k."""
+    def rhs(s, y):
+        ks = (k * np.exp(-((s - z_lens) / 0.06) ** 2)).sum()
+        a, ap = y
+        return [ap, -ks * a + perv / a + eps ** 2 / a ** 3]
+    a = solve_ivp(rhs, (0, 3), [5e-3, 0.0], t_eval=z, max_step=0.005).y[0]
+    return hv.Curve((z, a * 1e3), dim_z, dim_a)
+
+hmap = hv.HoloMap({k: curve(k) for k in [20, 25, 30, 35]}, kdims='k')
+hv.save(hmap, 'envelope-scan.html')     # слайдер останется живым и без Python
+
+dmap = hv.DynamicMap(curve, kdims='k').redim.range(k=(15.0, 35.0))
+</code></pre>
+<p><code>HoloMap</code> считает все кадры заранее и держит их в памяти, зато сохраняется в самодостаточный HTML, который не стыдно отправить коллеге. <code>DynamicMap</code> вычисляет кадр по движению слайдера, что спасает, когда параметр непрерывный или каждый расчёт дорог. Плата за ленивость одна: без запущенного ядра Python объект не покажется, и в статичный файл он не ложится.</p>
+<p>Оформление, никак не связанное с самими данными, отделено от семантики и навешено методом <code>.opts()</code> поверх готового объекта.</p>
+<pre><code class="language-python">overlay.opts(
+    hv.opts.Curve(width=650, height=280, color='black'),
+    hv.opts.Scatter(size=7, color='crimson'),
+)
+
+# logz — логарифмическая шкала цвета, нужная пучкам и спектрам
+# с большим динамическим диапазоном
+spot.opts(width=380, height=340, cmap='inferno', colorbar=True, logz=True)
+</code></pre>
+<p>Часть опций зависит от бэкенда: ширина <code>width</code> и высота <code>height</code> заданы в пикселях у <code>bokeh</code>, а у <code>matplotlib</code> вместо них идут <code>fig_inches</code> и <code>aspect</code>. Полный список опций элемента покажет <code>hv.help(hv.Curve)</code>.</p>
+<p>Вокруг HoloViews выросла экосистема <a href="https://holoviz.org">HoloViz</a>. Пакет <a href="https://hvplot.holoviz.org">hvPlot</a> после одного импорта добавляет к DataFrame аксессор <code>.hvplot</code>, заменяющий встроенный <code>df.plot()</code> из pandas; возвращает он обычные объекты HoloViews со всеми слайдерами и оверлеями. Библиотека <a href="https://panel.holoviz.org">Panel</a> связывает графики, виджеты и текст в единый интерфейс, превращаемый командой <code>panel serve app.py</code> в веб-приложение. Мониторинг установки становится страницей в браузере, и ни одной строки JavaScript для этого не написано.</p>
+<h2 id="Полезные-ссылки"><a class="header" href="#Полезные-ссылки">Полезные ссылки</a></h2>
+<ul>
+<li><a href="https://matplotlib.org/stable/gallery/">Галерея matplotlib</a>, где картинку ищут глазами, а код берут готовым;</li>
+<li><a href="https://github.com/rougier/scientific-visualization-book">Scientific Visualization: Python + Matplotlib</a> Николя Руже, книга про графики, сделанные для научных статей;</li>
+<li><a href="https://plotly.com/python/">plotly.com/python</a>, справочник по типам графиков с разобранными примерами;</li>
+<li><a href="https://holoviews.org">holoviews.org</a> и <a href="https://holoviz.org">holoviz.org</a>, документация HoloViews и обзор всей экосистемы;</li>
+<li><a href="../../examples/kenv.html">Уравнение огибающей</a> и <a href="../../examples/orbit-correction.html">коррекция орбиты</a>, главы этой книги, откуда взяты данные для примеров.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../dev/python/scipy.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../ds/intro.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../dev/python/scipy.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../ds/intro.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../web/print-edition.js"></script>
+
+
+    </div>
+    </body>
+</html>
