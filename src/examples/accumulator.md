@@ -237,8 +237,8 @@ def objective(trial: optuna.Trial) -> float:
 
 ## Полезные ссылки
 
-- **Accumulator**, исходники двойника, разобранного в этой главе. Репозиторий закрытый.
-- **SCAUT**, библиотека, оркеструющая эксперименты на ускорителе. Репозиторий закрытый.
+- [Accumulator](https://github.com/isyspac/accumulator), исходники двойника, разобранного в этой главе.
+- [SCAUT](https://github.com/fuodorov/scaut), библиотека, оркеструющая эксперименты на ускорителе.
 - [Elegant](https://ops.aps.anl.gov/elegant.html), код расчёта динамики пучка, положенный в основу двойника.
 - [EPICS](https://epics-controls.org/), система управления, протокол которой двойник изображает.
 - [pcaspy](https://pcaspy.readthedocs.io/), библиотека, позволяющая написать сервер EPICS на Python.
